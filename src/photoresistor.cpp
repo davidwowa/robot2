@@ -68,6 +68,7 @@ int main(void) {
 	while (1) {
 		result = analogRead(photoresistor);
 		cout << result << endl;
+		delay(1000);
 	}
 	return -1;
 }
