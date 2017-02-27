@@ -35,7 +35,7 @@
  +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
  */
 
-#include <wiringPi.h>
+#include <lib/wiringPi/wiringPi/wiringPi.h>
 #include <iostream>
 
 using namespace std;

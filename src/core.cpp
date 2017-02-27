@@ -36,8 +36,8 @@
  */
 
 #include <iostream>
-#include <wiringPi.h>
-#include "libSonar.h"
+#include <lib/wiringPi/wiringPi/wiringPi.h>
+#include <HC-SR04-Raspberry-Pi-C-/libSonar.h>
 
 using namespace std;
 
@@ -140,7 +140,7 @@ int main(void) {
 			cout << "---" << endl;
 		}
 
-		if (distance_m < maxWallDistance) {
+		if (distance_m < maxWallDisntance) {
 			if (distance_m > 0) {
 				if (distance_r < distance_l) {
 					left();
@@ -154,7 +154,7 @@ int main(void) {
 			}
 		}
 
-		if (distance_r < maxWallDistance) {
+		if (distance_r < maxWallDisntance) {
 			if (distance_r > 0) {
 				left();
 			} else {
@@ -164,7 +164,7 @@ int main(void) {
 			left();
 		}
 
-		if (distance_l < maxWallDistance) {
+		if (distance_l < maxWallDisntance) {
 			if (distance_l > 0) {
 				right();
 			} else {
