@@ -21,8 +21,6 @@ void off();
 
 int debug = 1;
 
-int maxWallDisntance = 15;
-
 // motor pins (pwm)
 // motor left
 int motor_l_u = 26;

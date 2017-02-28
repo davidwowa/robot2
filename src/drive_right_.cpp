@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : drive_right.cpp
+// Name        : drive_forward.cpp
 // Author      : Zakrevskyy Wladimir David
 // Version     :
 // Copyright   :
@@ -13,7 +13,7 @@
 
 using namespace std;
 
-void right();
+void forward();
 
 int debug = 1;
 
@@ -57,13 +57,12 @@ int main(void) {
 	digitalWrite(motor_r_v, pwmValueInit); // at start turn off the GPIO
 
 	while (1) {
-		right();
+		forward();
 	}
-
 	return -1;
 }
 
-void right(void) {
+void forward(void) {
 	if (debug == 1) {
 		cout << "right" << endl;
 	}

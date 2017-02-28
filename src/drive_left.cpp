@@ -67,9 +67,9 @@ void left(void) {
 	if (debug == 1) {
 		cout << "left" << endl;
 	}
-	digitalWrite(motor_r_u, pwmValue);
-	digitalWrite(motor_r_v, pwmValueInit);
+	digitalWrite(motor_r_u, pwmValueInit);
+	digitalWrite(motor_r_v, pwmValue);
 
-	digitalWrite(motor_l_u, pwmValue);
-	digitalWrite(motor_l_v, pwmValueInit);
+	digitalWrite(motor_l_u, pwmValueInit);
+	digitalWrite(motor_l_v, pwmValue);
 }
