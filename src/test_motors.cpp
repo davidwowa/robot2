@@ -54,11 +54,11 @@ int main(void) {
 	pinMode(motor_r_u, PWM_OUTPUT);
 	pinMode(motor_r_v, PWM_OUTPUT);
 
-	pwmWrite(motor_l_u, pwmValueInit); // at start turn off the GPIO
-	pwmWrite(motor_l_v, pwmValueInit); // at start turn off the GPIO
+	//pwmWrite(motor_l_u, pwmValueInit); // at start turn off the GPIO
+	//pwmWrite(motor_l_v, pwmValueInit); // at start turn off the GPIO
 
-	pwmWrite(motor_r_u, pwmValueInit); // at start turn off the GPIO
-	pwmWrite(motor_r_v, pwmValueInit); // at start turn off the GPIO
+	//pwmWrite(motor_r_u, pwmValueInit); // at start turn off the GPIO
+	//pwmWrite(motor_r_v, pwmValueInit); // at start turn off the GPIO
 
 	if (debug == 1) {
 		cout << "drive forward" << endl;
