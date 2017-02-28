@@ -56,9 +56,7 @@ int main(void) {
 	digitalWrite(motor_r_u, pwmValueInit); // at start turn off the GPIO
 	digitalWrite(motor_r_v, pwmValueInit); // at start turn off the GPIO
 
-	while (1) {
-		stop();
-	}
+	stop();
 
 	return -1;
 }
