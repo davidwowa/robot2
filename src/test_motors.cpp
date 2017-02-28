@@ -32,8 +32,8 @@ int motor_r_u = 28;
 int motor_r_v = 29;
 
 // pwm
-int pwmValue = 1023;
-int pwmValueInit = 0;
+int pwmValue = 100;
+int pwmValueInit = 1;
 
 int main(void) {
 
@@ -71,30 +71,30 @@ int main(void) {
 	if (debug == 1) {
 		cout << "acceleration forward" << endl;
 	}
-	for (int var = 0; var < 1023; ++var) {
+	for (int var = 0; var < pwmValue; ++var) {
 		if (debug == 1) {
 			cout << "set speed to " << var << endl;
 		}
-		softPwmWrite(motor_r_u, pwmValueInit);
+		softPwmWrite(motor_r_u, (pwmValue - var));
 		softPwmWrite(motor_r_v, var);
 
-//		softPwmWrite(motor_l_u, pwmValueInit);
-//		softPwmWrite(motor_l_v, var);
+		softPwmWrite(motor_l_u, var);
+		softPwmWrite(motor_l_v, (pwmValue - var));
 		delay(10);
 	}
 	// acceleration backward
 	if (debug == 1) {
 		cout << "acceleration backward" << endl;
 	}
-	for (int var = 0; var < 1023; ++var) {
+	for (int var = 0; var < pwmValue; ++var) {
 		if (debug == 1) {
 			cout << "set speed to " << var << endl;
 		}
 		softPwmWrite(motor_r_u, var);
-		softPwmWrite(motor_r_v, pwmValueInit);
+		softPwmWrite(motor_r_v, (pwmValue - var));
 
-//		softPwmWrite(motor_l_u, var);
-//		softPwmWrite(motor_l_v, pwmValueInit);
+		softPwmWrite(motor_l_u, (pwmValue - var));
+		softPwmWrite(motor_l_v, var);
 		delay(10);
 	}
 
