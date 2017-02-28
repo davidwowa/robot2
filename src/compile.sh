@@ -6,7 +6,7 @@ g++ reset_pins.cpp -o reset_pins -lwiringPi
 echo "compile photoresistor"
 g++ photoresistor.cpp -o photoresistor -lwiringPi
 echo "compile motor test"
-g++ test_motors.cpp -o test_motors -lwiringPi
+g++ test_motors.cpp -o test_motors -lwiringPi -lpthread
 
 echo "compile motor test backward"
 g++ drive_backward.cpp -o drive_backward -lwiringPi
