@@ -51,6 +51,12 @@ int main(void) {
 		return -1;
 
 	if (debug == 1) {
+		cout << "init wiring pi setup gpio (for PWM)" << endl;
+	}
+	if (wiringPiSetupSys() == -1)
+		return -1;
+
+	if (debug == 1) {
 		cout << "prepare gpio for motors" << endl;
 	}
 
@@ -60,6 +66,37 @@ int main(void) {
 
 	softPwmCreate(motor_r_u, pwmValueInit, pwmValue);
 	softPwmCreate(motor_r_v, pwmValueInit, pwmValue);
+
+	// acceleration forward
+	if (debug == 1) {
+		cout << "acceleration forward" << endl;
+	}
+	for (int var = 0; var < 1023; ++var) {
+		if (debug == 1) {
+			cout << "set speed to " << var << endl;
+		}
+		softPwmWrite(motor_r_u, pwmValueInit);
+		softPwmWrite(motor_r_v, var);
+
+//		softPwmWrite(motor_l_u, pwmValueInit);
+//		softPwmWrite(motor_l_v, var);
+		delay(10);
+	}
+	// acceleration backward
+	if (debug == 1) {
+		cout << "acceleration backward" << endl;
+	}
+	for (int var = 0; var < 1023; ++var) {
+		if (debug == 1) {
+			cout << "set speed to " << var << endl;
+		}
+		softPwmWrite(motor_r_u, var);
+		softPwmWrite(motor_r_v, pwmValueInit);
+
+//		softPwmWrite(motor_l_u, var);
+//		softPwmWrite(motor_l_v, pwmValueInit);
+		delay(10);
+	}
 
 	if (debug == 1) {
 		cout << "drive forward" << endl;
@@ -82,30 +119,6 @@ int main(void) {
 	left();
 	delay(2000);
 
-	// acceleration forward
-	if (debug == 1) {
-		cout << "acceleration forward" << endl;
-	}
-	for (int var = 0; var < 1023; ++var) {
-		softPwmWrite(motor_r_u, pwmValueInit);
-		softPwmWrite(motor_r_v, var);
-
-		softPwmWrite(motor_l_u, pwmValueInit);
-		softPwmWrite(motor_l_v, var);
-		delay(100);
-	}
-	// acceleration backward
-	if (debug == 1) {
-		cout << "acceleration backward" << endl;
-	}
-	for (int var = 0; var < 1023; ++var) {
-		softPwmWrite(motor_r_u, var);
-		softPwmWrite(motor_r_v, pwmValueInit);
-
-		softPwmWrite(motor_l_u, var);
-		softPwmWrite(motor_l_v, pwmValueInit);
-		delay(100);
-	}
 	if (debug == 1) {
 		cout << "stop" << endl;
 	}
