@@ -20,16 +20,16 @@
  |   X |   3 | GPIO. 3 |   IN | 0 | 15 || 16 | 0 | IN   | GPIO. 4 | 4   | 23  |
  |     |     |    3.3v |      |   | 17 || 18 | 0 | OUT  | GPIO. 5 | 5   | 24  |
  |   X |  12 |    MOSI |   IN | 0 | 19 || 20 |   |      | 0v      |     |     |
- |   X |  13 |    MISO |   IN | 0 | 21 || 22 | 0 | IN   | GPIO. 6 | 6   | 25  |
- |   X |  14 |    SCLK |   IN | 0 | 23 || 24 | 1 | IN   | CE0     | 10  | 8   |
+ |   - |  13 |    MISO |   IN | 0 | 21 || 22 | 0 | IN   | GPIO. 6 | 6   | 25  |
+ |   - |  14 |    SCLK |   IN | 0 | 23 || 24 | 1 | IN   | CE0     | 10  | 8   |
  |     |     |      0v |      |   | 25 || 26 | 1 | IN   | CE1     | 11  | 7   |
- |   X |  30 |   SDA.0 |   IN | 1 | 27 || 28 | 1 | IN   | SCL.0   | 31  | 1   |
- |   X |  21 | GPIO.21 |   IN | 1 | 29 || 30 |   |      | 0v      |     |     |
- |   6 |  22 | GPIO.22 |   IN | 1 | 31 || 32 | 0 | IN   | GPIO.26 | 26  | 12  |
+ |   - |  30 |   SDA.0 |   IN | 1 | 27 || 28 | 1 | IN   | SCL.0   | 31  | 1   |
+ |   - |  21 | GPIO.21 |   IN | 1 | 29 || 30 |   |      | 0v      |     |     |
+ |   6 |  22 | GPIO.22 |   IN | 1 | 31 || 32 | 0 | IN   | GPIO.26 | 26  | X   |
  |  13 |  23 | GPIO.23 |   IN | 0 | 33 || 34 |   |      | 0v      |     |     |
- |  19 |  24 | GPIO.24 |   IN | 0 | 35 || 36 | 0 | IN   | GPIO.27 | 27  | 16  |
- |  26 |  25 | GPIO.25 |   IN | 0 | 37 || 38 | 0 | IN   | GPIO.28 | 28  | 20  |
- |     |     |      0v |      |   | 39 || 40 | 0 | IN   | GPIO.29 | 29  | 21  |
+ |  19 |  24 | GPIO.24 |   IN | 0 | 35 || 36 | 0 | IN   | GPIO.27 | 27  | X   |
+ |  26 |  25 | GPIO.25 |   IN | 0 | 37 || 38 | 0 | IN   | GPIO.28 | 28  | X   |
+ |     |     |      0v |      |   | 39 || 40 | 0 | IN   | GPIO.29 | 29  | X   |
  +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
  | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
  +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
@@ -54,11 +54,10 @@ int main(void) {
 	pinMode(0, INPUT);
 	pinMode(2, INPUT);
 	pinMode(3, INPUT);
-	pinMode(12, INPUT);
-	pinMode(13, INPUT);
-	pinMode(14, INPUT);
-	pinMode(30, INPUT);
-	pinMode(21, INPUT);
+	pinMode(26, INPUT);
+	pinMode(27, INPUT);
+	pinMode(28, INPUT);
+	pinMode(29, INPUT);
 
 	cout << "set all pins to low" << endl;
 
@@ -68,11 +67,10 @@ int main(void) {
 	digitalWrite(0, LOW);
 	digitalWrite(2, LOW);
 	digitalWrite(3, LOW);
-	digitalWrite(12, LOW);
-	digitalWrite(13, LOW);
-	digitalWrite(14, LOW);
-	digitalWrite(30, LOW);
-	digitalWrite(21, LOW);
+	digitalWrite(26, LOW);
+	digitalWrite(27, LOW);
+	digitalWrite(28, LOW);
+	digitalWrite(29, LOW);
 
 	cout << "Done" << endl;
 
