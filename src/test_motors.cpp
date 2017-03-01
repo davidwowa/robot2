@@ -60,10 +60,10 @@ int main(void) {
 		cout << "prepare gpio for motors" << endl;
 	}
 
-	pinMode(motor_l_u, OUTPUT);
-	pinMode(motor_l_v, OUTPUT);
-	pinMode(motor_r_u, OUTPUT);
-	pinMode(motor_r_v, OUTPUT);
+	pinMode(motor_l_u, PWM_OUTPUT);
+	pinMode(motor_l_v, PWM_OUTPUT);
+	pinMode(motor_r_u, PWM_OUTPUT);
+	pinMode(motor_r_v, PWM_OUTPUT);
 	digitalWrite(motor_l_u, LOW); // at start turn off the GPIO
 	digitalWrite(motor_l_v, LOW); // at start turn off the GPIO
 	digitalWrite(motor_r_u, LOW); // at start turn off the GPIO
