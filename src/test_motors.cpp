@@ -32,8 +32,8 @@ int motor_r_u = 28;
 int motor_r_v = 29;
 
 // pwm
-int pwmValue = 100;
-int pwmValueInit = 1;
+int pwmValue = 1023;
+int pwmValueInit = 0;
 
 int main(void) {
 
