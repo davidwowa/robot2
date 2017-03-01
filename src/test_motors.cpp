@@ -115,22 +115,22 @@ int main(void) {
 		cout << "drive forward" << endl;
 	}
 	forward();
-	delay(2000);
+	delay(3000);
 	if (debug == 1) {
 		cout << "drive backward" << endl;
 	}
 	backward();
-	delay(2000);
+	delay(3000);
 	if (debug == 1) {
 		cout << "drive right" << endl;
 	}
 	right();
-	delay(2000);
+	delay(3000);
 	if (debug == 1) {
 		cout << "drive left" << endl;
 	}
 	left();
-	delay(2000);
+	delay(3000);
 
 	if (debug == 1) {
 		cout << "stop" << endl;
