@@ -93,7 +93,7 @@ int main(void) {
 
 		softPwmWrite(motor_l_u, var);
 		softPwmWrite(motor_l_v, (pwmValue - var));
-		delay(10);
+		delay(1000);
 	}
 	// acceleration backward
 	if (debug == 1) {
@@ -108,7 +108,7 @@ int main(void) {
 
 		softPwmWrite(motor_l_u, (pwmValue - var));
 		softPwmWrite(motor_l_v, var);
-		delay(10);
+		delay(1000);
 	}
 
 	if (debug == 1) {
