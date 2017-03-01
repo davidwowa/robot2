@@ -44,11 +44,11 @@ int main(void) {
 	if (wiringPiSetup() == -1)
 		return -1;
 
-	if (debug == 1) {
-		cout << "init wiring pi setup gpio (for PWM)" << endl;
-	}
-	if (wiringPiSetupGpio() == -1)
-		return -1;
+//	if (debug == 1) {
+//		cout << "init wiring pi setup gpio (for PWM)" << endl;
+//	}
+//	if (wiringPiSetupGpio() == -1)
+//		return -1;
 
 	if (debug == 1) {
 		cout << "init wiring pi setup gpio (for PWM)" << endl;
@@ -60,14 +60,18 @@ int main(void) {
 		cout << "prepare gpio for motors" << endl;
 	}
 
-	pinMode(motor_l_u, PWM_OUTPUT);
-	pinMode(motor_l_v, PWM_OUTPUT);
-	pinMode(motor_r_u, PWM_OUTPUT);
-	pinMode(motor_r_v, PWM_OUTPUT);
+	pinMode(motor_l_u, OUTPUT);
+	pinMode(motor_l_v, OUTPUT);
+	pinMode(motor_r_u, OUTPUT);
+	pinMode(motor_r_v, OUTPUT);
 	digitalWrite(motor_l_u, LOW); // at start turn off the GPIO
 	digitalWrite(motor_l_v, LOW); // at start turn off the GPIO
 	digitalWrite(motor_r_u, LOW); // at start turn off the GPIO
 	digitalWrite(motor_r_v, LOW); // at start turn off the GPIO
+	pinMode(motor_l_u, PWM_OUTPUT);
+	pinMode(motor_l_v, PWM_OUTPUT);
+	pinMode(motor_r_u, PWM_OUTPUT);
+	pinMode(motor_r_v, PWM_OUTPUT);
 
 	// prepare GPIOs for motors
 	softPwmCreate(motor_l_u, pwmValueInit, pwmValue);
