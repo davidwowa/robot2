@@ -60,6 +60,15 @@ int main(void) {
 		cout << "prepare gpio for motors" << endl;
 	}
 
+	pinMode(motor_l_u, OUTPUT);
+	pinMode(motor_l_v, OUTPUT);
+	pinMode(motor_r_u, OUTPUT);
+	pinMode(motor_r_v, OUTPUT);
+	digitalWrite(motor_l_u, LOW); // at start turn off the GPIO
+	digitalWrite(motor_l_v, LOW); // at start turn off the GPIO
+	digitalWrite(motor_r_u, LOW); // at start turn off the GPIO
+	digitalWrite(motor_r_v, LOW); // at start turn off the GPIO
+
 	// prepare GPIOs for motors
 	softPwmCreate(motor_l_u, pwmValueInit, pwmValue);
 	softPwmCreate(motor_l_v, pwmValueInit, pwmValue);
