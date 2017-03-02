@@ -13,7 +13,7 @@
 
 using namespace std;
 
-void forward();
+void right();
 
 int debug = 1;
 
@@ -57,12 +57,12 @@ int main(void) {
 	digitalWrite(motor_r_v, pwmValueInit); // at start turn off the GPIO
 
 	while (1) {
-		forward();
+		right();
 	}
 	return -1;
 }
 
-void forward(void) {
+void right(void) {
 	if (debug == 1) {
 		cout << "right" << endl;
 	}

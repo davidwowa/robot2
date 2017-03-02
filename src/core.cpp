@@ -49,7 +49,6 @@ void backward();
 void right();
 void left();
 void stop();
-void off();
 
 int debug = 1;
 
@@ -187,24 +186,22 @@ void forward(void) {
 	if (debug == 1) {
 		cout << "forward" << endl;
 	}
-	digitalWrite(motor_r_u, pwmValueInit);
-	digitalWrite(motor_r_v, pwmValue);
+	digitalWrite(motor_r_u, pwmValue);
+	digitalWrite(motor_r_v, pwmValueInit);
 
 	digitalWrite(motor_l_u, pwmValueInit);
 	digitalWrite(motor_l_v, pwmValue);
 }
-
 void backward(void) {
 	if (debug == 1) {
 		cout << "backward" << endl;
 	}
-	digitalWrite(motor_r_u, pwmValue);
-	digitalWrite(motor_r_v, pwmValueInit);
+	digitalWrite(motor_r_u, pwmValueInit);
+	digitalWrite(motor_r_v, pwmValue);
 
 	digitalWrite(motor_l_u, pwmValue);
 	digitalWrite(motor_l_v, pwmValueInit);
 }
-
 void left(void) {
 	if (debug == 1) {
 		cout << "left" << endl;
@@ -212,10 +209,9 @@ void left(void) {
 	digitalWrite(motor_r_u, pwmValueInit);
 	digitalWrite(motor_r_v, pwmValue);
 
-	digitalWrite(motor_l_u, pwmValue);
-	digitalWrite(motor_l_v, pwmValueInit);
+	digitalWrite(motor_l_u, pwmValueInit);
+	digitalWrite(motor_l_v, pwmValue);
 }
-
 void right(void) {
 	if (debug == 1) {
 		cout << "right" << endl;
@@ -223,10 +219,9 @@ void right(void) {
 	digitalWrite(motor_r_u, pwmValue);
 	digitalWrite(motor_r_v, pwmValueInit);
 
-	digitalWrite(motor_l_u, pwmValueInit);
-	digitalWrite(motor_l_v, pwmValue);
+	digitalWrite(motor_l_u, pwmValue);
+	digitalWrite(motor_l_v, pwmValueInit);
 }
-
 void stop(void) {
 	if (debug == 1) {
 		cout << "stop" << endl;
@@ -236,20 +231,4 @@ void stop(void) {
 
 	digitalWrite(motor_l_u, pwmValueInit);
 	digitalWrite(motor_l_v, pwmValueInit);
-}
-
-void off(void) {
-	if (debug == 1) {
-		cout << "off" << endl;
-	}
-	digitalWrite(motor_r_u, pwmValueInit); // at start turn off the GPIO
-	digitalWrite(motor_r_v, pwmValueInit); // at start turn off the GPIO
-
-	digitalWrite(motor_l_u, pwmValueInit); // at start turn off the GPIO
-	digitalWrite(motor_l_v, pwmValueInit); // at start turn off the GPIO
-
-	pinMode(motor_r_u, INPUT);
-	pinMode(motor_r_v, INPUT);
-	pinMode(motor_l_u, INPUT);
-	pinMode(motor_r_v, INPUT);
 }
