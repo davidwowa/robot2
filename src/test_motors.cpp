@@ -69,7 +69,7 @@ int main(void) {
 
 		softPwmWrite(motor_l_u, (pwmValue - var));
 		softPwmWrite(motor_l_v, var);
-		delay(1000);
+		delay(100);
 	}
 
 	if (debug == 1) {
@@ -97,9 +97,6 @@ int main(void) {
 		cout << "stop" << endl;
 	}
 	stop();
-	if (debug == 1) {
-		cout << "off" << endl;
-	}
 	return -1;
 }
 
