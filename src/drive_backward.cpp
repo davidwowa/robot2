@@ -20,6 +20,7 @@ using namespace std;
 int main(void) {
 
 	init();
+
 	drive_backward();
 
 	return -1;
