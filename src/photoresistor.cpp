@@ -7,9 +7,9 @@
 //============================================================================
 
 #include <iostream>
-#include <wiringPi.h>
+//#include <wiringPi.h>
 
-//#include "../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../lib/wiringPi/wiringPi/wiringPi.h"
 
 using namespace std;
 

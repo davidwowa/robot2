@@ -7,9 +7,10 @@
 //============================================================================
 
 #include <iostream>
-#include <wiringPi.h>
-#include <softPwm.h>
-//#include "../lib/wiringPi/wiringPi/wiringPi.h"
+//#include <wiringPi.h>
+//#include <softPwm.h>
+#include "../lib/wiringPi/wiringPi/softPwm.h"
+#include "../lib/wiringPi/wiringPi/wiringPi.h"
 
 using namespace std;
 
@@ -99,7 +100,6 @@ int main(void) {
 	if (debug == 1) {
 		cout << "off" << endl;
 	}
-	off();
 	return -1;
 }
 
