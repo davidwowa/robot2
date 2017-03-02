@@ -1,36 +1,36 @@
 begin
 button = KEY_PLAY
 prog = irexec
-config = /home/pi/robot2/src/reset_pins && /home/pi/robot2/src/drive_forward
+config = /home/pi/robot2/ir-remote/drive_forward.sh
 flags = quit
 end
 begin
 button = KEY_STOP
 prog = irexec
-config = /home/pi/robot2/src/reset_pins
+config = /home/pi/robot2/ir-remote/stop.sh
 flags = quit
 end
 begin
 button = KEY_UP
 prog = irexec
-config = /home/pi/robot2/src/reset_pins && /home/pi/robot2/src/drive_forward
+config = /home/pi/robot2/ir-remote/drive_forward.sh
 flags = quit
 end
 begin
 button = KEY_DOWN
 prog = irexec
-config = /home/pi/robot2/src/reset_pins && /home/pi/robot2/src/drive_backward
+config = /home/pi/robot2/ir-remote/drive_backward.sh
 flags = quit
 end
 begin
 button = KEY_LEFT
 prog = irexec
-config = /home/pi/robot2/src/reset_pins && /home/pi/robot2/src/drive_left
+config = /home/pi/robot2/ir-remote/drive_left.sh
 flags = quit
 end
 begin
 button = KEY_RIGHT
 prog = irexec
-config = /home/pi/robot2/src/reset_pins && /home/pi/robot2/src/drive_right
+config = /home/pi/robot2/ir-remote/drive_right.sh
 flags = quit
 end
