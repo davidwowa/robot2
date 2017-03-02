@@ -39,9 +39,6 @@
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
 #include "../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
 
-//#include <wiringPi.h>
-//#include <libSonar.h>
-
 using namespace std;
 
 void forward();

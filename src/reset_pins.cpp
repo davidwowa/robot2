@@ -36,16 +36,21 @@
  */
 
 #include <iostream>
-//#include <wiringPi.h>
+
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
 
 using namespace std;
 
 int main(void) {
+	return -1;
+}
 
-	if (wiringPiSetup() == -1)
-		return -1;
-
+void reset(void) {
+	if (wiringPiSetup() == -1) {
+		cout << "error init wiring pi" << endl;
+	} else {
+		cout << "init wiring pi ok" << endl;
+	}
 	cout << "set all pins to input" << endl;
 
 	pinMode(8, INPUT);
@@ -73,6 +78,4 @@ int main(void) {
 	digitalWrite(29, LOW);
 
 	cout << "Done" << endl;
-
-	return -1;
 }

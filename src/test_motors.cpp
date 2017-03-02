@@ -7,8 +7,6 @@
 //============================================================================
 
 #include <iostream>
-//#include <wiringPi.h>
-//#include <softPwm.h>
 #include "../lib/wiringPi/wiringPi/softPwm.h"
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
 
@@ -112,9 +110,8 @@ void init(void) {
 	}
 
 	if (debug == 1) {
-		cout << "prepare gpio for motors" << endl;
+		cout << "prepare pwm gpio for motors" << endl;
 	}
-
 	// prepare GPIOs for motors
 	softPwmCreate(motor_l_u, pwmValueInit, pwmValue);
 	softPwmCreate(motor_l_v, pwmValueInit, pwmValue);

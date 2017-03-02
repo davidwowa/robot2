@@ -9,8 +9,6 @@
 #include <iostream>
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
 
-//#include <wiringPi.h>
-
 using namespace std;
 
 void forward();

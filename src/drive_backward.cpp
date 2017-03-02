@@ -9,11 +9,9 @@
 #include <iostream>
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
 
-//#include <wiringPi.h>
+#include "drive_backward.h"
 
 using namespace std;
-
-void backward();
 
 int debug = 1;
 
@@ -43,23 +41,32 @@ int main(void) {
 		cout << "prepare gpio for motors" << endl;
 	}
 
-	// prepare GPIOs for motors
-	pinMode(motor_l_u, OUTPUT);
-	pinMode(motor_l_v, OUTPUT);
+	backward();
+	delay(1000);
 
-	pinMode(motor_r_u, OUTPUT);
-	pinMode(motor_r_v, OUTPUT);
-
-	digitalWrite(motor_l_u, pwmValueInit); // at start turn off the GPIO
-	digitalWrite(motor_l_v, pwmValueInit); // at start turn off the GPIO
-
-	digitalWrite(motor_r_u, pwmValueInit); // at start turn off the GPIO
-	digitalWrite(motor_r_v, pwmValueInit); // at start turn off the GPIO
-
-	while (1) {
-		backward();
-	}
 	return -1;
+}
+
+void init(void) {
+	if (debug == 1) {
+		cout << "init wiring pi" << endl;
+	}
+
+	if (wiringPiSetup() == -1) {
+		cout << "error on wiring pi setup" << endl;
+	} else {
+		cout << "wiring pi setup OK" << endl;
+	}
+
+	if (debug == 1) {
+		cout << "prepare pwm gpio for motors" << endl;
+	}
+	// prepare GPIOs for motors
+	softPwmCreate(motor_l_u, pwmValueInit, pwmValue);
+	softPwmCreate(motor_l_v, pwmValueInit, pwmValue);
+
+	softPwmCreate(motor_r_u, pwmValueInit, pwmValue);
+	softPwmCreate(motor_r_v, pwmValueInit, pwmValue);
 }
 
 void backward(void) {
