@@ -19,34 +19,33 @@ using namespace std;
 
 int main(void) {
 
+	init();
+
+	drive_left();
+
+	return -1;
+}
+
+void init(void) {
 	if (debug == 1) {
 		cout << "init wiring pi" << endl;
 	}
 
-	if (wiringPiSetup() == -1)
-		return -1;
-
-	if (debug == 1) {
-		cout << "prepare gpio for motors" << endl;
+	if (wiringPiSetup() == -1) {
+		cout << "error on wiring pi setup" << endl;
+	} else {
+		cout << "wiring pi setup OK" << endl;
 	}
 
+	if (debug == 1) {
+		cout << "prepare pwm gpio for motors" << endl;
+	}
 	// prepare GPIOs for motors
-	pinMode(motor_l_u, OUTPUT);
-	pinMode(motor_l_v, OUTPUT);
+	softPwmCreate(motor_l_u, pwmValueInit, pwmValue);
+	softPwmCreate(motor_l_v, pwmValueInit, pwmValue);
 
-	pinMode(motor_r_u, OUTPUT);
-	pinMode(motor_r_v, OUTPUT);
-
-	digitalWrite(motor_l_u, pwmValueInit); // at start turn off the GPIO
-	digitalWrite(motor_l_v, pwmValueInit); // at start turn off the GPIO
-
-	digitalWrite(motor_r_u, pwmValueInit); // at start turn off the GPIO
-	digitalWrite(motor_r_v, pwmValueInit); // at start turn off the GPIO
-
-	drive_left();
-	delay(1000);
-
-	return -1;
+	softPwmCreate(motor_r_u, pwmValueInit, pwmValue);
+	softPwmCreate(motor_r_v, pwmValueInit, pwmValue);
 }
 
 void drive_left(void) {

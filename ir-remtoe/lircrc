@@ -1,0 +1,36 @@
+begin
+button = KEY_PLAY
+prog = irexec
+config = /home/pi/robot2/src/reset_pins && /home/pi/robot2/src/drive_forward
+flags = quit
+end
+begin
+button = KEY_STOP
+prog = irexec
+config = /home/pi/robot2/src/reset_pins
+flags = quit
+end
+begin
+button = KEY_UP
+prog = irexec
+config = /home/pi/robot2/src/reset_pins && /home/pi/robot2/src/drive_forward
+flags = quit
+end
+begin
+button = KEY_DOWN
+prog = irexec
+config = /home/pi/robot2/src/reset_pins && /home/pi/robot2/src/drive_backward
+flags = quit
+end
+begin
+button = KEY_LEFT
+prog = irexec
+config = /home/pi/robot2/src/reset_pins && /home/pi/robot2/src/drive_left
+flags = quit
+end
+begin
+button = KEY_RIGHT
+prog = irexec
+config = /home/pi/robot2/src/reset_pins && /home/pi/robot2/src/drive_right
+flags = quit
+end

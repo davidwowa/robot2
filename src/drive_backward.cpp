@@ -19,19 +19,8 @@ using namespace std;
 
 int main(void) {
 
-	if (debug == 1) {
-		cout << "init wiring pi" << endl;
-	}
-
-	if (wiringPiSetup() == -1)
-		return -1;
-
-	if (debug == 1) {
-		cout << "prepare gpio for motors" << endl;
-	}
-
+	init();
 	drive_backward();
-	delay(1000);
 
 	return -1;
 }
