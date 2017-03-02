@@ -7,31 +7,14 @@
 //============================================================================
 
 #include <iostream>
+
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
 
+#include "drive.h"
+#include "gpio.h"
+#include "analytics.h"
+
 using namespace std;
-
-void forward();
-void backward();
-void right();
-void left();
-void stop();
-void off();
-
-int debug = 1;
-
-// motor pins (pwm)
-// motor left
-int motor_l_u = 26;
-int motor_l_v = 27;
-
-// motor right
-int motor_r_u = 28;
-int motor_r_v = 29;
-
-// pwm
-int pwmValue = 1023;
-int pwmValueInit = 0;
 
 int main(void) {
 
@@ -41,12 +24,6 @@ int main(void) {
 
 	if (wiringPiSetup() == -1)
 		return -1;
-
-//	if (debug == 1) {
-//		cout << "init wiring pi setup gpio (for PWM)" << endl;
-//	}
-//	if (wiringPiSetupGpio() == -1)
-//		return -1;
 
 	if (debug == 1) {
 		cout << "init wiring pi setup gpio (for PWM)" << endl;
@@ -58,18 +35,15 @@ int main(void) {
 		cout << "prepare gpio for motors" << endl;
 	}
 
-	pinMode(motor_l_u, OUTPUT);
-	pinMode(motor_l_v, OUTPUT);
-	pinMode(motor_r_u, OUTPUT);
-	pinMode(motor_r_v, OUTPUT);
-	digitalWrite(motor_l_u, LOW); // at start turn off the GPIO
-	digitalWrite(motor_l_v, LOW); // at start turn off the GPIO
-	digitalWrite(motor_r_u, LOW); // at start turn off the GPIO
-	digitalWrite(motor_r_v, LOW); // at start turn off the GPIO
 	pinMode(motor_l_u, PWM_OUTPUT);
 	pinMode(motor_l_v, PWM_OUTPUT);
 	pinMode(motor_r_u, PWM_OUTPUT);
 	pinMode(motor_r_v, PWM_OUTPUT);
+
+	digitalWrite(motor_l_u, LOW); // at start turn off the GPIO
+	digitalWrite(motor_l_v, LOW); // at start turn off the GPIO
+	digitalWrite(motor_r_u, LOW); // at start turn off the GPIO
+	digitalWrite(motor_r_v, LOW); // at start turn off the GPIO
 
 	// prepare GPIOs for motors
 	pwmWrite(motor_l_u, pwmValueInit);
@@ -112,22 +86,22 @@ int main(void) {
 	if (debug == 1) {
 		cout << "drive forward" << endl;
 	}
-	forward();
+	drive_forward();
 	delay(2000);
 	if (debug == 1) {
 		cout << "drive backward" << endl;
 	}
-	backward();
+	drive_backward();
 	delay(2000);
 	if (debug == 1) {
 		cout << "drive right" << endl;
 	}
-	right();
+	drive_right();
 	delay(2000);
 	if (debug == 1) {
 		cout << "drive left" << endl;
 	}
-	left();
+	drive_left();
 	delay(2000);
 
 	if (debug == 1) {
@@ -137,77 +111,5 @@ int main(void) {
 	if (debug == 1) {
 		cout << "off" << endl;
 	}
-	off();
 	return -1;
-}
-
-void forward(void) {
-	if (debug == 1) {
-		cout << "forward" << endl;
-	}
-	pwmWrite(motor_r_u, pwmValueInit);
-	pwmWrite(motor_r_v, pwmValue);
-
-	pwmWrite(motor_l_u, pwmValueInit);
-	pwmWrite(motor_l_v, pwmValue);
-}
-
-void backward(void) {
-	if (debug == 1) {
-		cout << "backward" << endl;
-	}
-	pwmWrite(motor_r_u, pwmValue);
-	pwmWrite(motor_r_v, pwmValueInit);
-
-	pwmWrite(motor_l_u, pwmValue);
-	pwmWrite(motor_l_v, pwmValueInit);
-}
-
-void left(void) {
-	if (debug == 1) {
-		cout << "left" << endl;
-	}
-	pwmWrite(motor_r_u, pwmValueInit);
-	pwmWrite(motor_r_v, pwmValue);
-
-	pwmWrite(motor_l_u, pwmValue);
-	pwmWrite(motor_l_v, pwmValueInit);
-}
-
-void right(void) {
-	if (debug == 1) {
-		cout << "right" << endl;
-	}
-	pwmWrite(motor_r_u, pwmValue);
-	pwmWrite(motor_r_v, pwmValueInit);
-
-	pwmWrite(motor_l_u, pwmValueInit);
-	pwmWrite(motor_l_v, pwmValue);
-}
-
-void stop(void) {
-	if (debug == 1) {
-		cout << "stop" << endl;
-	}
-	pwmWrite(motor_r_u, pwmValueInit);
-	pwmWrite(motor_r_v, pwmValueInit);
-
-	pwmWrite(motor_l_u, pwmValueInit);
-	pwmWrite(motor_l_v, pwmValueInit);
-}
-
-void off(void) {
-	if (debug == 1) {
-		cout << "off" << endl;
-	}
-	pwmWrite(motor_r_u, pwmValueInit); // at start turn off the GPIO
-	pwmWrite(motor_r_v, pwmValueInit); // at start turn off the GPIO
-
-	pwmWrite(motor_l_u, pwmValueInit); // at start turn off the GPIO
-	pwmWrite(motor_l_v, pwmValueInit); // at start turn off the GPIO
-
-	pinMode(motor_r_u, INPUT);
-	pinMode(motor_r_v, INPUT);
-	pinMode(motor_l_u, INPUT);
-	pinMode(motor_r_v, INPUT);
 }

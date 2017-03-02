@@ -7,26 +7,15 @@
 //============================================================================
 
 #include <iostream>
+
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../lib/wiringPi/wiringPi/softPwm.h"
+
+#include "drive.h"
+#include "gpio.h"
+#include "analytics.h"
 
 using namespace std;
-
-void left();
-
-int debug = 1;
-
-// motor pins (pwm)
-// motor left
-int motor_l_u = 26;
-int motor_l_v = 27;
-
-// motor right
-int motor_r_u = 28;
-int motor_r_v = 29;
-
-// pwm
-int pwmValue = HIGH;
-int pwmValueInit = LOW;
 
 int main(void) {
 
@@ -54,14 +43,13 @@ int main(void) {
 	digitalWrite(motor_r_u, pwmValueInit); // at start turn off the GPIO
 	digitalWrite(motor_r_v, pwmValueInit); // at start turn off the GPIO
 
-	while (1) {
-		left();
-	}
+	drive_left();
+	delay(1000);
 
 	return -1;
 }
 
-void left(void) {
+void drive_left(void) {
 	if (debug == 1) {
 		cout << "left" << endl;
 	}

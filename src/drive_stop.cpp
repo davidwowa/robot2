@@ -7,26 +7,15 @@
 //============================================================================
 
 #include <iostream>
+
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../lib/wiringPi/wiringPi/softPwm.h"
+
+#include "drive.h"
+#include "gpio.h"
+#include "analytics.h"
 
 using namespace std;
-
-void stop();
-
-int debug = 1;
-
-// motor pins (pwm)
-// motor left
-int motor_l_u = 26;
-int motor_l_v = 27;
-
-// motor right
-int motor_r_u = 28;
-int motor_r_v = 29;
-
-// pwm
-int pwmValue = HIGH;
-int pwmValueInit = LOW;
 
 int main(void) {
 

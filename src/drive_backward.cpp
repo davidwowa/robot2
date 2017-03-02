@@ -7,26 +7,15 @@
 //============================================================================
 
 #include <iostream>
-#include "../lib/wiringPi/wiringPi/wiringPi.h"
 
-#include "drive_backward.h"
+#include "../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../lib/wiringPi/wiringPi/softPwm.h"
+
+#include "gpio.h"
+#include "analytics.h"
+#include "drive.h"
 
 using namespace std;
-
-int debug = 1;
-
-// motor pins (pwm)
-// motor left
-int motor_l_u = 26;
-int motor_l_v = 27;
-
-// motor right
-int motor_r_u = 28;
-int motor_r_v = 29;
-
-// pwm
-int pwmValue = HIGH;
-int pwmValueInit = LOW;
 
 int main(void) {
 
@@ -41,7 +30,7 @@ int main(void) {
 		cout << "prepare gpio for motors" << endl;
 	}
 
-	backward();
+	drive_backward();
 	delay(1000);
 
 	return -1;
@@ -69,7 +58,7 @@ void init(void) {
 	softPwmCreate(motor_r_v, pwmValueInit, pwmValue);
 }
 
-void backward(void) {
+void drive_backward(void) {
 	if (debug == 1) {
 		cout << "backward" << endl;
 	}
