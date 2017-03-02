@@ -12,5 +12,5 @@ echo "compile"
 compile.sh
 echo "setup ir"
 cd ../ir-remote
-ir-remote/setup.sh
+setup.sh
 echo "ready"
