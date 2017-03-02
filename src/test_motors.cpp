@@ -102,53 +102,53 @@ void init(void) {
 	softPwmCreate(motor_r_v, pwmValueInit, pwmValue);
 }
 
-//void drive_forward(void) {
-//	if (debug == 1) {
-//		cout << "forward" << endl;
-//	}
-//	softPwmWrite(motor_r_u, pwmValue);
-//	softPwmWrite(motor_r_v, pwmValueInit);
-//
-//	softPwmWrite(motor_l_u, pwmValueInit);
-//	softPwmWrite(motor_l_v, pwmValue);
-//}
-//void drive_backward(void) {
-//	if (debug == 1) {
-//		cout << "backward" << endl;
-//	}
-//	softPwmWrite(motor_r_u, pwmValueInit);
-//	softPwmWrite(motor_r_v, pwmValue);
-//
-//	softPwmWrite(motor_l_u, pwmValue);
-//	softPwmWrite(motor_l_v, pwmValueInit);
-//}
-//void drive_left(void) {
-//	if (debug == 1) {
-//		cout << "left" << endl;
-//	}
-//	softPwmWrite(motor_r_u, pwmValueInit);
-//	softPwmWrite(motor_r_v, pwmValue);
-//
-//	softPwmWrite(motor_l_u, pwmValueInit);
-//	softPwmWrite(motor_l_v, pwmValue);
-//}
-//void drive_right(void) {
-//	if (debug == 1) {
-//		cout << "right" << endl;
-//	}
-//	softPwmWrite(motor_r_u, pwmValue);
-//	softPwmWrite(motor_r_v, pwmValueInit);
-//
-//	softPwmWrite(motor_l_u, pwmValue);
-//	softPwmWrite(motor_l_v, pwmValueInit);
-//}
-//void stop(void) {
-//	if (debug == 1) {
-//		cout << "stop" << endl;
-//	}
-//	softPwmWrite(motor_r_u, pwmValueInit);
-//	softPwmWrite(motor_r_v, pwmValueInit);
-//
-//	softPwmWrite(motor_l_u, pwmValueInit);
-//	softPwmWrite(motor_l_v, pwmValueInit);
-//}
+void drive_forward(void) {
+	if (debug == 1) {
+		cout << "forward" << endl;
+	}
+	softPwmWrite(motor_r_u, pwmValue);
+	softPwmWrite(motor_r_v, pwmValueInit);
+
+	softPwmWrite(motor_l_u, pwmValueInit);
+	softPwmWrite(motor_l_v, pwmValue);
+}
+void drive_backward(void) {
+	if (debug == 1) {
+		cout << "backward" << endl;
+	}
+	softPwmWrite(motor_r_u, pwmValueInit);
+	softPwmWrite(motor_r_v, pwmValue);
+
+	softPwmWrite(motor_l_u, pwmValue);
+	softPwmWrite(motor_l_v, pwmValueInit);
+}
+void drive_left(void) {
+	if (debug == 1) {
+		cout << "left" << endl;
+	}
+	softPwmWrite(motor_r_u, pwmValueInit);
+	softPwmWrite(motor_r_v, pwmValue);
+
+	softPwmWrite(motor_l_u, pwmValueInit);
+	softPwmWrite(motor_l_v, pwmValue);
+}
+void drive_right(void) {
+	if (debug == 1) {
+		cout << "right" << endl;
+	}
+	softPwmWrite(motor_r_u, pwmValue);
+	softPwmWrite(motor_r_v, pwmValueInit);
+
+	softPwmWrite(motor_l_u, pwmValue);
+	softPwmWrite(motor_l_v, pwmValueInit);
+}
+void stop(void) {
+	if (debug == 1) {
+		cout << "stop" << endl;
+	}
+	softPwmWrite(motor_r_u, pwmValueInit);
+	softPwmWrite(motor_r_v, pwmValueInit);
+
+	softPwmWrite(motor_l_u, pwmValueInit);
+	softPwmWrite(motor_l_v, pwmValueInit);
+}

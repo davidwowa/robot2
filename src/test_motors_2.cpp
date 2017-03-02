@@ -113,3 +113,54 @@ int main(void) {
 	}
 	return -1;
 }
+
+void drive_forward(void) {
+	if (debug == 1) {
+		cout << "forward" << endl;
+	}
+	pwmWrite(motor_r_u, pwmValue);
+	pwmWrite(motor_r_v, pwmValueInit);
+
+	pwmWrite(motor_l_u, pwmValueInit);
+	pwmWrite(motor_l_v, pwmValue);
+}
+void drive_backward(void) {
+	if (debug == 1) {
+		cout << "backward" << endl;
+	}
+	pwmWrite(motor_r_u, pwmValueInit);
+	pwmWrite(motor_r_v, pwmValue);
+
+	pwmWrite(motor_l_u, pwmValue);
+	pwmWrite(motor_l_v, pwmValueInit);
+}
+void drive_left(void) {
+	if (debug == 1) {
+		cout << "left" << endl;
+	}
+	pwmWrite(motor_r_u, pwmValueInit);
+	pwmWrite(motor_r_v, pwmValue);
+
+	pwmWrite(motor_l_u, pwmValueInit);
+	pwmWrite(motor_l_v, pwmValue);
+}
+void drive_right(void) {
+	if (debug == 1) {
+		cout << "right" << endl;
+	}
+	pwmWrite(motor_r_u, pwmValue);
+	pwmWrite(motor_r_v, pwmValueInit);
+
+	pwmWrite(motor_l_u, pwmValue);
+	pwmWrite(motor_l_v, pwmValueInit);
+}
+void stop(void) {
+	if (debug == 1) {
+		cout << "stop" << endl;
+	}
+	pwmWrite(motor_r_u, pwmValueInit);
+	pwmWrite(motor_r_v, pwmValueInit);
+
+	pwmWrite(motor_l_u, pwmValueInit);
+	pwmWrite(motor_l_v, pwmValueInit);
+}

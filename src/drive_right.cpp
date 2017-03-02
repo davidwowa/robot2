@@ -49,7 +49,7 @@ int main(void) {
 	return -1;
 }
 
-void right(void) {
+void drive_right(void) {
 	if (debug == 1) {
 		cout << "right" << endl;
 	}
