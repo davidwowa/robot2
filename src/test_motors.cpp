@@ -20,7 +20,6 @@ void backward();
 void right();
 void left();
 void stop();
-void off();
 
 int debug = 1;
 
