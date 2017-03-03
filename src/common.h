@@ -13,10 +13,10 @@ int maxWallDisntance_2 = 20;
 int maxWallDisntance_1 = 10;
 
 int speed_3 = 200;
-int speed_2 = 150;
-int speed_1 = 100;
+int speed_2 = 175;
+int speed_1 = 150;
 
-int interval = 650;
+int interval = 150;
 
 void set_working_pins_to_low(void);
 
