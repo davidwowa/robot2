@@ -28,7 +28,7 @@ int get_minimal_distance(int m, int r, int l) {
 	if (r < result) {
 		result = r;
 	}
-	if (result < l) {
+	if (l < result) {
 		result = l;
 	}
 	if (debug == 1) {
@@ -84,31 +84,35 @@ int main(void) {
 		if (distance_l >= maxWallDisntance_3) {
 			drive_forward(current_speed);
 		} else if (distance_l >= maxWallDisntance_2
-				&& distance_l < maxWallDisntance_3)
+				&& distance_l < maxWallDisntance_3) {
 			drive_forward(current_speed);
-		else if (distance_l >= 0 && distance_l < maxWallDisntance_1) {
+		} else if (distance_l >= 0 && distance_l < maxWallDisntance_1) {
 			drive_right(current_speed);
 		} else {
 			drive_forward(current_speed);
 		}
+
+		delay(interval);
 
 		if (distance_m >= maxWallDisntance_3) {
 			drive_forward(current_speed);
 		} else if (distance_m >= maxWallDisntance_2
-				&& distance_m < maxWallDisntance_3)
+				&& distance_m < maxWallDisntance_3) {
 			drive_forward(current_speed);
-		else if (distance_m >= 0 && distance_m < maxWallDisntance_1) {
+		} else if (distance_m >= 0 && distance_m < maxWallDisntance_1) {
 			drive_right(current_speed);
 		} else {
 			drive_forward(current_speed);
 		}
 
+		delay(interval);
+
 		if (distance_r >= maxWallDisntance_3) {
 			drive_forward(current_speed);
 		} else if (distance_r >= maxWallDisntance_2
-				&& distance_r < maxWallDisntance_3)
+				&& distance_r < maxWallDisntance_3) {
 			drive_forward(current_speed);
-		else if (distance_r >= 0 && distance_r < maxWallDisntance_1) {
+		} else if (distance_r >= 0 && distance_r < maxWallDisntance_1) {
 			drive_right(current_speed);
 		} else {
 			drive_forward(current_speed);
