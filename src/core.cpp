@@ -7,6 +7,7 @@
 //============================================================================
 
 #include <iostream>
+#include <math.h>
 
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
 #include "../lib/wiringPi/wiringPi/softPwm.h"
