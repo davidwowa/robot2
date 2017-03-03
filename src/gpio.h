@@ -37,6 +37,18 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
+// middle sonar sensor
+int echo_m = 8;
+int trigger_m = 9;
+
+// right sonar sensor
+int echo_r = 7;
+int trigger_r = 0;
+
+// left sonar sensor
+int echo_l = 2;
+int trigger_l = 3;
+
 // motor pins (pwm)
 // motor left
 int motor_l_u = 26;
