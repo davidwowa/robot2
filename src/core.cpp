@@ -100,7 +100,19 @@ int main(void) {
 				&& distance_m < maxWallDisntance_3) {
 			drive_forward(current_speed);
 		} else if (distance_m >= 0 && distance_m < maxWallDisntance_1) {
-			drive_right(current_speed);
+
+			int randomBit = rand() & 1;
+
+			if (debug == 1) {
+				cout << "decision bit (0 = right) " << randomBit << endl;
+			}
+
+			if (randomBit == 0) {
+				drive_right(current_speed);
+			} else {
+				drive_left(current_speed);
+			}
+
 		} else {
 			drive_forward(current_speed);
 		}
@@ -113,7 +125,7 @@ int main(void) {
 				&& distance_r < maxWallDisntance_3) {
 			drive_forward(current_speed);
 		} else if (distance_r >= 0 && distance_r < maxWallDisntance_1) {
-			drive_right(current_speed);
+			drive_left(current_speed);
 		} else {
 			drive_forward(current_speed);
 		}
