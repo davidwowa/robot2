@@ -16,6 +16,8 @@ int speed_3 = 200;
 int speed_2 = 134;
 int speed_1 = 66;
 
+int interval = 500;
+
 void set_working_pins_to_low(void);
 
 #endif /* COMMON_H_ */

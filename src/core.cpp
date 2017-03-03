@@ -113,6 +113,8 @@ int main(void) {
 		} else {
 			drive_forward(current_speed);
 		}
+
+		delay(interval);
 	}
 	return -1;
 }

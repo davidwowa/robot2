@@ -14,5 +14,5 @@ echo "setup ir"
 cd ../ir-remote
 ./setup.sh
 echo "ready"
-echo "run ir remote"
-irexec /etc/lirc/lircrc
+# echo "run ir remote"
+# irexec /etc/lirc/lircrc
