@@ -16,7 +16,7 @@ int SPEED_3 = 200;
 int SPEED_2 = 175;
 int SPEED_1 = 150;
 
-int INTERVAL = 900;
+int INTERVAL = 600;
 
 void set_working_pins_to_low(void);
 
