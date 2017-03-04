@@ -8,6 +8,6 @@
 #ifndef ANALYTICS_H_
 #define ANALYTICS_H_
 
-int debug = 1;
+int DEBUG = 1;
 
 #endif /* ANALYTICS_H_ */

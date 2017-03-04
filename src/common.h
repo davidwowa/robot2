@@ -8,15 +8,15 @@
 #ifndef COMMON_H_
 #define COMMON_H_
 
-int maxWallDisntance_3 = 30;
-int maxWallDisntance_2 = 20;
-int maxWallDisntance_1 = 10;
+int MAX_WALL_DISTANCE_3 = 30;
+int MAX_WALL_DISTANCE_2 = 20;
+int MAX_WALL_DISTANCE_1 = 10;
 
-int speed_3 = 200;
-int speed_2 = 175;
-int speed_1 = 150;
+int SPEED_3 = 200;
+int SPEED_2 = 175;
+int SPEED_1 = 150;
 
-int interval = 150;
+int INTERVAL = 600;
 
 void set_working_pins_to_low(void);
 

@@ -1,7 +1,7 @@
 begin
 button = KEY_PLAY
 prog = irexec
-config = sh /home/pi/robot2/ir-remote/drive_forward.sh
+config = sh /home/pi/robot2/ir-remote/core.sh
 flags = quit
 end
 begin
@@ -32,5 +32,17 @@ begin
 button = KEY_RIGHT
 prog = irexec
 config = sh /home/pi/robot2/ir-remote/drive_right.sh
+flags = quit
+end
+begin
+button = KEY_0
+prog = irexec
+config = sh /home/pi/robot2/ir-remote/test.sh
+flags = quit
+end
+begin
+button = KEY_RESTART
+prog = irexec
+config = sh /home/pi/robot2/ir-remote/kill_procs.sh
 flags = quit
 end

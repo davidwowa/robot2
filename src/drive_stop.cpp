@@ -27,7 +27,7 @@ int main(void) {
 }
 
 void init(void) {
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "init wiring pi" << endl;
 	}
 
@@ -37,24 +37,24 @@ void init(void) {
 		cout << "wiring pi setup OK" << endl;
 	}
 
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "prepare pwm gpio for motors" << endl;
 	}
 	// prepare GPIOs for motors
-	softPwmCreate(motor_l_u, pwmValueInit, pwmValue);
-	softPwmCreate(motor_l_v, pwmValueInit, pwmValue);
+	softPwmCreate(MOTOR_L_U, PWM_MIN, PWM_MAX);
+	softPwmCreate(MOTOR_L_V, PWM_MIN, PWM_MAX);
 
-	softPwmCreate(motor_r_u, pwmValueInit, pwmValue);
-	softPwmCreate(motor_r_v, pwmValueInit, pwmValue);
+	softPwmCreate(MOTOR_R_U, PWM_MIN, PWM_MAX);
+	softPwmCreate(MOTOR_R_V, PWM_MIN, PWM_MAX);
 }
 
 void stop(void) {
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "stop" << endl;
 	}
-	digitalWrite(motor_r_u, pwmValueInit);
-	digitalWrite(motor_r_v, pwmValueInit);
+	digitalWrite(MOTOR_R_U, PWM_MIN);
+	digitalWrite(MOTOR_R_V, PWM_MIN);
 
-	digitalWrite(motor_l_u, pwmValueInit);
-	digitalWrite(motor_l_v, pwmValueInit);
+	digitalWrite(MOTOR_L_U, PWM_MIN);
+	digitalWrite(MOTOR_L_V, PWM_MIN);
 }

@@ -10,16 +10,16 @@
  | USD | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
  +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
  |     |     |    3.3v |      |   |  1 || 2  |   |      | 5v      |     |     |
- |   S |   8 |   SDA.1 |   IN | 0 |  3 || 4  |   |      | 5v      |     |     |
- |   S |   9 |   SCL.1 |  OUT | 0 |  5 || 6  |   |      | 0v      |     |     |
- |   S |   7 | GPIO. 7 |   IN | 1 |  7 || 8  | 1 | ALT0 | TxD     | 15  | 14  |
+ |   E |   8 |   SDA.1 |   IN | 0 |  3 || 4  |   |      | 5v      |     |     |
+ |   T |   9 |   SCL.1 |  OUT | 0 |  5 || 6  |   |      | 0v      |     |     |
+ |   E |   7 | GPIO. 7 |   IN | 1 |  7 || 8  | 1 | ALT0 | TxD     | 15  | 14  |
  |     |     |      0v |      |   |  9 || 10 | 1 | ALT0 | RxD     | 16  | 15  |
- |   S |   0 | GPIO. 0 |   IN | 0 | 11 || 12 | 0 | OUT  | GPIO. 1 | 1   | 18  |
- |   S |   2 | GPIO. 2 |   IN | 0 | 13 || 14 |   |      | 0v      |     |     |
- |   S |   3 | GPIO. 3 |   IN | 0 | 15 || 16 | 0 | IN   | GPIO. 4 | 4   | 23  |
+ |   T |   0 | GPIO. 0 |   IN | 0 | 11 || 12 | 0 | OUT  | GPIO. 1 | 1   | 18  |
+ |   E |   2 | GPIO. 2 |   IN | 0 | 13 || 14 |   |      | 0v      |     |     |
+ |   T |   3 | GPIO. 3 |   IN | 0 | 15 || 16 | 0 | IN   | GPIO. 4 | 4   | 23  |
  |     |     |    3.3v |      |   | 17 || 18 | 0 | OUT  | GPIO. 5 | 5   | 24  |
- |   - |  12 |    MOSI |   IN | 0 | 19 || 20 |   |      | 0v      |     |     |
- |   - |  13 |    MISO |   IN | 0 | 21 || 22 | 0 | IN   | GPIO. 6 | 6   | 25  |
+ |   E |  12 |    MOSI |   IN | 0 | 19 || 20 |   |      | 0v      |     |     |
+ |   T |  13 |    MISO |   IN | 0 | 21 || 22 | 0 | IN   | GPIO. 6 | 6   | 25  |
  |   - |  14 |    SCLK |   IN | 0 | 23 || 24 | 1 | IN   | CE0     | 10  | 8   |
  |     |     |      0v |      |   | 25 || 26 | 1 | IN   | CE1     | 11  | 7   |
  |   - |  30 |   SDA.0 |   IN | 1 | 27 || 28 | 1 | IN   | SCL.0   | 31  | 1   |
@@ -38,28 +38,32 @@
 #define GPIO_H_
 
 // middle sonar sensor
-int echo_m = 8;
-int trigger_m = 9;
+int ECHO_M = 8;
+int TRIGGER_M = 9;
 
 // right sonar sensor
-int echo_r = 7;
-int trigger_r = 0;
+int ECHO_R = 7;
+int TRIGGER_R = 0;
 
 // left sonar sensor
-int echo_l = 2;
-int trigger_l = 3;
+int ECHO_L = 2;
+int TRIGGER_L = 3;
+
+// back sonar sensor
+int ECHO_B = 12;
+int TRIGGER_B = 13;
 
 // motor pins (pwm)
 // motor left
-int motor_l_u = 26;
-int motor_l_v = 27;
+int MOTOR_L_U = 26;
+int MOTOR_L_V = 27;
 
 // motor right
-int motor_r_u = 28;
-int motor_r_v = 29;
+int MOTOR_R_U = 28;
+int MOTOR_R_V = 29;
 
 // pwm
-int pwmValue = 200;
-int pwmValueInit = 0;
+int PWM_MAX = 200;
+int PWM_MIN = 0;
 
 #endif /* GPIO_H_ */

@@ -11,6 +11,7 @@
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
 
 #include "common.h"
+#include "gpio.h"
 
 using namespace std;
 
@@ -25,31 +26,39 @@ void set_working_pins_to_low(void) {
 	} else {
 		cout << "init wiring pi ok" << endl;
 	}
-	cout << "set all pins to input" << endl;
+	cout << "set all pins to INPUT" << endl;
 
-	pinMode(8, INPUT);
-	pinMode(9, INPUT);
-	pinMode(7, INPUT);
-	pinMode(0, INPUT);
-	pinMode(2, INPUT);
-	pinMode(3, INPUT);
-	pinMode(26, INPUT);
-	pinMode(27, INPUT);
-	pinMode(28, INPUT);
-	pinMode(29, INPUT);
+	pinMode(ECHO_M, INPUT);
+	pinMode(TRIGGER_M, INPUT);
+	pinMode(ECHO_R, INPUT);
+	pinMode(TRIGGER_R, INPUT);
+	pinMode(ECHO_L, INPUT);
+	pinMode(TRIGGER_L, INPUT);
+	pinMode(ECHO_B, INPUT);
+	pinMode(TRIGGER_B, INPUT);
 
-	cout << "set all pins to low" << endl;
+	pinMode(MOTOR_L_U, INPUT);
+	pinMode(MOTOR_L_V, INPUT);
 
-	digitalWrite(8, LOW);
-	digitalWrite(9, LOW);
-	digitalWrite(7, LOW);
-	digitalWrite(0, LOW);
-	digitalWrite(2, LOW);
-	digitalWrite(3, LOW);
-	digitalWrite(26, LOW);
-	digitalWrite(27, LOW);
-	digitalWrite(28, LOW);
-	digitalWrite(29, LOW);
+	pinMode(MOTOR_R_U, INPUT);
+	pinMode(MOTOR_R_V, INPUT);
+
+	cout << "set all pins to LOW" << endl;
+
+	digitalWrite(ECHO_M, LOW);
+	digitalWrite(TRIGGER_M, LOW);
+	digitalWrite(ECHO_R, LOW);
+	digitalWrite(TRIGGER_R, LOW);
+	digitalWrite(ECHO_L, LOW);
+	digitalWrite(TRIGGER_L, LOW);
+	digitalWrite(ECHO_B, LOW);
+	digitalWrite(TRIGGER_B, LOW);
+
+	digitalWrite(MOTOR_L_U, LOW);
+	digitalWrite(MOTOR_L_V, LOW);
+
+	digitalWrite(MOTOR_R_U, LOW);
+	digitalWrite(MOTOR_R_V, LOW);
 
 	cout << "Done" << endl;
 }

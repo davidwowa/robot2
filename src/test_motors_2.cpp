@@ -18,149 +18,149 @@ using namespace std;
 
 int main(void) {
 
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "init wiring pi" << endl;
 	}
 
 	if (wiringPiSetup() == -1)
 		return -1;
 
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "init wiring pi setup gpio (for PWM)" << endl;
 	}
 	if (wiringPiSetupSys() == -1)
 		return -1;
 
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "prepare gpio for motors" << endl;
 	}
 
-	pinMode(motor_l_u, PWM_OUTPUT);
-	pinMode(motor_l_v, PWM_OUTPUT);
-	pinMode(motor_r_u, PWM_OUTPUT);
-	pinMode(motor_r_v, PWM_OUTPUT);
+	pinMode(MOTOR_L_U, PWM_OUTPUT);
+	pinMode(MOTOR_L_V, PWM_OUTPUT);
+	pinMode(MOTOR_R_U, PWM_OUTPUT);
+	pinMode(MOTOR_R_V, PWM_OUTPUT);
 
-	digitalWrite(motor_l_u, LOW); // at start turn off the GPIO
-	digitalWrite(motor_l_v, LOW); // at start turn off the GPIO
-	digitalWrite(motor_r_u, LOW); // at start turn off the GPIO
-	digitalWrite(motor_r_v, LOW); // at start turn off the GPIO
+	digitalWrite(MOTOR_L_U, LOW); // at start turn off the GPIO
+	digitalWrite(MOTOR_L_V, LOW); // at start turn off the GPIO
+	digitalWrite(MOTOR_R_U, LOW); // at start turn off the GPIO
+	digitalWrite(MOTOR_R_V, LOW); // at start turn off the GPIO
 
 	// prepare GPIOs for motors
-	pwmWrite(motor_l_u, pwmValueInit);
-	pwmWrite(motor_l_v, pwmValueInit);
+	pwmWrite(MOTOR_L_U, PWM_MIN);
+	pwmWrite(MOTOR_L_V, PWM_MIN);
 
-	pwmWrite(motor_r_u, pwmValueInit);
-	pwmWrite(motor_r_v, pwmValueInit);
+	pwmWrite(MOTOR_R_U, PWM_MIN);
+	pwmWrite(MOTOR_R_V, PWM_MIN);
 
 	// acceleration forward
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "acceleration forward" << endl;
 	}
-	for (int var = 0; var < pwmValue; ++var) {
-		if (debug == 1) {
+	for (int var = 0; var < PWM_MAX; ++var) {
+		if (DEBUG == 1) {
 			cout << "set speed to " << var << endl;
 		}
-		pwmWrite(motor_r_u, (pwmValue - var));
-		pwmWrite(motor_r_v, var);
+		pwmWrite(MOTOR_R_U, (PWM_MAX - var));
+		pwmWrite(MOTOR_R_V, var);
 
-		pwmWrite(motor_l_u, var);
-		pwmWrite(motor_l_v, (pwmValue - var));
+		pwmWrite(MOTOR_L_U, var);
+		pwmWrite(MOTOR_L_V, (PWM_MAX - var));
 		delay(10);
 	}
 	// acceleration backward
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "acceleration backward" << endl;
 	}
-	for (int var = 0; var < pwmValue; ++var) {
-		if (debug == 1) {
+	for (int var = 0; var < PWM_MAX; ++var) {
+		if (DEBUG == 1) {
 			cout << "set speed to " << var << endl;
 		}
-		pwmWrite(motor_r_u, var);
-		pwmWrite(motor_r_v, (pwmValue - var));
+		pwmWrite(MOTOR_R_U, var);
+		pwmWrite(MOTOR_R_V, (PWM_MAX - var));
 
-		pwmWrite(motor_l_u, (pwmValue - var));
-		pwmWrite(motor_l_v, var);
+		pwmWrite(MOTOR_L_U, (PWM_MAX - var));
+		pwmWrite(MOTOR_L_V, var);
 		delay(10);
 	}
 
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "drive forward" << endl;
 	}
 	drive_forward();
 	delay(2000);
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "drive backward" << endl;
 	}
 	drive_backward();
 	delay(2000);
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "drive right" << endl;
 	}
 	drive_right();
 	delay(2000);
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "drive left" << endl;
 	}
 	drive_left();
 	delay(2000);
 
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "stop" << endl;
 	}
 	stop();
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "off" << endl;
 	}
 	return -1;
 }
 
 void drive_forward(void) {
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "forward" << endl;
 	}
-	pwmWrite(motor_r_u, pwmValue);
-	pwmWrite(motor_r_v, pwmValueInit);
+	pwmWrite(MOTOR_R_U, PWM_MAX);
+	pwmWrite(MOTOR_R_V, PWM_MIN);
 
-	pwmWrite(motor_l_u, pwmValueInit);
-	pwmWrite(motor_l_v, pwmValue);
+	pwmWrite(MOTOR_L_U, PWM_MIN);
+	pwmWrite(MOTOR_L_V, PWM_MAX);
 }
 void drive_backward(void) {
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "backward" << endl;
 	}
-	pwmWrite(motor_r_u, pwmValueInit);
-	pwmWrite(motor_r_v, pwmValue);
+	pwmWrite(MOTOR_R_U, PWM_MIN);
+	pwmWrite(MOTOR_R_V, PWM_MAX);
 
-	pwmWrite(motor_l_u, pwmValue);
-	pwmWrite(motor_l_v, pwmValueInit);
+	pwmWrite(MOTOR_L_U, PWM_MAX);
+	pwmWrite(MOTOR_L_V, PWM_MIN);
 }
 void drive_left(void) {
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "left" << endl;
 	}
-	pwmWrite(motor_r_u, pwmValueInit);
-	pwmWrite(motor_r_v, pwmValue);
+	pwmWrite(MOTOR_R_U, PWM_MIN);
+	pwmWrite(MOTOR_R_V, PWM_MAX);
 
-	pwmWrite(motor_l_u, pwmValueInit);
-	pwmWrite(motor_l_v, pwmValue);
+	pwmWrite(MOTOR_L_U, PWM_MIN);
+	pwmWrite(MOTOR_L_V, PWM_MAX);
 }
 void drive_right(void) {
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "right" << endl;
 	}
-	pwmWrite(motor_r_u, pwmValue);
-	pwmWrite(motor_r_v, pwmValueInit);
+	pwmWrite(MOTOR_R_U, PWM_MAX);
+	pwmWrite(MOTOR_R_V, PWM_MIN);
 
-	pwmWrite(motor_l_u, pwmValue);
-	pwmWrite(motor_l_v, pwmValueInit);
+	pwmWrite(MOTOR_L_U, PWM_MAX);
+	pwmWrite(MOTOR_L_V, PWM_MIN);
 }
 void stop(void) {
-	if (debug == 1) {
+	if (DEBUG == 1) {
 		cout << "stop" << endl;
 	}
-	pwmWrite(motor_r_u, pwmValueInit);
-	pwmWrite(motor_r_v, pwmValueInit);
+	pwmWrite(MOTOR_R_U, PWM_MIN);
+	pwmWrite(MOTOR_R_V, PWM_MIN);
 
-	pwmWrite(motor_l_u, pwmValueInit);
-	pwmWrite(motor_l_v, pwmValueInit);
+	pwmWrite(MOTOR_L_U, PWM_MIN);
+	pwmWrite(MOTOR_L_V, PWM_MIN);
 }
