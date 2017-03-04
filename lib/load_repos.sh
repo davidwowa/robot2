@@ -11,6 +11,8 @@ git clone git://git.drogon.net/wiringPi
 #./build
 #cd ../..
 echo "load open cv library"
+#sudo apt-get install build-essential
+#sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
 git clone https://github.com/opencv/opencv.git
 echo "get raspicam library for opencv"
 git clone https://github.com/cedricve/raspicam

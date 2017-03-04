@@ -18,3 +18,8 @@ echo "compile motor test right"
 g++ drive_right.cpp -o drive_right -lwiringPi
 echo "compile motor test stop"
 g++ drive_stop.cpp -o drive_stop -lwiringPi
+
+echo "compile playMP3"
+gcc -O2 -o playMP3 playMP3.c -lmpg123 -lao
+
+echo "ready"
