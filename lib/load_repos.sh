@@ -9,5 +9,12 @@ git clone git://git.drogon.net/wiringPi
 #git pull origin
 #cd wiringPi
 #./build
-#echo "load open cv library"
-#git clone https://github.com/opencv/opencv.git
+#cd ../..
+echo "load open cv library"
+git clone https://github.com/opencv/opencv.git
+echo "get raspicam library for opencv"
+git clone https://github.com/cedricve/raspicam
+#cd raspicam
+#mkdir build
+#cd build
+#cmake ..
