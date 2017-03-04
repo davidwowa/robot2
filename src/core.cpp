@@ -85,6 +85,16 @@ int main(void) {
 				distance_r, distance_l);
 		int current_speed = get_speed(current_minmal_distance);
 
+		if (distance_m < MAX_WALL_DISTANCE_1) {
+			if (distance_l > distance_r) {
+				drive_left(current_speed);
+			} else {
+				drive_right(current_speed);
+			}
+		}
+
+		delay(INTERVAL);
+
 		if (distance_b < MAX_WALL_DISTANCE_1) {
 			if (distance_l > distance_r) {
 				drive_left(current_speed);
