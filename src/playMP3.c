@@ -1,8 +1,11 @@
 // sudo apt-get install libmpg123-dev
 // sudo apt-get install libao-dev
 
-#include <ao/ao.h>
-#include <mpg123.h>
+//#include <ao/ao.h>
+//#include <mpg123.h>
+
+#include "../lib/libmpg123/src/mpg123app.h"
+#include "../lib/libao/include/ao/ao.h"
 
 #define BITS 8
 

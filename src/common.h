@@ -16,6 +16,11 @@ int SPEED_3 = 200;
 int SPEED_2 = 175;
 int SPEED_1 = 150;
 
+int FORWARD = 1;
+int LEFT = 2;
+int BACKWARD = 3;
+int RIGHT = 4;
+
 int INTERVAL = 600;
 
 void set_working_pins_to_low(void);

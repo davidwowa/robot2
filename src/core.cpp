@@ -62,6 +62,8 @@ int main(void) {
 	if (DEBUG == 1) {
 		cout << "allone drive" << endl;
 	}
+
+	int current_pointer = FORWARD;
 	while (1) {
 
 		int distance_m = sonar_m.distance(30000);
@@ -85,78 +87,64 @@ int main(void) {
 				distance_r, distance_l);
 		int current_speed = get_speed(current_minmal_distance);
 
-		if (distance_m < MAX_WALL_DISTANCE_1) {
-			if (distance_l > distance_r) {
-				drive_left(current_speed);
+		if (FORWARD == current_pointer) {
+			if (distance_m < MAX_WALL_DISTANCE_1) {
+				if (distance_m < MAX_WALL_DISTANCE_1
+						&& distance_l < MAX_WALL_DISTANCE_1
+						&& distance_r < MAX_WALL_DISTANCE_1) {
+					drive_backward(current_speed);
+					current_pointer = BACKWARD;
+				} else if (distance_l > distance_r) {
+					drive_left(current_speed);
+					current_pointer = LEFT;
+				} else {
+					drive_right(current_speed);
+					current_pointer = RIGHT;
+				}
 			} else {
-				drive_right(current_speed);
+				drive_forward(current_speed);
+				current_pointer = FORWARD;
 			}
 		}
 
-		delay(INTERVAL);
-
-		if (distance_b < MAX_WALL_DISTANCE_1) {
-			if (distance_l > distance_r) {
-				drive_left(current_speed);
+		if (BACKWARD == current_pointer) {
+			int backward_speed = get_speed(distance_b);
+			if (distance_b < MAX_WALL_DISTANCE_1
+					|| distance_b < MAX_WALL_DISTANCE_2
+					|| distance_b < MAX_WALL_DISTANCE_3) {
+				if (distance_l > distance_r) {
+					drive_left(current_speed);
+					current_pointer = LEFT;
+				} else {
+					drive_right(current_speed);
+					current_pointer = RIGHT;
+				}
 			} else {
-				drive_right(current_speed);
+				drive_backward(backward_speed);
+				current_pointer = BACKWARD;
 			}
 		}
 
-		delay(INTERVAL);
-
-		if (distance_l < MAX_WALL_DISTANCE_1 && distance_r < MAX_WALL_DISTANCE_1
-				&& distance_m < MAX_WALL_DISTANCE_1) {
-			drive_backward(current_speed);
-			delay(INTERVAL);
-			if (distance_l > distance_r) {
+		if (LEFT == current_pointer) {
+			if (distance_l < MAX_WALL_DISTANCE_1
+					&& distance_r < MAX_WALL_DISTANCE_1) {
 				drive_left(current_speed);
+				current_pointer = LEFT;
 			} else {
-				drive_right(current_speed);
+				drive_forward(current_speed);
+				current_pointer = FORWARD;
 			}
 		}
 
-		delay(INTERVAL);
-
-		if (distance_l >= MAX_WALL_DISTANCE_3) {
-			drive_forward(current_speed);
-		} else if (distance_l >= MAX_WALL_DISTANCE_2
-				&& distance_l < MAX_WALL_DISTANCE_3) {
-			drive_forward(current_speed);
-		} else if (distance_l >= 0 && distance_l < MAX_WALL_DISTANCE_1) {
-			drive_right(current_speed);
-		} else {
-			drive_forward(current_speed);
-		}
-
-		delay(INTERVAL);
-
-		if (distance_m >= MAX_WALL_DISTANCE_3) {
-			drive_forward(current_speed);
-		} else if (distance_m >= MAX_WALL_DISTANCE_2
-				&& distance_m < MAX_WALL_DISTANCE_3) {
-			drive_forward(current_speed);
-		} else if (distance_m >= 0 && distance_m < MAX_WALL_DISTANCE_1) {
-			if (distance_l > distance_r) {
-				drive_left(current_speed);
-			} else {
+		if (RIGHT == current_pointer) {
+			if (distance_r < MAX_WALL_DISTANCE_1
+					&& distance_l < MAX_WALL_DISTANCE_1) {
 				drive_right(current_speed);
+				current_pointer = RIGHT;
+			} else {
+				drive_forward(current_speed);
+				current_pointer = FORWARD;
 			}
-		} else {
-			drive_forward(current_speed);
-		}
-
-		delay(INTERVAL);
-
-		if (distance_r >= MAX_WALL_DISTANCE_3) {
-			drive_forward(current_speed);
-		} else if (distance_r >= MAX_WALL_DISTANCE_2
-				&& distance_r < MAX_WALL_DISTANCE_3) {
-			drive_forward(current_speed);
-		} else if (distance_r >= 0 && distance_r < MAX_WALL_DISTANCE_1) {
-			drive_left(current_speed);
-		} else {
-			drive_forward(current_speed);
 		}
 
 		delay(INTERVAL);
