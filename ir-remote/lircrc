@@ -25,13 +25,13 @@ end
 begin
 button = KEY_LEFT
 prog = irexec
-config = sh /home/pi/robot2/ir-remote/drive_left.sh
+config = sh /home/pi/robot2/ir-remote/turn_left.sh
 flags = quit
 end
 begin
 button = KEY_RIGHT
 prog = irexec
-config = sh /home/pi/robot2/ir-remote/drive_right.sh
+config = sh /home/pi/robot2/ir-remote/turn_right.sh
 flags = quit
 end
 begin

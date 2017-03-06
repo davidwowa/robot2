@@ -95,11 +95,11 @@ int main(void) {
 					drive_backward(current_speed);
 					current_pointer = BACKWARD;
 				} else if (distance_l > distance_r) {
-					drive_left(current_speed);
-					current_pointer = LEFT;
+					turn_left(current_speed);
+					current_pointer = TURN_LEFT;
 				} else {
-					drive_right(current_speed);
-					current_pointer = RIGHT;
+					turn_right(current_speed);
+					current_pointer = TURN_RIGHT;
 				}
 			} else {
 				drive_forward(current_speed);
@@ -113,11 +113,11 @@ int main(void) {
 					|| distance_b < MAX_WALL_DISTANCE_2
 					|| distance_b < MAX_WALL_DISTANCE_3) {
 				if (distance_l > distance_r) {
-					drive_left(current_speed);
-					current_pointer = LEFT;
+					turn_left(current_speed);
+					current_pointer = TURN_LEFT;
 				} else {
-					drive_right(current_speed);
-					current_pointer = RIGHT;
+					turn_right(current_speed);
+					current_pointer = TURN_RIGHT;
 				}
 			} else {
 				drive_backward(backward_speed);
@@ -125,22 +125,22 @@ int main(void) {
 			}
 		}
 
-		if (LEFT == current_pointer) {
+		if (TURN_LEFT == current_pointer) {
 			if (distance_l < MAX_WALL_DISTANCE_1
 					&& distance_r < MAX_WALL_DISTANCE_1) {
-				drive_left(current_speed);
-				current_pointer = LEFT;
+				turn_left(current_speed);
+				current_pointer = TURN_LEFT;
 			} else {
 				drive_forward(current_speed);
 				current_pointer = FORWARD;
 			}
 		}
 
-		if (RIGHT == current_pointer) {
+		if (TURN_RIGHT == current_pointer) {
 			if (distance_r < MAX_WALL_DISTANCE_1
 					&& distance_l < MAX_WALL_DISTANCE_1) {
-				drive_right(current_speed);
-				current_pointer = RIGHT;
+				turn_right(current_speed);
+				current_pointer = TURN_RIGHT;
 			} else {
 				drive_forward(current_speed);
 				current_pointer = FORWARD;
@@ -210,7 +210,7 @@ void drive_backward(void) {
 	softPwmWrite(MOTOR_L_U, PWM_MAX);
 	softPwmWrite(MOTOR_L_V, PWM_MIN);
 }
-void drive_left(void) {
+void turn_left(void) {
 	if (DEBUG == 1) {
 		cout << "left" << endl;
 	}
@@ -220,7 +220,7 @@ void drive_left(void) {
 	softPwmWrite(MOTOR_L_U, PWM_MIN);
 	softPwmWrite(MOTOR_L_V, PWM_MAX);
 }
-void drive_right(void) {
+void turn_right(void) {
 	if (DEBUG == 1) {
 		cout << "right" << endl;
 	}
@@ -261,7 +261,7 @@ void drive_backward(int pwm) {
 	softPwmWrite(MOTOR_L_U, pwm);
 	softPwmWrite(MOTOR_L_V, PWM_MIN);
 }
-void drive_left(int pwm) {
+void turn_left(int pwm) {
 	if (DEBUG == 1) {
 		cout << "left pwm " << pwm << endl;
 	}
@@ -271,7 +271,7 @@ void drive_left(int pwm) {
 	softPwmWrite(MOTOR_L_U, PWM_MIN);
 	softPwmWrite(MOTOR_L_V, pwm);
 }
-void drive_right(int pwm) {
+void turn_right(int pwm) {
 	if (DEBUG == 1) {
 		cout << "right pwm " << pwm << endl;
 	}

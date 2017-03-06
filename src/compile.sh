@@ -13,11 +13,11 @@ g++ drive_backward.cpp -o drive_backward -lwiringPi
 echo "compile motor test forward"
 g++ drive_forward.cpp -o drive_forward -lwiringPi
 echo "compile motor test left"
-g++ drive_left.cpp -o drive_left -lwiringPi
+g++ turn_left.cpp -o turn_left -lwiringPi
 echo "compile motor test right"
-g++ drive_right.cpp -o drive_right -lwiringPi
+g++ turn_right.cpp -o turn_right -lwiringPi
 echo "compile motor test stop"
-g++ drive_stop.cpp -o drive_stop -lwiringPi
+g++ stop.cpp -o stop -lwiringPi
 
 echo "compile playMP3"
 gcc -O2 -o playMP3 playMP3.c -lmpg123 -lao

@@ -17,9 +17,9 @@ int SPEED_2 = 175;
 int SPEED_1 = 150;
 
 int FORWARD = 1;
-int LEFT = 2;
+int TURN_LEFT = 2;
 int BACKWARD = 3;
-int RIGHT = 4;
+int TURN_RIGHT = 4;
 
 int INTERVAL = 600;
 

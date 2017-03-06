@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "stop driving"
+echo "test driving"
 /home/pi/robot2/src/test_motors

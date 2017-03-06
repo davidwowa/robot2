@@ -10,7 +10,7 @@ cd lib
 cd ../src
 echo "compile"
 ./compile.sh
-echo "setup ir"
+echo "setup ir remote"
 cd ../ir-remote
 ./setup.sh
 echo "ready"

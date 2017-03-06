@@ -65,12 +65,12 @@ int main(void) {
 	if (DEBUG == 1) {
 		cout << "drive right" << endl;
 	}
-	drive_right();
+	turn_right();
 	delay(3000);
 	if (DEBUG == 1) {
 		cout << "drive left" << endl;
 	}
-	drive_left();
+	turn_left();
 	delay(3000);
 
 	if (DEBUG == 1) {
@@ -122,7 +122,7 @@ void drive_backward(void) {
 	softPwmWrite(MOTOR_L_U, PWM_MAX);
 	softPwmWrite(MOTOR_L_V, PWM_MIN);
 }
-void drive_left(void) {
+void turn_left(void) {
 	if (DEBUG == 1) {
 		cout << "left" << endl;
 	}
@@ -132,7 +132,7 @@ void drive_left(void) {
 	softPwmWrite(MOTOR_L_U, PWM_MIN);
 	softPwmWrite(MOTOR_L_V, PWM_MAX);
 }
-void drive_right(void) {
+void turn_right(void) {
 	if (DEBUG == 1) {
 		cout << "right" << endl;
 	}

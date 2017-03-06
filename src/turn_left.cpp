@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : drive_right.cpp
+// Name        : drive_left.cpp
 // Author      : Zakrevskyy Wladimir David
 // Version     :
 // Copyright   :
@@ -21,7 +21,7 @@ int main(void) {
 
 	init();
 
-	drive_right();
+	turn_left();
 
 	return -1;
 }
@@ -48,13 +48,13 @@ void init(void) {
 	softPwmCreate(MOTOR_R_V, PWM_MIN, PWM_MAX);
 }
 
-void drive_right(void) {
+void turn_left(void) {
 	if (DEBUG == 1) {
-		cout << "right" << endl;
+		cout << "left" << endl;
 	}
-	digitalWrite(MOTOR_R_U, PWM_MAX);
-	digitalWrite(MOTOR_R_V, PWM_MIN);
+	digitalWrite(MOTOR_R_U, PWM_MIN);
+	digitalWrite(MOTOR_R_V, PWM_MAX);
 
-	digitalWrite(MOTOR_L_U, PWM_MAX);
-	digitalWrite(MOTOR_L_V, PWM_MIN);
+	digitalWrite(MOTOR_L_U, PWM_MIN);
+	digitalWrite(MOTOR_L_V, PWM_MAX);
 }
