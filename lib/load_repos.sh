@@ -25,8 +25,8 @@ git clone git://git.drogon.net/wiringPi
 #cmake ..
 #cd ../..
 
-echo "load libao for play wav and so on"
-git clone https://github.com/timonwong/libao.git
+#echo "load libao for play wav and so on"
+#git clone https://github.com/timonwong/libao.git
 
-echo "load libmpg for play mp3"
-git clone https://github.com/gypified/libmpg123.git
+#echo "load libmpg for play mp3"
+#git clone https://github.com/gypified/libmpg123.git
