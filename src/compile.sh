@@ -22,4 +22,7 @@ g++ stop.cpp -o stop -lwiringPi
 echo "compile playMP3"
 gcc -O2 -o playMP3 playMP3.c -lmpg123 -lao
 
+echo "compile display"
+g++ display.c -o display -lwiringPi
+
 echo "ready"
