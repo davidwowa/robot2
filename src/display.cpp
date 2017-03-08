@@ -9,12 +9,7 @@
 #include "../lib/ArduiPi_OLED/Adafruit_GFX.h"
 #include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
 
-#include "analytics.h"
-
-#include <iostream>
 #include <getopt.h>
-
-using namespace std;
 
 // Instantiate the display
 ArduiPi_OLED display;
@@ -33,13 +28,7 @@ OLED_ADAFRUIT_SPI_128x64,	// Default oled
 
 int main() {
 	if (!display.init(OLED_I2C_RESET, opts.oled)) {
-		if (DEBUG == 1) {
-			cout << "error on init oled i2c" << endl;
-		}
 	} else {
-		if (DEBUG == 1) {
-			cout << "init oled i2c" << endl;
-		}
 	}
 
 	display.begin();

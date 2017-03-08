@@ -5,7 +5,7 @@ echo "compile commons"
 g++ reset_pins.cpp -o reset_pins -lwiringPi
 echo "compile motor test"
 g++ test_motors.cpp -o test_motors -lwiringPi -lpthread
-echo "compile motor tes2t"
+echo "compile motor test 2"
 g++ test_motors_2.cpp -o test_motors_2 -lwiringPi -lpthread
 
 echo "compile motor test backward"
