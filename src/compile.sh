@@ -25,4 +25,7 @@ g++ stop.cpp -o stop -lwiringPi
 echo "compile display"
 g++ display.c -o display -lwiringPi
 
+echo "compile display2"
+g++ display2.cpp -o display2 -lwiringPi
+
 echo "ready"
