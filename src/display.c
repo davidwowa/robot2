@@ -40,15 +40,15 @@ void init(int display) {
 	wiringPiI2CWriteReg8(display, 0x00, 0xaf); // display on
 }
 void render(int display, char *bitmap) {
-	char m[128], n[64] = { 0 };
-	memcpy(&m, bitmap, 127);
-	for (int y = 0; y < 63; y++) {
-		for (int x = 0; x < 127; x++) {
+	char m[8], n[8] = { 0 };
+	memcpy(&m, bitmap, 8);
+	for (int y = 0; y < 8; y++) {
+		for (int x = 0; x < 8; x++) {
 //choose one:
 			n[y] |= (m[x] & (1 << (7 - y))) >> (7 - y) << x; // 270 grad drehen
 		}
 	}
-	for (int x = 127; x >= 0; x--) {
+	for (int x = 7; x >= 0; x--) {
 		int a = (int) n[x];
 		wiringPiI2CWriteReg8(display, 0x40, a);
 	}
@@ -92,5 +92,5 @@ int main() {
 	int display = wiringPiI2CSetup(0x3c);
 	init(display);
 	clear(display);
-	render(display, test2);
+	render(display, test);
 }
