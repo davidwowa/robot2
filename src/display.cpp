@@ -22,7 +22,7 @@ struct s_opts {
 
 // default options values
 s_opts opts = {
-OLED_ADAFRUIT_SPI_128x64,	// Default oled
+OLED_ADAFRUIT_I2C_128x64,	// Default oled
 		false				// Not verbose
 		};
 
@@ -62,6 +62,10 @@ int main() {
 		display.printf("  %03d %%", i);
 		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 16, 1,
 				i);
+
+		display.setCursor(0, 17);
+		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 16, 1,
+						i);
 		display.display();
 		usleep(25000 / sleep_divisor);
 	}
