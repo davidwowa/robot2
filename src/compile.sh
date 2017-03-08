@@ -19,8 +19,8 @@ g++ turn_right.cpp -o turn_right -lwiringPi
 echo "compile motor test stop"
 g++ stop.cpp -o stop -lwiringPi
 
-echo "compile playMP3"
-gcc -O2 -o playMP3 playMP3.c -lmpg123 -lao
+#echo "compile playMP3"
+#gcc -O2 -o playMP3 playMP3.c -lmpg123 -lao
 
 echo "compile display"
 g++ display.c -o display -lwiringPi

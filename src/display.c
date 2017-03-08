@@ -6,6 +6,8 @@
  *      Source: Amazon https://www.amazon.de/gp/product/B00NHKM1C0/ref=oh_aui_detailpage_o07_s00?ie=UTF8&psc=1
  */
 
+#include "display.h"
+
 #include <string.h>
 #include "../lib/wiringPi/wiringPi/wiringPiI2C.h"
 
@@ -73,8 +75,6 @@ void clear2(int display) {
 	}
 }
 int main(int argc, char *argv[]) {
-	char test[8] = { 0b00011000, 0b00111100, 0b01111110, 0b11111111, 0b01100110,
-			0b01100110, 0b01100110, 0b00000000, };
 	int display = wiringPiI2CSetup(0x3c);
 	init(display);
 	clear(display);
