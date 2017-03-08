@@ -7,6 +7,10 @@
 
 #include "../lib/wiringPi/wiringPi/wiringPiI2C.h"
 
+void reset_pos(int display);
+void init(int display);
+void clear(int display);
+
 int main() {
 	int display = wiringPiI2CSetup(0x3c);
 	init(display);
