@@ -50,7 +50,7 @@ void render(int display, char *bitmap) {
 	}
 	for (int x = 7; x >= 0; x--) {
 		int a = (int) n[x];
-		wiringPiI2CWriteReg8(display, 0x40, a);
+		wiringPiI2CWriteReg8(display, 0x40, 0x22);
 	}
 }
 void render2(int display, char *bitmap) {
