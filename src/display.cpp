@@ -27,9 +27,8 @@ OLED_ADAFRUIT_SPI_128x64,	// Default oled
 		};
 
 int main() {
-	if (!display.init(OLED_I2C_RESET, opts.oled)) {
-	} else {
-	}
+	if (!display.init(OLED_I2C_RESET, opts.oled))
+		exit(EXIT_FAILURE);
 
 	display.begin();
 	// init done
