@@ -40,7 +40,7 @@ void init(int display) {
 	wiringPiI2CWriteReg8(display, 0x00, 0xaf); // display on
 }
 void render(int display, char *bitmap) {
-	char m[8], n[8] = { 0 };
+	char m[128], n[64] = { 0 };
 	memcpy(&m, bitmap, 8);
 	for (int y = 0; y < 8; y++) {
 		for (int x = 0; x < 8; x++) {
