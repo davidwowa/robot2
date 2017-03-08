@@ -23,9 +23,6 @@ g++ stop.cpp -o stop -lwiringPi
 #gcc -O2 -o playMP3 playMP3.c -lmpg123 -lao
 
 echo "compile display"
-g++ display.c -o display -lwiringPi
-
-echo "compile display2"
-g++ display.cpp -o display2 -lwiringPi
+g++ display.cpp -o display -lArduiPi_OLED
 
 echo "ready"

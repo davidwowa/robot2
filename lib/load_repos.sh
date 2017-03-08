@@ -30,3 +30,9 @@ git clone git://git.drogon.net/wiringPi
 
 #echo "load libmpg for play mp3"
 #git clone https://github.com/gypified/libmpg123.git
+
+echo "load display library"
+git clone https://github.com/hallard/ArduiPi_OLED.git
+#echo "install display library"
+#cd ArduiPi_OLED
+#sudo make
