@@ -23,6 +23,6 @@ g++ stop.cpp -o stop -lwiringPi
 #gcc -O2 -o playMP3 playMP3.c -lmpg123 -lao
 
 echo "compile display"
-g++ display.cpp -o display -lArduiPi_OLED
+g++ -Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s -Wall -lArduiPi_OLED display.cpp -o display
 
 echo "ready"
