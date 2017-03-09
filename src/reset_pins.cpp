@@ -22,9 +22,13 @@ int main(void) {
 
 void set_working_pins_to_low(void) {
 	if (wiringPiSetup() == -1) {
-		cout << "error init wiring pi" << endl;
+		if (DEBUG == 1) {
+			cout << "error on wiring pi setup" << endl;
+		}
 	} else {
-		cout << "init wiring pi ok" << endl;
+		if (DEBUG == 1) {
+			cout << "wiring pi setup OK" << endl;
+		}
 	}
 	cout << "set all pins to INPUT" << endl;
 

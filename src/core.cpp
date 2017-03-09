@@ -7,15 +7,23 @@
 //============================================================================
 
 #include <iostream>
+#include <getopt.h>
+#include <sys/statvfs.h>
+#include <math.h>
 
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
 #include "../lib/wiringPi/wiringPi/softPwm.h"
 #include "../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
+#include "../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
+#include "../lib/ArduiPi_OLED/Adafruit_GFX.h"
+#include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
 
 #include "gpio.h"
 #include "analytics.h"
 #include "drive.h"
 #include "common.h"
+
+void display_data(int direction, int speed, int m, int r, int l, int b);
 
 using namespace std;
 
@@ -23,6 +31,21 @@ Sonar sonar_m;
 Sonar sonar_r;
 Sonar sonar_l;
 Sonar sonar_b;
+
+// Instantiate the display
+ArduiPi_OLED display;
+
+// Config Option
+struct s_opts {
+	int oled;
+	int verbose;
+};
+
+// default options values
+s_opts opts = {
+OLED_ADAFRUIT_I2C_128x64,	// Default oled
+		false				// Not verbose
+		};
 
 int get_minimal_distance(int m, int r, int l) {
 	int result = m;
@@ -86,6 +109,9 @@ int main(void) {
 		int current_minmal_distance = get_minimal_distance(distance_m,
 				distance_r, distance_l);
 		int current_speed = get_speed(current_minmal_distance);
+
+		display_data(current_pointer, current_speed, distance_m, distance_r,
+				distance_l, distance_b);
 
 		if (FORWARD == current_pointer) {
 			if (distance_m < MAX_WALL_DISTANCE_1) {
@@ -158,10 +184,22 @@ void init(void) {
 	}
 
 	if (wiringPiSetup() == -1) {
-		cout << "error on wiring pi setup" << endl;
+		if (DEBUG == 1) {
+			cout << "error on wiring pi setup" << endl;
+		}
 	} else {
-		cout << "wiring pi setup OK" << endl;
+		if (DEBUG == 1) {
+			cout << "wiring pi setup OK" << endl;
+		}
 	}
+
+	if (!display.init(OLED_I2C_RESET, opts.oled))
+		exit(EXIT_FAILURE);
+
+	display.begin();
+	// init done
+	display.clearDisplay();   // clears the screen  buffer
+	display.display();   	// display it (clear display)
 
 	if (DEBUG == 1) {
 		cout << "start sonars" << endl;
@@ -188,6 +226,78 @@ void init(void) {
 
 	softPwmCreate(MOTOR_R_U, PWM_MIN, PWM_MAX);
 	softPwmCreate(MOTOR_R_V, PWM_MIN, PWM_MAX);
+}
+
+void display_data(int direction, int speed, int m, int r, int l, int b) {
+	display.clearDisplay();
+	display.setTextColor(WHITE);
+	display.setCursor(0, 0);
+	display.setTextSize(2);
+	display.printf("d=%d", direction);
+
+	display.setCursor(50, 0);
+	display.printf("s=%d", speed);
+
+	if (m <= 100) {
+		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
+				m);
+	} else {
+		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
+				100);
+	}
+
+	if (r <= 100) {
+		display.drawHorizontalBargraph(0, 25, (int16_t) display.width(), 8, 1,
+				r);
+	} else {
+		display.drawHorizontalBargraph(0, 25, (int16_t) display.width(), 8, 1,
+				100);
+	}
+
+	if (l <= 100) {
+		display.drawHorizontalBargraph(0, 34, (int16_t) display.width(), 8, 1,
+				l);
+	} else {
+		display.drawHorizontalBargraph(0, 34, (int16_t) display.width(), 8, 1,
+				100);
+	}
+	if (b <= 100) {
+		display.drawHorizontalBargraph(0, 43, (int16_t) display.width(), 8, 1,
+				b);
+	} else {
+		display.drawHorizontalBargraph(0, 43, (int16_t) display.width(), 8, 1,
+				100);
+	}
+
+	display.setTextSize(1);
+	display.setCursor(0, 53);
+	display.printf("v.%d", 2);
+
+	FILE *temperatureFile;
+	double T = 0.0;
+
+	temperatureFile = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
+	if (temperatureFile) {
+		fscanf(temperatureFile, "%lf", &T);
+		fclose(temperatureFile);
+	}
+	T = T / 1000.0;
+	display.setCursor(30, 53);
+	display.printf("CPU:%.0fC", T);
+
+	struct statvfs buf;
+	double usage = 0.0;
+
+	if (!statvfs("/etc/rc.local", &buf)) {
+		unsigned long hd_used;
+		hd_used = buf.f_blocks - buf.f_bfree;
+		usage = ((double) hd_used) / ((double) buf.f_blocks) * 100;
+	}
+
+	display.setCursor(86, 53);
+	display.printf("HD:%.0f%%", round(usage));
+
+	display.display();
 }
 
 void drive_forward(void) {

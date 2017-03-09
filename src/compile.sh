@@ -1,6 +1,6 @@
 #!/bin/bash
-echo "compile core"
-g++ core.cpp -o core -lwiringPi ../lib/HC-SR04-Raspberry-Pi-C-/libSonar.cpp
+echo "compile core old"
+g++ core_old.cpp -o core_old -lwiringPi ../lib/HC-SR04-Raspberry-Pi-C-/libSonar.cpp
 
 echo "compile core 2"
 g++ core.cpp -o core -lwiringPi ../lib/HC-SR04-Raspberry-Pi-C-/libSonar.cpp -lArduiPi_OLED
@@ -27,6 +27,6 @@ g++ stop.cpp -o stop -lwiringPi
 #gcc -O2 -o playMP3 playMP3.c -lmpg123 -lao
 
 echo "compile display"
-g++ display.cpp -o display -lArduiPi_OLED
+g++ display_test.cpp -o display_test -lArduiPi_OLED
 
 echo "ready"

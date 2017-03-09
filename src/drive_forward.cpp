@@ -32,11 +32,14 @@ void init(void) {
 	}
 
 	if (wiringPiSetup() == -1) {
-		cout << "error on wiring pi setup" << endl;
+		if (DEBUG == 1) {
+			cout << "error on wiring pi setup" << endl;
+		}
 	} else {
-		cout << "wiring pi setup OK" << endl;
+		if (DEBUG == 1) {
+			cout << "wiring pi setup OK" << endl;
+		}
 	}
-
 	if (DEBUG == 1) {
 		cout << "prepare pwm gpio for motors" << endl;
 	}
