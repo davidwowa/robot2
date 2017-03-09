@@ -2,42 +2,38 @@
  * ip_address.cpp
  *
  *  Created on: 09.03.2017
- *      Author: David
+ *      Author: http://stackoverflow.com/questions/2283494/get-ip-address-of-an-interface-on-linux
  */
 
-
 #include <stdio.h>
+#include <unistd.h>
+#include <string.h> /* for strncpy */
+
 #include <sys/types.h>
-#include <ifaddrs.h>
+#include <sys/socket.h>
+#include <sys/ioctl.h>
 #include <netinet/in.h>
-#include <string.h>
+#include <net/if.h>
 #include <arpa/inet.h>
 
-int main (int argc, const char * argv[]) {
-    struct ifaddrs * ifAddrStruct=NULL;
-    struct ifaddrs * ifa=NULL;
-    void * tmpAddrPtr=NULL;
+int main() {
+	int fd;
+	struct ifreq ifr;
 
-    getifaddrs(&ifAddrStruct);
+	fd = socket(AF_INET, SOCK_DGRAM, 0);
 
-    for (ifa = ifAddrStruct; ifa != NULL; ifa = ifa->ifa_next) {
-        if (!ifa->ifa_addr) {
-            continue;
-        }
-        if (ifa->ifa_addr->sa_family == AF_INET) { // check it is IP4
-            // is a valid IP4 Address
-            tmpAddrPtr=&((struct sockaddr_in *)ifa->ifa_addr)->sin_addr;
-            char addressBuffer[INET_ADDRSTRLEN];
-            inet_ntop(AF_INET, tmpAddrPtr, addressBuffer, INET_ADDRSTRLEN);
-            printf("%s IP Address %s\n", ifa->ifa_name, addressBuffer);
-        } else if (ifa->ifa_addr->sa_family == AF_INET6) { // check it is IP6
-            // is a valid IP6 Address
-            tmpAddrPtr=&((struct sockaddr_in6 *)ifa->ifa_addr)->sin6_addr;
-            char addressBuffer[INET6_ADDRSTRLEN];
-            inet_ntop(AF_INET6, tmpAddrPtr, addressBuffer, INET6_ADDRSTRLEN);
-            printf("%s IP Address %s\n", ifa->ifa_name, addressBuffer);
-        }
-    }
-    if (ifAddrStruct!=NULL) freeifaddrs(ifAddrStruct);
-    return 0;
+	/* I want to get an IPv4 IP address */
+	ifr.ifr_addr.sa_family = AF_INET;
+
+	/* I want IP address attached to "wlan0" */
+	strncpy(ifr.ifr_name, "wlan0", IFNAMSIZ - 1);
+
+	ioctl(fd, SIOCGIFADDR, &ifr);
+
+	close(fd);
+
+	/* display result */
+	printf("%s\n", inet_ntoa(((struct sockaddr_in *) &ifr.ifr_addr)->sin_addr));
+
+	return 0;
 }
