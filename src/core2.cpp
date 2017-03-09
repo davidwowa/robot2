@@ -226,6 +226,8 @@ void init(void) {
 
 void display_data(int direction, int m, int r, int l, int b) {
 	display.clearDisplay();
+	display.display();
+	display.setTextColor(WHITE);
 	display.setCursor(0, 0);
 	//		display.print("Gauge Graph!\n");
 	display.setTextSize(2);
