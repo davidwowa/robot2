@@ -72,10 +72,21 @@ int main() {
 				i);
 
 		display.setTextSize(1);
-		display.setCursor(0, 44);
+		display.setCursor(0, 50);
 		display.printf("v.%03d", 1);
 
 		display.display();
 		usleep(25000 / sleep_divisor);
 	}
+	FILE *temperatureFile;
+	double T = 0.0;
+
+	temperatureFile = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
+	if (temperatureFile) {
+		fscanf(temperatureFile, "%lf", &T);
+		fclose(temperatureFile);
+	}
+	T = T / 1000.0;
+	display.setCursor(0, 55);
+	display.printf("CPU: %.0fC", T);
 }
