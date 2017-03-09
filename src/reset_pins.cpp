@@ -12,6 +12,7 @@
 
 #include "common.h"
 #include "gpio.h"
+#include "analytics.h"
 
 using namespace std;
 

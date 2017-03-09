@@ -41,6 +41,12 @@ config = sh /home/pi/robot2/ir-remote/test.sh
 flags = quit
 end
 begin
+button = KEY_2
+prog = irexec
+config = sh /home/pi/robot2/ir-remote/display_test.sh
+flags = quit
+end
+begin
 button = KEY_RESTART
 prog = irexec
 config = sh /home/pi/robot2/ir-remote/kill_procs.sh

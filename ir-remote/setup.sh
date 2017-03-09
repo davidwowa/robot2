@@ -8,6 +8,7 @@ chmod +x stop.sh
 chmod +x core.sh
 chmod +x test.sh
 chmod +x test2.sh
+chmod +x display_test.sh
 chmod +x kill_procs.sh
 echo "end setup"
 
