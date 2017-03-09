@@ -1,6 +1,10 @@
 #!/bin/bash
 echo "compile core"
 g++ core.cpp -o core -lwiringPi ../lib/HC-SR04-Raspberry-Pi-C-/libSonar.cpp
+
+echo "compile core 2"
+g++ core.cpp -o core -lwiringPi ../lib/HC-SR04-Raspberry-Pi-C-/libSonar.cpp -lArduiPi_OLED
+
 echo "compile commons"
 g++ reset_pins.cpp -o reset_pins -lwiringPi
 echo "compile motor test"
