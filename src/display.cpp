@@ -73,13 +73,14 @@ int main() {
 		display.drawHorizontalBargraph(0, 43, (int16_t) display.width(), 8, 1,
 				i);
 
-		display.setTextSize(1);
-		display.setCursor(0, 50);
-		display.printf("v.%03d", 1);
-
 		display.display();
 		usleep(25000 / sleep_divisor);
 	}
+
+	display.setTextSize(1);
+	display.setCursor(0, 53);
+	display.printf("v.%d", 1);
+
 	FILE *temperatureFile;
 	double T = 0.0;
 
@@ -89,8 +90,8 @@ int main() {
 		fclose(temperatureFile);
 	}
 	T = T / 1000.0;
-	display.setCursor(43, 50);
-	display.printf("CPU: %.0fC", T);
+	display.setCursor(30, 50);
+	display.printf("CPU:%.0fC", T);
 
 	struct statvfs buf;
 	double usage = 0.0;
@@ -102,7 +103,7 @@ int main() {
 	}
 
 	display.setCursor(86, 50);
-	display.printf("HD: %.0f%%", round(usage));
+	display.printf("HD:%.0f%%", round(usage));
 
 	display.display();
 }
