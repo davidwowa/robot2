@@ -226,10 +226,8 @@ void init(void) {
 
 void display_data(int direction, int speed, int m, int r, int l, int b) {
 	display.clearDisplay();
-	display.display();
 	display.setTextColor(WHITE);
 	display.setCursor(0, 0);
-	//		display.print("Gauge Graph!\n");
 	display.setTextSize(2);
 	display.printf("d=%d", direction);
 
@@ -269,7 +267,7 @@ void display_data(int direction, int speed, int m, int r, int l, int b) {
 
 	display.setTextSize(1);
 	display.setCursor(0, 53);
-	display.printf("v.%d", 1);
+	display.printf("v.%d", 2);
 
 	FILE *temperatureFile;
 	double T = 0.0;
