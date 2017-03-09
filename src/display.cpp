@@ -10,6 +10,8 @@
 #include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
 
 #include <getopt.h>
+#include <sys/statvfs.h>
+#include <math.h>
 
 // Instantiate the display
 ArduiPi_OLED display;
@@ -87,6 +89,20 @@ int main() {
 		fclose(temperatureFile);
 	}
 	T = T / 1000.0;
-	display.setCursor(0, 55);
+	display.setCursor(43, 50);
 	display.printf("CPU: %.0fC", T);
+
+	struct statvfs buf;
+	double usage = 0.0;
+
+	if (!statvfs("/etc/rc.local", &buf)) {
+		unsigned long hd_used;
+		hd_used = buf.f_blocks - buf.f_bfree;
+		usage = ((double) hd_used) / ((double) buf.f_blocks) * 100;
+	}
+
+	display.setCursor(86, 50);
+	display.printf("HD: %.0f%%", round(usage));
+
+	display.display();
 }
