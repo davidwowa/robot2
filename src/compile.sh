@@ -29,4 +29,7 @@ g++ stop.cpp -o stop -lwiringPi
 echo "compile display"
 g++ display_test.cpp -o display_test -lArduiPi_OLED
 
+echo "compile ip adress modul"
+g++ ip_address.cpp -o ip_address
+
 echo "ready"
