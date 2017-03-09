@@ -23,7 +23,7 @@
 #include "drive.h"
 #include "common.h"
 
-void display_data(int direction, int m, int r, int l, int b);
+void display_data(int direction, int speed, int m, int r, int l, int b);
 
 using namespace std;
 
@@ -94,9 +94,6 @@ int main(void) {
 		int distance_l = sonar_l.distance(30000);
 		int distance_b = sonar_b.distance(30000);
 
-		display_data(current_pointer, distance_m, distance_r, distance_l,
-				distance_b);
-
 		if (DEBUG == 1) {
 			cout << "Distance on middle sensor is " << distance_m << " cm."
 					<< endl;
@@ -112,6 +109,9 @@ int main(void) {
 		int current_minmal_distance = get_minimal_distance(distance_m,
 				distance_r, distance_l);
 		int current_speed = get_speed(current_minmal_distance);
+
+		display_data(current_pointer, current_speed, distance_m, distance_r,
+				distance_l, distance_b);
 
 		if (FORWARD == current_pointer) {
 			if (distance_m < MAX_WALL_DISTANCE_1) {
@@ -224,14 +224,17 @@ void init(void) {
 	softPwmCreate(MOTOR_R_V, PWM_MIN, PWM_MAX);
 }
 
-void display_data(int direction, int m, int r, int l, int b) {
+void display_data(int direction, int speed, int m, int r, int l, int b) {
 	display.clearDisplay();
 	display.display();
 	display.setTextColor(WHITE);
 	display.setCursor(0, 0);
 	//		display.print("Gauge Graph!\n");
 	display.setTextSize(2);
-	display.printf("d->%d", direction);
+	display.printf("d=%d", direction);
+
+	display.setCursor(50, 0);
+	display.printf("s=%d", speed);
 
 	if (m <= 100) {
 		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
