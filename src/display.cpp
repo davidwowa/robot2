@@ -53,12 +53,13 @@ int main() {
 
 	// horizontal bargraph tests
 	display.clearDisplay();
-	display.setTextSize(2);
+
 	display.setTextColor(WHITE);
 	for (int i = 0; i <= 100; i++) {
 		display.clearDisplay();
 		display.setCursor(0, 0);
 //		display.print("Gauge Graph!\n");
+		display.setTextSize(2);
 		display.printf("  %03d %%", i);
 
 		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
@@ -69,6 +70,10 @@ int main() {
 				i);
 		display.drawHorizontalBargraph(0, 43, (int16_t) display.width(), 8, 1,
 				i);
+
+		display.setTextSize(1);
+		display.setCursor(44, 0);
+		display.printf("v.%03d", 1);
 
 		display.display();
 		usleep(25000 / sleep_divisor);
