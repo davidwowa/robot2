@@ -90,7 +90,7 @@ int main() {
 		fclose(temperatureFile);
 	}
 	T = T / 1000.0;
-	display.setCursor(30, 50);
+	display.setCursor(30, 53);
 	display.printf("CPU:%.0fC", T);
 
 	struct statvfs buf;
@@ -102,7 +102,7 @@ int main() {
 		usage = ((double) hd_used) / ((double) buf.f_blocks) * 100;
 	}
 
-	display.setCursor(86, 50);
+	display.setCursor(86, 53);
 	display.printf("HD:%.0f%%", round(usage));
 
 	display.display();
