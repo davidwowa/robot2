@@ -72,7 +72,7 @@ int main() {
 				i);
 
 		display.setTextSize(1);
-		display.setCursor(44, 0);
+		display.setCursor(0, 44);
 		display.printf("v.%03d", 1);
 
 		display.display();
