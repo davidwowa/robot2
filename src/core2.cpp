@@ -229,7 +229,7 @@ void display_data(int direction, int m, int r, int l, int b) {
 	display.setCursor(0, 0);
 	//		display.print("Gauge Graph!\n");
 	display.setTextSize(2);
-	display.printf("direction->%d", direction);
+	display.printf("d->%d", direction);
 
 	if (m <= 100) {
 		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
@@ -240,25 +240,25 @@ void display_data(int direction, int m, int r, int l, int b) {
 	}
 
 	if (r <= 100) {
-		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 25, (int16_t) display.width(), 8, 1,
 				r);
 	} else {
-		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 25, (int16_t) display.width(), 8, 1,
 				100);
 	}
 
 	if (l <= 100) {
-		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 34, (int16_t) display.width(), 8, 1,
 				l);
 	} else {
-		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 34, (int16_t) display.width(), 8, 1,
 				100);
 	}
 	if (b <= 100) {
-		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 43, (int16_t) display.width(), 8, 1,
 				b);
 	} else {
-		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 43, (int16_t) display.width(), 8, 1,
 				100);
 	}
 
