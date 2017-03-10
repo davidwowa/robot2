@@ -39,7 +39,7 @@ void display_data(int direction, int speed, int m, int r, int l, int b) {
 	display.setTextSize(2);
 	display.printf("d=%d", direction);
 
-	display.setCursor(50, 0);
+	display.setCursor(40, 0);
 	display.printf("s=%d", speed);
 
 	if (m <= 100) {
@@ -147,7 +147,7 @@ std::string get_ip_address() {
 	return str;
 }
 
-int main(){
+int main() {
 	init_display();
 	display_data(1, 123, 20, 50, 80, 90);
 }
