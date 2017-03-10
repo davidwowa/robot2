@@ -74,21 +74,21 @@ void display_data(int direction, int speed, int m, int r, int l, int b) {
 	}
 
 	display.setTextSize(1);
-	display.setCursor(0, 32);
+	display.setCursor(0, 36);
 	display.printf("v.%d", 2);
 
 	double cpu_temp = get_cpu_usage_data();
 
-	display.setCursor(30, 32);
+	display.setCursor(30, 36);
 	display.printf("CPU:%.0fC", cpu_temp);
 
 	double usage = get_hdd_usage_data();
 
-	display.setCursor(86, 32);
+	display.setCursor(86, 36);
 	display.printf("HD:%.0f%%", usage);
 
 	string ip = get_ip_address();
-	display.setCursor(0, 40);
+	display.setCursor(0, 42);
 	display.printf("IP:%.0s", usage);
 
 //	system("date -> date.txt");
