@@ -4,22 +4,8 @@
  *  Created on: 09.03.2017
  *      Author: Wladimir David Zakrevskyy
  */
+
 #include "display.h"
-
-#include <stdio.h>
-#include <sys/types.h>
-#include <ifaddrs.h>
-#include <netinet/in.h>
-#include <string.h>
-#include <arpa/inet.h>
-#include <getopt.h>
-#include <sys/statvfs.h>
-#include <math.h>
-#include <string>
-
-#include "../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
-#include "../lib/ArduiPi_OLED/Adafruit_GFX.h"
-#include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
 
 // Instantiate the display
 ArduiPi_OLED display;
@@ -57,52 +43,53 @@ void display_data(int direction, int speed, int m, int r, int l, int b) {
 	display.printf("s=%d", speed);
 
 	if (m <= 100) {
-		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 6, 1,
 				m);
 	} else {
-		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 6, 1,
 				100);
 	}
 
 	if (r <= 100) {
-		display.drawHorizontalBargraph(0, 25, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 23, (int16_t) display.width(), 6, 1,
 				r);
 	} else {
-		display.drawHorizontalBargraph(0, 25, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 23, (int16_t) display.width(), 6, 1,
 				100);
 	}
 
 	if (l <= 100) {
-		display.drawHorizontalBargraph(0, 34, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 30, (int16_t) display.width(), 6, 1,
 				l);
 	} else {
-		display.drawHorizontalBargraph(0, 34, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 30, (int16_t) display.width(), 6, 1,
 				100);
 	}
 	if (b <= 100) {
-		display.drawHorizontalBargraph(0, 43, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 37, (int16_t) display.width(), 6, 1,
 				b);
 	} else {
-		display.drawHorizontalBargraph(0, 43, (int16_t) display.width(), 8, 1,
+		display.drawHorizontalBargraph(0, 37, (int16_t) display.width(), 6, 1,
 				100);
 	}
 
 	display.setTextSize(1);
-	display.setCursor(0, 53);
+	display.setCursor(0, 38);
 	display.printf("v.%d", 2);
 
 	double cpu_temp = get_cpu_usage_data();
 
-	display.setCursor(30, 53);
+	display.setCursor(30, 38);
 	display.printf("CPU:%.0fC", cpu_temp);
 
 	double usage = get_hdd_usage_data();
 
-	display.setCursor(86, 53);
+	display.setCursor(86, 38);
 	display.printf("HD:%.0f%%", usage);
 
-	// string ip = get_ip_address();
-	// TODO display data
+	string ip = get_ip_address();
+	display.setCursor(0, 48);
+	display.printf("IP:%.0s", usage);
 
 	system("date -> date.txt");
 
@@ -134,6 +121,33 @@ double get_hdd_usage_data() {
 	return round(usage);
 }
 
-void get_ip_address(char* out) {
+std::string get_ip_address() {
+	int fd;
+	struct ifreq ifr;
 
+	fd = socket(AF_INET, SOCK_DGRAM, 0);
+
+	/* I want to get an IPv4 IP address */
+	ifr.ifr_addr.sa_family = AF_INET;
+
+	/* I want IP address attached to "wlan0" */
+	strncpy(ifr.ifr_name, "wlan0", IFNAMSIZ - 1);
+
+	ioctl(fd, SIOCGIFADDR, &ifr);
+
+	close(fd);
+
+	/* display result */
+	printf("%s\n", inet_ntoa(((struct sockaddr_in *) &ifr.ifr_addr)->sin_addr));
+
+	char* out = inet_ntoa(((struct sockaddr_in *) &ifr.ifr_addr)->sin_addr);
+
+	string str(out);
+
+	return str;
+}
+
+int main(){
+	init_display();
+	display_data(1, 123, 20, 50, 80, 90);
 }
