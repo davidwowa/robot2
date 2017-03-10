@@ -88,7 +88,7 @@ void display_data(int direction, int speed, int m, int r, int l, int b) {
 	display.printf("HD:%.0f%%", usage);
 
 	string ip = get_ip_address();
-	display.setCursor(0, 42);
+	display.setCursor(0, 43);
 	display.printf("IP:%.0s", usage);
 
 //	system("date -> date.txt");
