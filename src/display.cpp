@@ -43,55 +43,55 @@ void display_data(int direction, int speed, int m, int r, int l, int b) {
 	display.printf("s=%d", speed);
 
 	if (m <= 100) {
-		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 6, 1,
+		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 4, 1,
 				m);
 	} else {
-		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 6, 1,
+		display.drawHorizontalBargraph(0, 16, (int16_t) display.width(), 4, 1,
 				100);
 	}
 
 	if (r <= 100) {
-		display.drawHorizontalBargraph(0, 23, (int16_t) display.width(), 6, 1,
+		display.drawHorizontalBargraph(0, 21, (int16_t) display.width(), 4, 1,
 				r);
 	} else {
-		display.drawHorizontalBargraph(0, 23, (int16_t) display.width(), 6, 1,
+		display.drawHorizontalBargraph(0, 21, (int16_t) display.width(), 4, 1,
 				100);
 	}
 
 	if (l <= 100) {
-		display.drawHorizontalBargraph(0, 30, (int16_t) display.width(), 6, 1,
+		display.drawHorizontalBargraph(0, 26, (int16_t) display.width(), 4, 1,
 				l);
 	} else {
-		display.drawHorizontalBargraph(0, 30, (int16_t) display.width(), 6, 1,
+		display.drawHorizontalBargraph(0, 26, (int16_t) display.width(), 4, 1,
 				100);
 	}
 	if (b <= 100) {
-		display.drawHorizontalBargraph(0, 37, (int16_t) display.width(), 6, 1,
+		display.drawHorizontalBargraph(0, 31, (int16_t) display.width(), 4, 1,
 				b);
 	} else {
-		display.drawHorizontalBargraph(0, 37, (int16_t) display.width(), 6, 1,
+		display.drawHorizontalBargraph(0, 31, (int16_t) display.width(), 4, 1,
 				100);
 	}
 
 	display.setTextSize(1);
-	display.setCursor(0, 38);
+	display.setCursor(0, 32);
 	display.printf("v.%d", 2);
 
 	double cpu_temp = get_cpu_usage_data();
 
-	display.setCursor(30, 38);
+	display.setCursor(30, 32);
 	display.printf("CPU:%.0fC", cpu_temp);
 
 	double usage = get_hdd_usage_data();
 
-	display.setCursor(86, 38);
+	display.setCursor(86, 32);
 	display.printf("HD:%.0f%%", usage);
 
 	string ip = get_ip_address();
-	display.setCursor(0, 48);
+	display.setCursor(0, 40);
 	display.printf("IP:%.0s", usage);
 
-	system("date -> date.txt");
+//	system("date -> date.txt");
 
 	display.display();
 }
@@ -137,10 +137,10 @@ std::string get_ip_address() {
 
 	close(fd);
 
-	/* display result */
-	printf("%s\n", inet_ntoa(((struct sockaddr_in *) &ifr.ifr_addr)->sin_addr));
-
 	char* out = inet_ntoa(((struct sockaddr_in *) &ifr.ifr_addr)->sin_addr);
+
+	/* display result */
+	printf("IP:%s\n", out);
 
 	string str(out);
 
