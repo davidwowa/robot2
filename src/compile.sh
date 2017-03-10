@@ -26,7 +26,10 @@ g++ stop.cpp -o stop -lwiringPi
 #echo "compile playMP3"
 #gcc -O2 -o playMP3 playMP3.c -lmpg123 -lao
 
-echo "compile display"
+echo "compile test display"
+g++ display.cpp -o display -lArduiPi_OLED
+
+echo "compile test display"
 g++ display_test.cpp -o display_test -lArduiPi_OLED
 
 echo "compile ip adress modul"
