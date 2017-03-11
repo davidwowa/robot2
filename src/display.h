@@ -34,7 +34,7 @@ using namespace std;
 extern void init_display(void);
 
 extern void display_common_data(void);
-extern void display_drive_data(int direction, int speed, int m, int r, int l,
+extern void display_data(int direction, int speed, int m, int r, int l,
 		int b);
 extern void display_manual_drive_data();
 

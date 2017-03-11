@@ -145,7 +145,7 @@ std::string get_ip_address() {
 	return str;
 }
 
-int main() {
-	init_display();
-	display_data(1, 123, 20, 50, 80, 90);
-}
+//int main() {
+//	init_display();
+//	display_data(1, 123, 20, 50, 80, 90);
+//}

@@ -5,7 +5,6 @@
  *      Author: Wladimir David Zakrevskyy
  */
 #include "sonar_test.h"
-#include "display.h"
 
 Sonar sonar_m;
 Sonar sonar_r;
@@ -38,7 +37,7 @@ int main(void) {
 			cout << "---" << endl;
 		}
 
-		display_drive_data(0, 0, distance_m, distance_r, distance_l,
+		display_data(0, 0, distance_m, distance_r, distance_l,
 				distance_b);
 	}
 	return -1;
