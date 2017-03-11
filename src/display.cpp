@@ -89,7 +89,10 @@ void display_data(int direction, int speed, int m, int r, int l, int b) {
 
 	string ip = get_ip_address();
 	display.setCursor(0, 44);
-	display.printf("IP:%s", ip);
+
+	const char* arr = ip.c_str();
+
+	display.print(arr);
 
 //	system("date -> date.txt");
 
