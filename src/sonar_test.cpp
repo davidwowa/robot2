@@ -1,3 +1,9 @@
+/*
+ * sonar_test.cpp
+ *
+ *  Created on: 11.03.2017
+ *      Author: Wladimir David Zakrevskyy
+ */
 #include "sonar_test.h"
 
 Sonar sonar_m;
@@ -12,6 +18,7 @@ int main(void) {
 		cout << "display show" << endl;
 	}
 
+	init_display();
 	while (1) {
 
 		int distance_m = sonar_m.distance(30000);
