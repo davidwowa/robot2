@@ -38,7 +38,7 @@ int main(void) {
 			cout << "---" << endl;
 		}
 
-		display_data(0, 0, distance_m, distance_r, distance_l, distance_b);
+		display_drive_data(0, 0, distance_m, distance_r, distance_l, distance_b);
 
 		return -1;
 	}
