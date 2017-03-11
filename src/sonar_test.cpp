@@ -5,6 +5,7 @@
  *      Author: Wladimir David Zakrevskyy
  */
 #include "sonar_test.h"
+#include "display.h"
 
 Sonar sonar_m;
 Sonar sonar_r;

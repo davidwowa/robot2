@@ -23,8 +23,6 @@
 #include "analytics.h"
 #include "common.h"
 
-#include "display.h"
-
 using namespace std;
 
 void init(void);
