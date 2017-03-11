@@ -138,7 +138,7 @@ std::string get_ip_address() {
 	char* out = inet_ntoa(((struct sockaddr_in *) &ifr.ifr_addr)->sin_addr);
 
 	/* display result */
-	printf("IP:%s\n", out);
+	//printf("IP:%s\n", out);
 
 	string str(out);
 
