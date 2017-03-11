@@ -9,5 +9,6 @@
 #define ANALYTICS_H_
 
 int DEBUG = 0;
+int LOG = 0;
 
 #endif /* ANALYTICS_H_ */

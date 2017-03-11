@@ -8,23 +8,23 @@
 #ifndef DRIVE_H_
 #define DRIVE_H_
 
-void init(void);
+extern void init_drive(void);
 
-void drive_backward(void);
-void drive_forward(void);
-void turn_left(void);
-void turn_right(void);
+extern void drive_backward(void);
+extern void drive_forward(void);
+extern void turn_left(void);
+extern void turn_right(void);
 
-void drive_backward(int pwm);
-void drive_forward(int pwm);
-void turn_left(int pwm);
-void turn_right(int pwm);
+extern void drive_backward(int pwm);
+extern void drive_forward(int pwm);
+extern void turn_left(int pwm);
+extern void turn_right(int pwm);
 
-void drive_backward(int pin, int pwm);
-void drive_forward(int pin, int pwm);
-void turn_left(int pin, int pwm);
-void turn_right(int pin, int pwm);
+extern void drive_backward(int pin, int pwm);
+extern void drive_forward(int pin, int pwm);
+extern void turn_left(int pin, int pwm);
+extern void turn_right(int pin, int pwm);
 
-void stop(void);
+extern void stop(void);
 
 #endif /* DRIVE_H_ */

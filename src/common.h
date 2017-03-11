@@ -8,13 +8,38 @@
 #ifndef COMMON_H_
 #define COMMON_H_
 
-int MAX_WALL_DISTANCE_3 = 30;
+#include <iostream>
+#include <getopt.h>
+#include <math.h>
+
+#include <stdio.h>
+#include <string.h>
+#include <string>
+
+#include <sys/types.h>
+#include <sys/statvfs.h>
+#include <sys/socket.h>
+#include <sys/ioctl.h>
+
+#include <ifaddrs.h>
+#include <net/if.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
+#include "../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../lib/wiringPi/wiringPi/softPwm.h"
+#include "../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
+#include "../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
+#include "../lib/ArduiPi_OLED/Adafruit_GFX.h"
+#include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
+
+int MAX_WALL_DISTANCE_3 = 40;
 int MAX_WALL_DISTANCE_2 = 20;
 int MAX_WALL_DISTANCE_1 = 10;
 
 int SPEED_3 = 200;
-int SPEED_2 = 175;
-int SPEED_1 = 150;
+int SPEED_2 = 165;
+int SPEED_1 = 125;
 
 int FORWARD = 1;
 int TURN_LEFT = 2;
@@ -23,6 +48,11 @@ int TURN_RIGHT = 4;
 
 int INTERVAL = 600;
 
-void set_working_pins_to_low(void);
+extern void init_wiringPi(void);
+extern void init_PWM(void);
+
+extern void set_working_pins_to_low(void);
+
+using namespace std;
 
 #endif /* COMMON_H_ */

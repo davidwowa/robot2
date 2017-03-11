@@ -19,6 +19,8 @@
 
 using namespace std;
 
+void init(void);
+
 Sonar sonar_m;
 Sonar sonar_r;
 Sonar sonar_l;

@@ -24,6 +24,7 @@
 #include "common.h"
 
 void display_data(int direction, int speed, int m, int r, int l, int b);
+void init(void);
 
 using namespace std;
 
