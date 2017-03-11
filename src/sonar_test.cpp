@@ -15,7 +15,7 @@ int main(void) {
 	if (DEBUG == 1) {
 		cout << "display show" << endl;
 	}
-
+	init();
 	init_display();
 	while (1) {
 
@@ -41,4 +41,29 @@ int main(void) {
 
 		return -1;
 	}
+}
+
+void init(void) {
+	if (DEBUG == 1) {
+		cout << "init wiring pi" << endl;
+	}
+
+	if (wiringPiSetup() == -1) {
+		if (DEBUG == 1) {
+			cout << "error on wiring pi setup" << endl;
+		}
+	} else {
+		if (DEBUG == 1) {
+			cout << "wiring pi setup OK" << endl;
+		}
+	}
+
+	if (DEBUG == 1) {
+		cout << "start sonars" << endl;
+	}
+
+	sonar_m.init(TRIGGER_M, ECHO_M);
+	sonar_r.init(TRIGGER_R, ECHO_R);
+	sonar_l.init(TRIGGER_L, ECHO_L);
+	sonar_b.init(TRIGGER_B, ECHO_B);
 }
