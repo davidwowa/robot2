@@ -27,4 +27,6 @@
 
 using namespace std;
 
+void init(void);
+
 #endif /* SONAR_TEST_H_ */
