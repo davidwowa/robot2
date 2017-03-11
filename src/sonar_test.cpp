@@ -17,6 +17,7 @@ int main(void) {
 		cout << "display show" << endl;
 	}
 	init();
+
 	init_display();
 	while (1) {
 
@@ -39,9 +40,8 @@ int main(void) {
 
 		display_drive_data(0, 0, distance_m, distance_r, distance_l,
 				distance_b);
-
-		return -1;
 	}
+	return -1;
 }
 
 void init(void) {
