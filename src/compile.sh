@@ -33,7 +33,7 @@ echo "compile test display"
 g++ display_test.cpp -o display_test -lArduiPi_OLED
 
 echo "compile test sonar test"
-g++ sonar_test.cpp -o sonar_test -lArduiPi_OLED
+g++ sonar_test.cpp -o sonar_test -lArduiPi_OLED ../lib/HC-SR04-Raspberry-Pi-C-/libSonar.cpp
 
 echo "compile ip adress modul"
 g++ ip_address.cpp -o ip_address
