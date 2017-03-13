@@ -6,6 +6,7 @@
  */
 
 #include "display.h"
+#include "common.h"
 
 using namespace std;
 
