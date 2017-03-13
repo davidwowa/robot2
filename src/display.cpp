@@ -5,6 +5,10 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
+#include <getopt.h>
+#include <sys/statvfs.h>
+#include <math.h>
+
 #include "display.h"
 #include "common.h"
 
