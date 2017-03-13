@@ -16,7 +16,6 @@ extern int get_distance_r();
 extern int get_distance_l();
 extern int get_distance_b();
 
-extern void init_sonar(void);
 extern int get_minimal_distance(int m, int r, int l);
 
 using namespace std;
