@@ -8,22 +8,7 @@
 #ifndef DISPLAY_H_
 #define DISPLAY_H_
 
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
-#include <string>
-
-#include <sys/types.h>
-#include <sys/statvfs.h>
-#include <sys/socket.h>
-#include <sys/ioctl.h>
-
-#include <ifaddrs.h>
-#include <net/if.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-
-#include <getopt.h>
+#include "common.h"
 
 #include "../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
 #include "../lib/ArduiPi_OLED/Adafruit_GFX.h"

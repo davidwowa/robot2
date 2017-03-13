@@ -26,10 +26,6 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-#include "../lib/wiringPi/wiringPi/wiringPi.h"
-#include "../lib/wiringPi/wiringPi/softPwm.h"
-#include "../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
-
 int MAX_WALL_DISTANCE_3 = 30;
 int MAX_WALL_DISTANCE_2 = 20;
 int MAX_WALL_DISTANCE_1 = 10;

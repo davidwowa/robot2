@@ -8,10 +8,6 @@
 #ifndef DRIVE_H_
 #define DRIVE_H_
 
-#include "common.h"
-#include "analytics.h"
-#include "gpio.h"
-
 extern void init_drive(void);
 
 extern void drive_backward(void);

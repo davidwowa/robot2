@@ -5,8 +5,11 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
-#include "display.h"
+#include "analytics.h"
+#include "gpio.h"
 #include "common.h"
+#include "wiring_pi.h"
+#include "display.h"
 
 using namespace std;
 

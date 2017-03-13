@@ -4,9 +4,11 @@
  *  Created on: 11.03.2017
  *      Author: Wladimir David Zakrevskyy
  */
-#include "common.h"
+
 #include "analytics.h"
 #include "gpio.h"
+#include "wiring_pi.h"
+#include "common.h"
 
 void init_wiringPi(void) {
 	if (DEBUG == 1) {

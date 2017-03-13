@@ -4,6 +4,11 @@
  *  Created on: 11.03.2017
  *      Author: Wladimir David Zakrevskyy
  */
+
+#include "analytics.h"
+#include "gpio.h"
+#include "common.h"
+#include "wiring_pi.h"
 #include "sonar.h"
 
 Sonar sonar_m;

@@ -6,6 +6,7 @@
  */
 
 #include "display.h"
+#include "common.h"
 
 // Instantiate the display
 ArduiPi_OLED display;

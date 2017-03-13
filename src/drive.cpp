@@ -5,6 +5,12 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
+
+#include "analytics.h"
+#include "gpio.h"
+#include "wiring_pi.h"
+#include "common.h"
+
 #include "drive.h"
 
 void init_drive(void) {
