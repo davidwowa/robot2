@@ -5,10 +5,6 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
-#include "gpio.h"
-#include "analytics.h"
-#include "common.h"
-
 #include "display.h"
 
 using namespace std;

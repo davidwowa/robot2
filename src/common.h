@@ -29,9 +29,6 @@
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
 #include "../lib/wiringPi/wiringPi/softPwm.h"
 #include "../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
-#include "../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
-#include "../lib/ArduiPi_OLED/Adafruit_GFX.h"
-#include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
 
 int MAX_WALL_DISTANCE_3 = 30;
 int MAX_WALL_DISTANCE_2 = 20;
