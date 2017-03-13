@@ -32,6 +32,15 @@ void init_display() {
 	display.display();   	// display it (clear display)
 }
 
+// 0-16 -> 0
+// 16-21 -> 1
+// 22-26 -> 2
+// 27-31 -> 3
+// 32-36 -> 4
+// 37-41 -> 5
+// 42-46 -> 6
+void draw_text(std::string, int line_number){}
+
 void display_data(int direction, int speed, int m, int r, int l, int b) {
 	display.clearDisplay();
 	display.setTextColor(WHITE);

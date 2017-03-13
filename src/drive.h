@@ -8,6 +8,10 @@
 #ifndef DRIVE_H_
 #define DRIVE_H_
 
+#include "common.h"
+#include "analytics.h"
+#include "gpio.h"
+
 extern void init_drive(void);
 
 extern void drive_backward(void);
@@ -25,6 +29,6 @@ extern void drive_forward(int pin, int pwm);
 extern void turn_left(int pin, int pwm);
 extern void turn_right(int pin, int pwm);
 
-extern void stop(void);
+extern void stop_motors(void);
 
 #endif /* DRIVE_H_ */

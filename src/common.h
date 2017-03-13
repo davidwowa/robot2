@@ -33,7 +33,7 @@
 #include "../lib/ArduiPi_OLED/Adafruit_GFX.h"
 #include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
 
-int MAX_WALL_DISTANCE_3 = 40;
+int MAX_WALL_DISTANCE_3 = 30;
 int MAX_WALL_DISTANCE_2 = 20;
 int MAX_WALL_DISTANCE_1 = 10;
 
@@ -52,6 +52,8 @@ extern void init_wiringPi(void);
 extern void init_PWM(void);
 
 extern void set_working_pins_to_low(void);
+
+extern int is_running(std::string file_path);
 
 using namespace std;
 

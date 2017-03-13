@@ -6,7 +6,6 @@
  */
 
 #include "drive.h"
-#include "common.h"
 
 void init_drive(void) {
 	init_wiringPi();
@@ -112,7 +111,7 @@ void turn_right(int pwm) {
 	softPwmWrite(MOTOR_L_V, PWM_MIN);
 }
 
-void stop(void) {
+void stop_motors(void) {
 	if (DEBUG == 1) {
 		cout << "stop" << endl;
 	}

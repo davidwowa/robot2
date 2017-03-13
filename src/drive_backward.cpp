@@ -1,16 +1,12 @@
 //============================================================================
 // Name        : drive_backward.cpp
 // Author      : Zakrevskyy Wladimir David
-// Version     :
+// Version     : v.0.1
 // Copyright   :
 // Description :
 //============================================================================
 
-#include <iostream>
-
-#include "../lib/wiringPi/wiringPi/wiringPi.h"
-#include "../lib/wiringPi/wiringPi/softPwm.h"
-
+#include "common.h"
 #include "gpio.h"
 #include "analytics.h"
 #include "drive.h"
@@ -19,46 +15,9 @@ using namespace std;
 
 int main(void) {
 
-	init();
+	init_drive();
 
 	drive_backward();
 
-	return -1;
-}
-
-void init(void) {
-	if (DEBUG == 1) {
-		cout << "init wiring pi" << endl;
-	}
-
-	if (wiringPiSetup() == -1) {
-		if (DEBUG == 1) {
-			cout << "error on wiring pi setup" << endl;
-		}
-	} else {
-		if (DEBUG == 1) {
-			cout << "wiring pi setup OK" << endl;
-		}
-	}
-
-	if (DEBUG == 1) {
-		cout << "prepare pwm gpio for motors" << endl;
-	}
-	// prepare GPIOs for motors
-	softPwmCreate(MOTOR_L_U, PWM_MIN, PWM_MAX);
-	softPwmCreate(MOTOR_L_V, PWM_MIN, PWM_MAX);
-
-	softPwmCreate(MOTOR_R_U, PWM_MIN, PWM_MAX);
-	softPwmCreate(MOTOR_R_V, PWM_MIN, PWM_MAX);
-}
-
-void drive_backward(void) {
-	if (DEBUG == 1) {
-		cout << "backward" << endl;
-	}
-	digitalWrite(MOTOR_R_U, PWM_MIN);
-	digitalWrite(MOTOR_R_V, PWM_MAX);
-
-	digitalWrite(MOTOR_L_U, PWM_MAX);
-	digitalWrite(MOTOR_L_V, PWM_MIN);
+	return 1;
 }
