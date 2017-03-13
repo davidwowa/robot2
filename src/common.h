@@ -26,20 +26,20 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-extern int MAX_WALL_DISTANCE_3 = 30;
-extern int MAX_WALL_DISTANCE_2 = 20;
-extern int MAX_WALL_DISTANCE_1 = 10;
+extern const int MAX_WALL_DISTANCE_3 = 30;
+extern const int MAX_WALL_DISTANCE_2 = 20;
+extern const int MAX_WALL_DISTANCE_1 = 10;
 
-extern int SPEED_3 = 200;
-extern int SPEED_2 = 165;
-extern int SPEED_1 = 125;
+extern const int SPEED_3 = 200;
+extern const int SPEED_2 = 165;
+extern const int SPEED_1 = 125;
 
-extern int FORWARD = 1;
-extern int TURN_LEFT = 2;
-extern int BACKWARD = 3;
-extern int TURN_RIGHT = 4;
+extern const int FORWARD = 1;
+extern const int TURN_LEFT = 2;
+extern const int BACKWARD = 3;
+extern const int TURN_RIGHT = 4;
 
-extern int INTERVAL = 600;
+extern const int INTERVAL = 600;
 
 extern void init_wiringPi(void);
 extern void init_PWM(void);

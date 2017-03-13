@@ -37,36 +37,36 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
-extern int DISPLAY_SDA = 8;
-extern int DISPLAY_SCL = 9;
+extern const int DISPLAY_SDA = 8;
+extern const int DISPLAY_SCL = 9;
 
 // middle sonar sensor
-extern int ECHO_M = 7;
-extern int TRIGGER_M = 0;
+extern const int  ECHO_M = 7;
+extern const int  TRIGGER_M = 0;
 
 // right sonar sensor
-extern int ECHO_R = 2;
-extern int TRIGGER_R = 3;
+extern const int ECHO_R = 2;
+extern const int TRIGGER_R = 3;
 
 // left sonar sensor
-extern int ECHO_L = 12;
-extern int TRIGGER_L = 13;
+extern const int ECHO_L = 12;
+extern const int TRIGGER_L = 13;
 
 // back sonar sensor
-extern int ECHO_B = 14;
-extern int TRIGGER_B = 30;
+extern const int ECHO_B = 14;
+extern const int TRIGGER_B = 30;
 
 // motor pins (pwm)
 // motor left
-extern int MOTOR_L_U = 26;
-extern int MOTOR_L_V = 27;
+extern const int MOTOR_L_U = 26;
+extern const int MOTOR_L_V = 27;
 
 // motor right
-extern int MOTOR_R_U = 28;
-extern int MOTOR_R_V = 29;
+extern const int MOTOR_R_U = 28;
+extern const int MOTOR_R_V = 29;
 
 // pwm
-extern int PWM_MAX = 200;
-extern int PWM_MIN = 0;
+extern const int PWM_MAX = 200;
+extern const int PWM_MIN = 0;
 
 #endif /* GPIO_H_ */
