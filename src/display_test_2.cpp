@@ -29,3 +29,19 @@ int main(void) {
 
 	return 1;
 }
+
+void init_wiringPi(void) {
+	if (DEBUG == 1) {
+		cout << "init wiring pi" << endl;
+	}
+
+	if (wiringPiSetup() == -1) {
+		if (DEBUG == 1) {
+			cout << "error on wiring pi setup" << endl;
+		}
+	} else {
+		if (DEBUG == 1) {
+			cout << "wiring pi setup OK" << endl;
+		}
+	}
+}
