@@ -12,6 +12,10 @@
 #include "wiring_pi.h"
 #include "display.h"
 
+#include <getopt.h>
+#include <sys/statvfs.h>
+#include <math.h>
+
 using namespace std;
 
 int main(void) {
