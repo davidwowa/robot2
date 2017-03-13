@@ -5,8 +5,8 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
-#ifndef COMMON_H_
-#define COMMON_H_
+//#ifndef COMMON_H_
+//#define COMMON_H_
 
 #include <iostream>
 #include <getopt.h>
@@ -48,4 +48,4 @@ extern void set_working_pins_to_low(void);
 
 extern int is_running(std::string file_path);
 
-#endif /* COMMON_H_ */
+//#endif /* COMMON_H_ */

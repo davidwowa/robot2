@@ -34,8 +34,8 @@
  +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
  */
 
-#ifndef GPIO_H_
-#define GPIO_H_
+//#ifndef GPIO_H_
+//#define GPIO_H_
 
 extern const int DISPLAY_SDA = 8;
 extern const int DISPLAY_SCL = 9;
@@ -69,4 +69,4 @@ extern const int MOTOR_R_V = 29;
 extern const int PWM_MAX = 200;
 extern const int PWM_MIN = 0;
 
-#endif /* GPIO_H_ */
+//#endif /* GPIO_H_ */
