@@ -8,6 +8,8 @@
 #include "display.h"
 #include "common.h"
 
+using namespace std;
+
 // Instantiate the display
 ArduiPi_OLED display;
 
