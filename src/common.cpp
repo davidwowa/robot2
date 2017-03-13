@@ -10,6 +10,8 @@
 #include "wiring_pi.h"
 #include "common.h"
 
+using namespace std;
+
 void init_wiringPi(void) {
 	if (DEBUG == 1) {
 		cout << "init wiring pi" << endl;

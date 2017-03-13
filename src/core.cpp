@@ -6,18 +6,11 @@
 // Description :
 //============================================================================
 
-#include <iostream>
-#include <getopt.h>
-#include <sys/statvfs.h>
-#include <math.h>
-
-#include "../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
-#include "../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
-#include "../lib/ArduiPi_OLED/Adafruit_GFX.h"
-#include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
-
 #include "gpio.h"
 #include "analytics.h"
+#include "wiring_pi.h"
+#include "display.h"
+#include "sonar.h"
 #include "drive.h"
 #include "common.h"
 

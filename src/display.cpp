@@ -141,7 +141,7 @@ void display_data(int direction, int speed, int m, int r, int l, int b) {
 	display.setCursor(86, 36);
 	display.printf("HD:%.0f%%", usage);
 
-	string ip = get_ip_address();
+	std::string ip = get_ip_address();
 	display.setCursor(0, 44);
 
 	const char* arr = ip.c_str();
@@ -195,7 +195,7 @@ std::string get_ip_address() {
 
 	/* display result */
 	//printf("IP:%s\n", out);
-	string str(out);
+	std::string str(out);
 
 	return str;
 }

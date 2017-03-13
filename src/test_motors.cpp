@@ -6,20 +6,18 @@
 // Description :
 //============================================================================
 
-#include <iostream>
-
-#include "../lib/wiringPi/wiringPi/wiringPi.h"
-#include "../lib/wiringPi/wiringPi/softPwm.h"
-
-#include "drive.h"
-#include "gpio.h"
 #include "analytics.h"
+#include "gpio.h"
+#include "drive.h"
+#include "common.h"
+#include "wiring_pi.h"
 
 using namespace std;
 
 int main(void) {
-
-	init();
+	init_wiringPi();
+	init_PWM();
+	init_drive();
 
 	// acceleration forward
 	if (DEBUG == 1) {
@@ -76,79 +74,6 @@ int main(void) {
 	if (DEBUG == 1) {
 		cout << "stop" << endl;
 	}
-	stop();
+	stop_motors();
 	return -1;
-}
-
-void init(void) {
-	if (DEBUG == 1) {
-		cout << "init wiring pi" << endl;
-	}
-
-	if (wiringPiSetup() == -1) {
-		cout << "error on wiring pi setup" << endl;
-	} else {
-		cout << "wiring pi setup OK" << endl;
-	}
-
-	if (DEBUG == 1) {
-		cout << "prepare pwm gpio for motors" << endl;
-	}
-	// prepare GPIOs for motors
-	softPwmCreate(MOTOR_L_U, PWM_MIN, PWM_MAX);
-	softPwmCreate(MOTOR_L_V, PWM_MIN, PWM_MAX);
-
-	softPwmCreate(MOTOR_R_U, PWM_MIN, PWM_MAX);
-	softPwmCreate(MOTOR_R_V, PWM_MIN, PWM_MAX);
-}
-
-void drive_forward(void) {
-	if (DEBUG == 1) {
-		cout << "forward" << endl;
-	}
-	softPwmWrite(MOTOR_R_U, PWM_MAX);
-	softPwmWrite(MOTOR_R_V, PWM_MIN);
-
-	softPwmWrite(MOTOR_L_U, PWM_MIN);
-	softPwmWrite(MOTOR_L_V, PWM_MAX);
-}
-void drive_backward(void) {
-	if (DEBUG == 1) {
-		cout << "backward" << endl;
-	}
-	softPwmWrite(MOTOR_R_U, PWM_MIN);
-	softPwmWrite(MOTOR_R_V, PWM_MAX);
-
-	softPwmWrite(MOTOR_L_U, PWM_MAX);
-	softPwmWrite(MOTOR_L_V, PWM_MIN);
-}
-void turn_left(void) {
-	if (DEBUG == 1) {
-		cout << "left" << endl;
-	}
-	softPwmWrite(MOTOR_R_U, PWM_MIN);
-	softPwmWrite(MOTOR_R_V, PWM_MAX);
-
-	softPwmWrite(MOTOR_L_U, PWM_MIN);
-	softPwmWrite(MOTOR_L_V, PWM_MAX);
-}
-void turn_right(void) {
-	if (DEBUG == 1) {
-		cout << "right" << endl;
-	}
-	softPwmWrite(MOTOR_R_U, PWM_MAX);
-	softPwmWrite(MOTOR_R_V, PWM_MIN);
-
-	softPwmWrite(MOTOR_L_U, PWM_MAX);
-	softPwmWrite(MOTOR_L_V, PWM_MIN);
-}
-void stop(void) {
-	if (DEBUG == 1) {
-		cout << "stop" << endl;
-	}
-	softPwmWrite(MOTOR_R_U, PWM_MIN);
-	softPwmWrite(MOTOR_R_V, PWM_MIN);
-
-	softPwmWrite(MOTOR_L_U, PWM_MIN);
-	softPwmWrite(MOTOR_L_V, PWM_MIN);
 }

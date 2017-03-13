@@ -48,6 +48,4 @@ extern void set_working_pins_to_low(void);
 
 extern int is_running(std::string file_path);
 
-using namespace std;
-
 #endif /* COMMON_H_ */

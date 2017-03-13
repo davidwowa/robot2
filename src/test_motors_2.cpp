@@ -6,34 +6,19 @@
 // Description :
 //============================================================================
 
-#include <iostream>
-
-#include "../lib/wiringPi/wiringPi/wiringPi.h"
-
-#include "drive.h"
-#include "gpio.h"
 #include "analytics.h"
+#include "gpio.h"
+#include "drive.h"
+#include "common.h"
+#include "wiring_pi.h"
 
 using namespace std;
 
 int main(void) {
 
-	if (DEBUG == 1) {
-		cout << "init wiring pi" << endl;
-	}
-
-	if (wiringPiSetup() == -1)
-		return -1;
-
-	if (DEBUG == 1) {
-		cout << "init wiring pi setup gpio (for PWM)" << endl;
-	}
-	if (wiringPiSetupSys() == -1)
-		return -1;
-
-	if (DEBUG == 1) {
-		cout << "prepare gpio for motors" << endl;
-	}
+	init_wiringPi();
+	init_PWM();
+	init_drive();
 
 	pinMode(MOTOR_L_U, PWM_OUTPUT);
 	pinMode(MOTOR_L_V, PWM_OUTPUT);
@@ -107,60 +92,9 @@ int main(void) {
 	if (DEBUG == 1) {
 		cout << "stop" << endl;
 	}
-	stop();
+	stop_motors();
 	if (DEBUG == 1) {
 		cout << "off" << endl;
 	}
 	return -1;
-}
-
-void drive_forward(void) {
-	if (DEBUG == 1) {
-		cout << "forward" << endl;
-	}
-	pwmWrite(MOTOR_R_U, PWM_MAX);
-	pwmWrite(MOTOR_R_V, PWM_MIN);
-
-	pwmWrite(MOTOR_L_U, PWM_MIN);
-	pwmWrite(MOTOR_L_V, PWM_MAX);
-}
-void drive_backward(void) {
-	if (DEBUG == 1) {
-		cout << "backward" << endl;
-	}
-	pwmWrite(MOTOR_R_U, PWM_MIN);
-	pwmWrite(MOTOR_R_V, PWM_MAX);
-
-	pwmWrite(MOTOR_L_U, PWM_MAX);
-	pwmWrite(MOTOR_L_V, PWM_MIN);
-}
-void turn_left(void) {
-	if (DEBUG == 1) {
-		cout << "left" << endl;
-	}
-	pwmWrite(MOTOR_R_U, PWM_MIN);
-	pwmWrite(MOTOR_R_V, PWM_MAX);
-
-	pwmWrite(MOTOR_L_U, PWM_MIN);
-	pwmWrite(MOTOR_L_V, PWM_MAX);
-}
-void turn_right(void) {
-	if (DEBUG == 1) {
-		cout << "right" << endl;
-	}
-	pwmWrite(MOTOR_R_U, PWM_MAX);
-	pwmWrite(MOTOR_R_V, PWM_MIN);
-
-	pwmWrite(MOTOR_L_U, PWM_MAX);
-	pwmWrite(MOTOR_L_V, PWM_MIN);
-}
-void stop(void) {
-	if (DEBUG == 1) {
-		cout << "stop" << endl;
-	}
-	pwmWrite(MOTOR_R_U, PWM_MIN);
-	pwmWrite(MOTOR_R_V, PWM_MIN);
-
-	pwmWrite(MOTOR_L_U, PWM_MIN);
-	pwmWrite(MOTOR_L_V, PWM_MIN);
 }

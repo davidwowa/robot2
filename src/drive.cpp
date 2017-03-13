@@ -13,6 +13,8 @@
 
 #include "drive.h"
 
+using namespace std;
+
 void init_drive(void) {
 	init_wiringPi();
 	init_PWM();

@@ -18,6 +18,4 @@ extern int get_distance_b();
 
 extern int get_minimal_distance(int m, int r, int l);
 
-using namespace std;
-
 #endif /* SONAR_H_ */

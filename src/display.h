@@ -14,8 +14,6 @@
 #include "../lib/ArduiPi_OLED/Adafruit_GFX.h"
 #include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
 
-using namespace std;
-
 extern void init_display(void);
 
 extern void display_common_data(void);

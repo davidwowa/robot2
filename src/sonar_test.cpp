@@ -13,6 +13,8 @@
 #include "display.h"
 #include "sonar.h"
 
+using namespace std;
+
 Sonar sonar_m;
 Sonar sonar_r;
 Sonar sonar_l;
