@@ -32,6 +32,9 @@ g++ stop.cpp -o stop -lwiringPi
 echo "compile test display"
 g++ display_test.cpp -o display_test -lArduiPi_OLED
 
+echo "compile test display 2"
+g++ display_test_2.cpp common.cpp -o display_test_2 -lArduiPi_OLED
+
 echo "compile test sonar test"
 g++ sonar_test.cpp display.cpp -o sonar_test -lwiringPi -lArduiPi_OLED ../lib/HC-SR04-Raspberry-Pi-C-/libSonar.cpp
 

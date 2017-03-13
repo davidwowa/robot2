@@ -33,13 +33,59 @@ void init_display() {
 }
 
 // 0-16 -> 0
-// 16-21 -> 1
-// 22-26 -> 2
-// 27-31 -> 3
-// 32-36 -> 4
-// 37-41 -> 5
-// 42-46 -> 6
-void draw_text(std::string, int line_number){}
+// 16-24 -> 1
+// 25-33 -> 2
+// 34-42 -> 3
+// 43-51 -> 4
+// 52-60 -> 5
+// 61-63 -> 6
+void draw_text(std::string text, int line_number) {
+	const char* c_string = text.c_str();
+	display.clearDisplay();
+	if (0 == line_number) {
+		display.setTextColor(WHITE);
+		display.setCursor(0, 0);
+		display.setTextSize(2);
+		display.printf("%s", c_string);
+	}
+	if (1 == line_number) {
+		display.setTextColor(WHITE);
+		display.setCursor(0, 16);
+		display.setTextSize(1);
+		display.printf("%s", c_string);
+	}
+	if (2 == line_number) {
+		display.setTextColor(WHITE);
+		display.setCursor(0, 25);
+		display.setTextSize(1);
+		display.printf("%s", c_string);
+	}
+	if (3 == line_number) {
+		display.setTextColor(WHITE);
+		display.setCursor(0, 34);
+		display.setTextSize(1);
+		display.printf("%s", c_string);
+	}
+	if (4 == line_number) {
+		display.setTextColor(WHITE);
+		display.setCursor(0, 43);
+		display.setTextSize(1);
+		display.printf("%s", c_string);
+	}
+	if (5 == line_number) {
+		display.setTextColor(WHITE);
+		display.setCursor(0, 52);
+		display.setTextSize(1);
+		display.printf("%s", c_string);
+	}
+	if (6 == line_number) {
+		display.setTextColor(WHITE);
+		display.setCursor(0, 61);
+		display.setTextSize(1);
+		display.printf("%s", c_string);
+	}
+	display.display();
+}
 
 void display_data(int direction, int speed, int m, int r, int l, int b) {
 	display.clearDisplay();
@@ -148,7 +194,6 @@ std::string get_ip_address() {
 
 	/* display result */
 	//printf("IP:%s\n", out);
-
 	string str(out);
 
 	return str;
