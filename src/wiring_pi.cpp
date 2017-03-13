@@ -5,6 +5,8 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
+#include "common.h"
+
 #include "analytics.h"
 #include "gpio.h"
 #include "wiring_pi.h"
