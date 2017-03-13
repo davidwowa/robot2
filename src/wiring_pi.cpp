@@ -1,15 +1,13 @@
 /*
- * common.cpp
+ * wiring_pi.cpp
  *
- *  Created on: 11.03.2017
+ *  Created on: 13.03.2017
  *      Author: Wladimir David Zakrevskyy
  */
 
 #include "analytics.h"
 #include "gpio.h"
-#include "config.h"
 #include "wiring_pi.h"
-#include "common.h"
 
 using namespace std;
 

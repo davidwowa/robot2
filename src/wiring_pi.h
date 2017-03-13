@@ -11,4 +11,9 @@
 #include "../lib/wiringPi/wiringPi/wiringPi.h"
 #include "../lib/wiringPi/wiringPi/softPwm.h"
 
+extern void init_wiringPi(void);
+extern void init_PWM(void);
+
+extern void set_working_pins_to_low(void);
+
 #endif /* WIRING_PI_H_ */

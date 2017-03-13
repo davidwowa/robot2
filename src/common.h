@@ -26,11 +26,6 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-extern void init_wiringPi(void);
-extern void init_PWM(void);
-
-extern void set_working_pins_to_low(void);
-
 extern int is_running(std::string file_path);
 
 #endif /* COMMON_H_ */
