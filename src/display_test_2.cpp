@@ -13,8 +13,10 @@
 
 using namespace std;
 
+void init_wiringPi2(void);
+
 int main(void) {
-	init_wiringPi();
+	init_wiringPi2();
 
 	init_display();
 
@@ -30,7 +32,7 @@ int main(void) {
 	return 1;
 }
 
-void init_wiringPi(void) {
+void init_wiringPi2(void) {
 	if (DEBUG == 1) {
 		cout << "init wiring pi" << endl;
 	}
