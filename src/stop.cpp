@@ -6,10 +6,7 @@
 // Description :
 //============================================================================
 
-#include "common.h"
-#include "gpio.h"
-#include "config.h"
-#include "analytics.h"
+#include "wiring_pi.h"
 #include "drive.h"
 
 using namespace std;

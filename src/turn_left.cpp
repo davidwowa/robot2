@@ -6,10 +6,6 @@
 // Description :
 //============================================================================
 
-#include "analytics.h"
-#include "gpio.h"
-#include "config.h"
-#include "common.h"
 #include "wiring_pi.h"
 #include "drive.h"
 
