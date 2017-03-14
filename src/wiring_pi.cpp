@@ -5,7 +5,7 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
-#include "common.h"
+#include <iostream>
 
 #include "analytics.h"
 #include "gpio.h"

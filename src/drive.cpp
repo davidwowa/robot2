@@ -7,8 +7,6 @@
 
 #include <iostream>
 
-#include "analytics.h"
-#include "gpio.h"
 #include "config.h"
 #include "wiring_pi.h"
 
