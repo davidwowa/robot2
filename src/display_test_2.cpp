@@ -6,7 +6,7 @@
  */
 
 #include "analytics.h"
-#include "gpio.h"
+//#include "gpio.h"
 #include "config.h"
 #include "common.h"
 #include "wiring_pi.h"
