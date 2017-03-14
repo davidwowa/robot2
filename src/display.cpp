@@ -9,6 +9,10 @@
 #include <sys/statvfs.h>
 #include <math.h>
 
+#include "../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
+#include "../lib/ArduiPi_OLED/Adafruit_GFX.h"
+#include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
+
 #include "display.h"
 #include "common.h"
 
