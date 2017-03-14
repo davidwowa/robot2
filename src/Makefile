@@ -3,7 +3,7 @@ CFLAGS=-c -Wall
 LIBFLAGS=-lwiringPi ../lib/HC-SR04-Raspberry-Pi-C-/libSonar.cpp -lpthread -lArduiPi_OLED
 
 display.o: display.cpp
-	$(CC) $(CFLAGS) $(LIBFLAGS) display.cpp
+	$(CC) $(CFLAGS) display.cpp $(LIBFLAGS)
 	
 drive.o: drive.cpp
 	$(CC) $(CFLAGS) $(LIBFLAGS) drive.cpp
