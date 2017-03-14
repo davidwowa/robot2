@@ -5,16 +5,29 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
+#include <iostream>
 #include <getopt.h>
-#include <sys/statvfs.h>
 #include <math.h>
+
+#include <stdio.h>
+#include <string.h>
+#include <string>
+
+#include <sys/types.h>
+#include <sys/statvfs.h>
+#include <sys/socket.h>
+#include <sys/ioctl.h>
+
+#include <ifaddrs.h>
+#include <net/if.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 
 #include "../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
 #include "../lib/ArduiPi_OLED/Adafruit_GFX.h"
 #include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
 
 #include "display.h"
-#include "common.h"
 
 using namespace std;
 
