@@ -2,6 +2,24 @@ CC=g++
 CFLAGS=-c -Wall
 LIBFLAGS=-lwiringPi ../lib/HC-SR04-Raspberry-Pi-C-/libSonar.cpp -lpthread -lArduiPi_OLED
 
+base: display.o wiring_pi.o drive.o sonar.o
+drive: drive_backward drive_forward turn_left turn_right stop
+
+drive_backward: wiring_pi.o drive.o
+	$(CC) drive_backward.cpp -o drive_backward
+
+drive_forward: wiring_pi.o drive.o
+	$(CC) drive_forward.cpp -o drive_forward
+
+turn_left: wiring_pi.o drive.o
+	$(CC) turn_left.cpp -o turn_left
+
+turn_right: wiring_pi.o drive.o
+	$(CC) turn_right.cpp -o turn_right
+
+stop: wiring_pi.o drive.o
+	$(CC) stop.cpp -o stop
+
 display.o: display.cpp 
 	$(CC) $(CFLAGS) display.cpp -lArduiPi_OLED
 
