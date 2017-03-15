@@ -16,10 +16,6 @@ echo "kill test_motors"
 sudo kill $(pidof test_motors)
 echo "kill test_motors_2"
 sudo kill $(pidof test_motors_2)
-echo "kill reset_pins"
-sudo kill $(pidof reset_pins)
 
-echo "reset_pins"
-/home/pi/robot2/src/reset_pins
 echo "stop driving"
-/home/pi/robot2/src/stop
+/home/pi/robot2/src/test/drive/stop

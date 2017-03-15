@@ -37,7 +37,13 @@ end
 begin
 button = KEY_0
 prog = irexec
-config = sh /home/pi/robot2/ir-remote/test.sh
+config = sh /home/pi/robot2/ir-remote/test_motors.sh
+flags = quit
+end
+begin
+button = KEY_1
+prog = irexec
+config = sh /home/pi/robot2/ir-remote/test_motors_2.sh
 flags = quit
 end
 begin
@@ -47,8 +53,26 @@ config = sh /home/pi/robot2/ir-remote/display_test.sh
 flags = quit
 end
 begin
+button = KEY_3
+prog = irexec
+config = sh /home/pi/robot2/ir-remote/display_test_2.sh
+flags = quit
+end
+begin
+button = KEY_4
+prog = irexec
+config = sh /home/pi/robot2/ir-remote/sonar_test.sh
+flags = quit
+end
+begin
 button = KEY_RESTART
 prog = irexec
 config = sh /home/pi/robot2/ir-remote/kill_procs.sh
+flags = quit
+end
+begin
+button = KEY_Q
+prog = irexec
+config = sh /home/pi/robot2/ir-remote/reboot.sh
 flags = quit
 end

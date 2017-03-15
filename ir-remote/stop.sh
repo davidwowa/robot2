@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "stop driving"
-/home/pi/robot2/src/stop
+echo "stop"
+sudo /home/pi/robot2/src/test/drive/stop
