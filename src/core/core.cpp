@@ -34,11 +34,12 @@ int current_pointer = FORWARD;
 void init() {
 	init_display();
 	draw_text("ROBOT_2", 0, false);
-	draw_text("init motor/pwm", 1, false);
+	draw_text("display ready", 1, false);
 	init_drive();
-	draw_text("init sonar", 2, false);
+	draw_text("motor/pwm ready", 2, false);
 	init_sonar();
-	draw_text("ready to drive...", 3, false);
+	draw_text("sonar ready", 3, false);
+	draw_text("ready to drive...", 4, false);
 }
 
 void run() {
@@ -58,6 +59,32 @@ void run() {
 			distance_l);
 
 	int current_speed = get_speed(current_minmal_distance);
+
+	if (FORWARD == current_pointer) {
+		if (distance_m > MAX_WALL_DISTANCE_1) {
+			if (distance_l < MAX_WALL_DISTANCE_1) {
+				turn_right(current_speed);
+				current_pointer = TURN_RIGHT;
+			}
+			if (distance_r < MAX_WALL_DISTANCE_1) {
+				turn_left(current_speed);
+				current_pointer = TURN_LEFT;
+			}
+		}
+	}
+
+	if (BACKWARD == current_pointer) {
+		if (distance_b > MAX_WALL_DISTANCE_1) {
+			if (distance_l < MAX_WALL_DISTANCE_1) {
+				turn_left(current_speed);
+				current_pointer = TURN_LEFT;
+			}
+			if (distance_r < MAX_WALL_DISTANCE_1) {
+				turn_right(current_speed);
+				current_pointer = TURN_RIGHT;
+			}
+		}
+	}
 
 	if (FORWARD == current_pointer) {
 		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
@@ -123,6 +150,8 @@ void run() {
 
 	display_data(current_pointer, current_speed, distance_m, distance_r,
 			distance_l, distance_b);
+
+	delay(600);
 }
 
 int main(void) {
