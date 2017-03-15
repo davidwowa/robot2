@@ -4,15 +4,15 @@ cd /home/pi/robot2/src/core/
 ./compile.sh
 
 echo "compile display test"
-cd /home/pi/robot2/src/core/test/display/
+cd /home/pi/robot2/src/core/test-units/display/
 ./compile.sh
 
 echo "compile sonar test"
-cd /home/pi/robot2/src/core/test/sonar/
+cd /home/pi/robot2/src/core/test-units/sonar/
 ./compile.sh
 
 echo "compile drive test"
-cd /home/pi/robot2/src/core/test/drive/
+cd /home/pi/robot2/src/core/test-units/drive/
 ./compile.sh
 
 echo "ready"
