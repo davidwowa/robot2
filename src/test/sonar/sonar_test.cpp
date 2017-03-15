@@ -9,8 +9,6 @@
 #include "../../sonar/sonar.h"
 #include "../../display/display.h"
 
-#include "../../../lib/HC-SR04-Raspberry-Pi-C-/libSonar.cpp"
-
 #include "../../../lib/wiringPi/wiringPi/wiringPi.h"
 
 using namespace std;
@@ -21,8 +19,9 @@ int main(void) {
 
 	init_display();
 	int i = 100;
+	int counter = 0;
 
-	while (i <= 100) {
+	while (counter <= i) {
 
 		int distance_m = get_distance_m();
 		int distance_r = get_distance_r();
@@ -34,7 +33,7 @@ int main(void) {
 		cout << "Distance on left   sensor is " << distance_l << " cm." << endl;
 		cout << "Distance on back   sensor is " << distance_b << " cm." << endl;
 		cout << "---" << endl;
-		i++;
+		counter++;
 		display_data(0, 0, distance_m, distance_r, distance_l, distance_b);
 	}
 	return -1;
