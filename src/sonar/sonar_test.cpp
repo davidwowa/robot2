@@ -9,6 +9,11 @@
 #include "../display/display.h"
 #include "sonar.h"
 
+#include "../../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
+
+#include "../../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../../lib/wiringPi/wiringPi/softPwm.h"
+
 using namespace std;
 
 Sonar sonar_m;
