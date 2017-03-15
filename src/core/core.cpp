@@ -126,6 +126,7 @@ void run() {
 }
 
 int main(void) {
+	init();
 	while (1 == is_running()) {
 		run();
 	}
