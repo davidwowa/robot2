@@ -23,11 +23,12 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-#include "../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
-#include "../lib/ArduiPi_OLED/Adafruit_GFX.h"
-#include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
+#include "../../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
+#include "../../lib/ArduiPi_OLED/Adafruit_GFX.h"
+#include "../../lib/ArduiPi_OLED/ArduiPi_OLED.h"
 
 #include "display.h"
+#include "gpio_display.h"
 
 using namespace std;
 
@@ -223,7 +224,11 @@ std::string get_ip_address() {
 	return str;
 }
 
-//int main() {
-//	init_display();
-//	display_data(1, 123, 20, 50, 80, 90);
-//}
+int main() {
+	init_display();
+	draw_text("line 1", 0);
+	draw_text("line 2", 1);
+	draw_text("line 3", 2);
+	draw_text("line 4", 3);
+	draw_text("line 5", 4);
+}

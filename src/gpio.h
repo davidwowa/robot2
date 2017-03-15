@@ -37,9 +37,6 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
-extern const int DISPLAY_SDA = 8;
-extern const int DISPLAY_SCL = 9;
-
 // middle sonar sensor
 extern const int ECHO_M = 7;
 extern const int TRIGGER_M = 0;

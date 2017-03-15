@@ -7,11 +7,12 @@
 
 #include <iostream>
 
-#include "analytics.h"
 #include "gpio.h"
 #include "wiring_pi.h"
 
 using namespace std;
+
+int DEBUG = 1;
 
 void init_wiringPi(void) {
 	if (DEBUG == 1) {
