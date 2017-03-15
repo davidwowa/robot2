@@ -17,8 +17,6 @@
 
 using namespace std;
 
-int DEBUG = 1;
-
 Sonar sonar_m;
 Sonar sonar_r;
 Sonar sonar_l;
@@ -27,18 +25,12 @@ Sonar sonar_b;
 void init_sonar() {
 
 	if (wiringPiSetup() == -1) {
-		if (DEBUG == 1) {
-			cout << "error on wiring pi setup" << endl;
-		}
+		cout << "error on wiring pi setup" << endl;
 	} else {
-		if (DEBUG == 1) {
-			cout << "wiring pi setup OK" << endl;
-		}
+		cout << "wiring pi setup OK" << endl;
 	}
 
-	if (DEBUG == 1) {
-		cout << "start sonars" << endl;
-	}
+	cout << "start sonars" << endl;
 
 	sonar_m.init(TRIGGER_M, ECHO_M);
 
@@ -70,8 +62,6 @@ int get_minimal_distance(int m, int r, int l) {
 	if (l < result) {
 		result = l;
 	}
-	if (DEBUG == 1) {
-		cout << "minimal distance is " << result << endl;
-	}
+	cout << "minimal distance is " << result << endl;
 	return result;
 }

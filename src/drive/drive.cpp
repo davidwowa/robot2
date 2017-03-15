@@ -15,33 +15,23 @@
 
 using namespace std;
 
-int DEBUG = 1;
-
 void init_drive(void) {
 	init_wiringPi();
 	init_PWM();
 }
 
 void init_wiringPi(void) {
-	if (DEBUG == 1) {
-		cout << "init wiring pi" << endl;
-	}
+	cout << "init wiring pi" << endl;
 
 	if (wiringPiSetup() == -1) {
-		if (DEBUG == 1) {
-			cout << "error on wiring pi setup" << endl;
-		}
+		cout << "error on wiring pi setup" << endl;
 	} else {
-		if (DEBUG == 1) {
-			cout << "wiring pi setup OK" << endl;
-		}
+		cout << "wiring pi setup OK" << endl;
 	}
 }
 
 void init_PWM(void) {
-	if (DEBUG == 1) {
-		cout << "prepare pwm gpio for motors" << endl;
-	}
+	cout << "prepare pwm gpio for motors" << endl;
 	// prepare GPIOs for motors
 	softPwmCreate(MOTOR_L_U, PWM_MIN, PWM_MAX);
 	softPwmCreate(MOTOR_L_V, PWM_MIN, PWM_MAX);
@@ -71,9 +61,7 @@ void set_working_pins_to_low(void) {
 }
 
 void drive_forward(void) {
-	if (DEBUG == 1) {
-		cout << "forward" << endl;
-	}
+	cout << "forward" << endl;
 	softPwmWrite(MOTOR_R_U, PWM_MAX);
 	softPwmWrite(MOTOR_R_V, PWM_MIN);
 
@@ -82,9 +70,7 @@ void drive_forward(void) {
 }
 
 void drive_backward(void) {
-	if (DEBUG == 1) {
-		cout << "backward" << endl;
-	}
+	cout << "backward" << endl;
 	softPwmWrite(MOTOR_R_U, PWM_MIN);
 	softPwmWrite(MOTOR_R_V, PWM_MAX);
 
@@ -93,9 +79,7 @@ void drive_backward(void) {
 }
 
 void turn_left(void) {
-	if (DEBUG == 1) {
-		cout << "left" << endl;
-	}
+	cout << "left" << endl;
 	softPwmWrite(MOTOR_R_U, PWM_MIN);
 	softPwmWrite(MOTOR_R_V, PWM_MAX);
 
@@ -104,9 +88,7 @@ void turn_left(void) {
 }
 
 void turn_right(void) {
-	if (DEBUG == 1) {
-		cout << "right" << endl;
-	}
+	cout << "right" << endl;
 	softPwmWrite(MOTOR_R_U, PWM_MAX);
 	softPwmWrite(MOTOR_R_V, PWM_MIN);
 
@@ -115,9 +97,7 @@ void turn_right(void) {
 }
 
 void stop(void) {
-	if (DEBUG == 1) {
-		cout << "stop" << endl;
-	}
+	cout << "stop" << endl;
 	softPwmWrite(MOTOR_R_U, PWM_MIN);
 	softPwmWrite(MOTOR_R_V, PWM_MIN);
 
@@ -126,9 +106,7 @@ void stop(void) {
 }
 
 void drive_forward(int pwm) {
-	if (DEBUG == 1) {
-		cout << "forward pwm " << pwm << endl;
-	}
+	cout << "forward pwm " << pwm << endl;
 	softPwmWrite(MOTOR_R_U, pwm);
 	softPwmWrite(MOTOR_R_V, PWM_MIN);
 
@@ -137,9 +115,7 @@ void drive_forward(int pwm) {
 }
 
 void drive_backward(int pwm) {
-	if (DEBUG == 1) {
-		cout << "backward pwm " << pwm << endl;
-	}
+	cout << "backward pwm " << pwm << endl;
 	softPwmWrite(MOTOR_R_U, PWM_MIN);
 	softPwmWrite(MOTOR_R_V, pwm);
 
@@ -148,9 +124,7 @@ void drive_backward(int pwm) {
 }
 
 void turn_left(int pwm) {
-	if (DEBUG == 1) {
-		cout << "left pwm " << pwm << endl;
-	}
+	cout << "left pwm " << pwm << endl;
 	softPwmWrite(MOTOR_R_U, PWM_MIN);
 	softPwmWrite(MOTOR_R_V, pwm);
 
@@ -159,9 +133,7 @@ void turn_left(int pwm) {
 }
 
 void turn_right(int pwm) {
-	if (DEBUG == 1) {
-		cout << "right pwm " << pwm << endl;
-	}
+	cout << "right pwm " << pwm << endl;
 	softPwmWrite(MOTOR_R_U, pwm);
 	softPwmWrite(MOTOR_R_V, PWM_MIN);
 
@@ -170,9 +142,7 @@ void turn_right(int pwm) {
 }
 
 void stop_motors(void) {
-	if (DEBUG == 1) {
-		cout << "stop" << endl;
-	}
+	cout << "stop" << endl;
 	softPwmWrite(MOTOR_R_U, PWM_MIN);
 	softPwmWrite(MOTOR_R_V, PWM_MIN);
 

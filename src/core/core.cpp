@@ -18,7 +18,6 @@ using namespace std;
 void init(void);
 void run(void);
 int get_speed(int minimal_distance);
-int get_minimal_distance(int m, int r, int l);
 int is_running();
 
 int current_pointer = FORWARD;
@@ -123,18 +122,6 @@ int main(void) {
 	}
 	cout << "core exit" << endl;
 	return 1;
-}
-
-int get_minimal_distance(int m, int r, int l) {
-	int result = m;
-	if (r < result) {
-		result = r;
-	}
-	if (l < result) {
-		result = l;
-	}
-	cout << "minimal distance is " << result << endl;
-	return result;
 }
 
 int get_speed(int minimal_distance) {

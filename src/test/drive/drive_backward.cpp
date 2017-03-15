@@ -12,7 +12,7 @@ int main(void) {
 
 	init_drive();
 
-	drive_backward();
+	drive_backward(200);
 
 	return 1;
 }

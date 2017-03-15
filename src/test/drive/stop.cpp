@@ -12,7 +12,7 @@ int main(void) {
 
 	init_drive();
 
-	stop_motors();
+//	stop_motors();
 	drive_backward(0);
 
 	return 1;

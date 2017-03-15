@@ -12,7 +12,7 @@ int main(void) {
 
 	init_drive();
 
-	turn_right();
+	turn_right(200);
 
 	return 1;
 }
