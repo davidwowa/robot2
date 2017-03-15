@@ -6,6 +6,7 @@
  */
 
 #include "iostream"
+#include "stdio.h"
 
 #include "../display/display.h"
 #include "../drive/drive.h"
