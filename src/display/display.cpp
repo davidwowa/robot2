@@ -226,12 +226,12 @@ std::string get_ip_address() {
 	return str;
 }
 
-int main() {
-	init_display();
-	draw_text("line 1", 0, false);
-	draw_text("line 2", 1, false);
-	draw_text("line 3", 2, false);
-	draw_text("line 4", 3, false);
-	draw_text("line 5", 4, false);
-	draw_text("line 6", 5, false);
-}
+//int main() {
+//	init_display();
+//	draw_text("line 1", 0, false);
+//	draw_text("line 2", 1, false);
+//	draw_text("line 3", 2, false);
+//	draw_text("line 4", 3, false);
+//	draw_text("line 5", 4, false);
+//	draw_text("line 6", 5, false);
+//}
