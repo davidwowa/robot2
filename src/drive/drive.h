@@ -27,4 +27,9 @@ extern void turn_right(int pin, int pwm);
 
 extern void stop_motors(void);
 
+extern void init_wiringPi(void);
+extern void init_PWM(void);
+
+extern void set_working_pins_to_low(void);
+
 #endif /* DRIVE_H_ */

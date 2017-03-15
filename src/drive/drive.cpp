@@ -7,16 +7,67 @@
 
 #include <iostream>
 
-#include "config.h"
-#include "wiring_pi.h"
+#include "../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../lib/wiringPi/wiringPi/softPwm.h"
 
 #include "drive.h"
+#include "gpio_drive.h"
 
 using namespace std;
+
+int DEBUG = 1;
 
 void init_drive(void) {
 	init_wiringPi();
 	init_PWM();
+}
+
+void init_wiringPi(void) {
+	if (DEBUG == 1) {
+		cout << "init wiring pi" << endl;
+	}
+
+	if (wiringPiSetup() == -1) {
+		if (DEBUG == 1) {
+			cout << "error on wiring pi setup" << endl;
+		}
+	} else {
+		if (DEBUG == 1) {
+			cout << "wiring pi setup OK" << endl;
+		}
+	}
+}
+
+void init_PWM(void) {
+	if (DEBUG == 1) {
+		cout << "prepare pwm gpio for motors" << endl;
+	}
+	// prepare GPIOs for motors
+	softPwmCreate(MOTOR_L_U, PWM_MIN, PWM_MAX);
+	softPwmCreate(MOTOR_L_V, PWM_MIN, PWM_MAX);
+
+	softPwmCreate(MOTOR_R_U, PWM_MIN, PWM_MAX);
+	softPwmCreate(MOTOR_R_V, PWM_MIN, PWM_MAX);
+}
+
+void set_working_pins_to_low(void) {
+	cout << "set all pins to INPUT" << endl;
+
+	pinMode(MOTOR_L_U, INPUT);
+	pinMode(MOTOR_L_V, INPUT);
+
+	pinMode(MOTOR_R_U, INPUT);
+	pinMode(MOTOR_R_V, INPUT);
+
+	cout << "set all pins to LOW" << endl;
+
+	digitalWrite(MOTOR_L_U, LOW);
+	digitalWrite(MOTOR_L_V, LOW);
+
+	digitalWrite(MOTOR_R_U, LOW);
+	digitalWrite(MOTOR_R_V, LOW);
+
+	cout << "Done" << endl;
 }
 
 void drive_forward(void) {
