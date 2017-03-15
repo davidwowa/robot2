@@ -5,7 +5,12 @@
  *      Author: http://stackoverflow.com/questions/2283494/get-ip-address-of-an-interface-on-linux
  */
 
-#include "common.h"
+#include <ifaddrs.h>
+#include <net/if.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
+#include <sys/ioctl.h>
 
 int main() {
 	int fd;

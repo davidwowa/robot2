@@ -7,7 +7,6 @@
 #include <iostream>
 
 #include "../display/display.h"
-#include "sonar.h"
 
 #include "../../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
 
