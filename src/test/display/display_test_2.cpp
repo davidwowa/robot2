@@ -6,17 +6,11 @@
  */
 
 #include "../../config/config.h"
-#include "analytics.h"
-//#include "gpio.h"
-#include "common.h"
-#include "wiring_pi.h"
-#include "display.h"
+#include "../../display/display.h"
 
 using namespace std;
 
 int main(void) {
-	init_wiringPi();
-
 	init_display();
 
 	draw_text("line 0", 0);

@@ -6,19 +6,33 @@
 // Description :
 //============================================================================
 
+#include <iostream>
+#include <sys/statvfs.h>
+#include <math.h>
+
+#include "../../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
+
+#include "../../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../../lib/wiringPi/wiringPi/softPwm.h"
+
+#include "../../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
+#include "../../lib/ArduiPi_OLED/Adafruit_GFX.h"
+#include "../../lib/ArduiPi_OLED/ArduiPi_OLED.h"
+
 #include "../config/config.h"
-#include "gpio.h"
-#include "analytics.h"
-#include "wiring_pi.h"
-#include "display.h"
-#include "sonar.h"
-#include "drive.h"
-#include "common.h"
+#include "../drive/gpio_drive.h"
+#include "../sonar/gpio_sonar.h"
 
 void display_data(int direction, int speed, int m, int r, int l, int b);
 void init(void);
+void drive_backward(int current_speed);
+void turn_left(int current_speed);
+void turn_right(int current_speed);
+void drive_forward(int current_speed);
 
 using namespace std;
+
+int DEBUG = 1;
 
 Sonar sonar_m;
 Sonar sonar_r;

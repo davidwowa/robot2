@@ -5,14 +5,17 @@
 // Copyright   :
 // Description :
 //============================================================================
+#include "iostream"
 
-#include "analytics.h"
-#include "gpio.h"
-#include "drive.h"
-#include "common.h"
-#include "wiring_pi.h"
+#include "../../drive/drive.h"
+#include "../../drive/gpio_drive.h"
+
+#include "../../../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../../../lib/wiringPi/wiringPi/softPwm.h"
 
 using namespace std;
+
+int DEBUG = 1;
 
 int main(void) {
 	init_wiringPi();

@@ -5,9 +5,9 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
-#include "../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
-#include "../lib/ArduiPi_OLED/Adafruit_GFX.h"
-#include "../lib/ArduiPi_OLED/ArduiPi_OLED.h"
+#include "../../../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
+#include "../../../lib/ArduiPi_OLED/Adafruit_GFX.h"
+#include "../../../lib/ArduiPi_OLED/ArduiPi_OLED.h"
 
 #include <getopt.h>
 #include <sys/statvfs.h>

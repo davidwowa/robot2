@@ -33,9 +33,3 @@
  | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
  +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
  */
-
-#ifndef GPIO_H_
-#define GPIO_H_
-
-
-#endif /* GPIO_H_ */

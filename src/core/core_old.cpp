@@ -8,18 +8,23 @@
 
 #include <iostream>
 
-#include "../lib/wiringPi/wiringPi/wiringPi.h"
-#include "../lib/wiringPi/wiringPi/softPwm.h"
-#include "../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
+#include "../../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../../lib/wiringPi/wiringPi/softPwm.h"
+#include "../../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
 
-#include "gpio.h"
-#include "analytics.h"
-#include "drive.h"
-#include "common.h"
+#include "../drive/gpio_drive.h"
+#include "../config/config.h"
+#include "../sonar/gpio_sonar.h"
 
 using namespace std;
 
+int DEBUG = 1;
+
 void init(void);
+void drive_backward(int current_speed);
+void turn_left(int current_speed);
+void turn_right(int current_speed);
+void drive_forward(int current_speed);
 
 Sonar sonar_m;
 Sonar sonar_r;

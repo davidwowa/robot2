@@ -8,13 +8,16 @@
 
 #include <iostream>
 
-#include "../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../drive/gpio_drive.h"
+#include "../sonar/gpio_sonar.h"
 
-#include "common.h"
-#include "gpio.h"
-#include "analytics.h"
+#include "../../lib/wiringPi/wiringPi/wiringPi.h"
 
 using namespace std;
+
+int DEBUG = 1;
+
+void set_working_pins_to_low();
 
 int main(void) {
 	set_working_pins_to_low();
