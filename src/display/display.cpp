@@ -64,9 +64,11 @@ void init_display() {
 // 43-51 -> 4
 // 52-60 -> 5
 // 61-63 -> 6
-void draw_text(std::string text, int line_number) {
+void draw_text(std::string text, int line_number, bool clear) {
 	const char* c_string = text.c_str();
-	display.clearDisplay();
+	if (clear) {
+		display.clearDisplay();
+	}
 	if (0 == line_number) {
 		display.setTextColor(WHITE);
 		display.setCursor(0, 0);
@@ -226,9 +228,10 @@ std::string get_ip_address() {
 
 int main() {
 	init_display();
-	draw_text("line 1", 0);
-	draw_text("line 2", 1);
-	draw_text("line 3", 2);
-	draw_text("line 4", 3);
-	draw_text("line 5", 4);
+	draw_text("line 1", 0, false);
+	draw_text("line 2", 1, false);
+	draw_text("line 3", 2, false);
+	draw_text("line 4", 3, false);
+	draw_text("line 5", 4, false);
+	draw_text("line 6", 5, false);
 }
