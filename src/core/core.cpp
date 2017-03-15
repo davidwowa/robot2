@@ -13,6 +13,15 @@
 #include "../sonar/sonar.h"
 #include "../config/config.h"
 
+#include "../../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../../lib/wiringPi/wiringPi/softPwm.h"
+
+#include "../../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
+#include "../../lib/ArduiPi_OLED/Adafruit_GFX.h"
+#include "../../lib/ArduiPi_OLED/ArduiPi_OLED.h"
+
+#include "../../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
+
 using namespace std;
 
 void init(void);
