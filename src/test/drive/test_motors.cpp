@@ -8,7 +8,6 @@
 #include "iostream"
 
 #include "../../drive/drive.h"
-#include "../../drive/gpio_drive.h"
 
 #include "../../../lib/wiringPi/wiringPi/wiringPi.h"
 #include "../../../lib/wiringPi/wiringPi/softPwm.h"
