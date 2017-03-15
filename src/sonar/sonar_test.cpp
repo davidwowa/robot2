@@ -6,11 +6,7 @@
  */
 
 
-#include "gpio.h"
-#include "analytics.h"
-#include "common.h"
-#include "wiring_pi.h"
-#include "display.h"
+#include "../display/display.h"
 #include "sonar.h"
 
 using namespace std;
@@ -19,6 +15,8 @@ Sonar sonar_m;
 Sonar sonar_r;
 Sonar sonar_l;
 Sonar sonar_b;
+
+int DEBUG = 1;
 
 int main(void) {
 	if (DEBUG == 1) {

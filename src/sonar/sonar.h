@@ -8,8 +8,6 @@
 #ifndef SONAR_H_
 #define SONAR_H_
 
-#include "../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
-
 extern void init_sonar(void);
 extern int get_distance_m();
 extern int get_distance_r();

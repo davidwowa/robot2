@@ -5,13 +5,14 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
-#include "analytics.h"
-#include "gpio.h"
-#include "common.h"
-#include "wiring_pi.h"
 #include "sonar.h"
+#include "gpio_sonar.h"
+
+#include "../../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
 
 using namespace std;
+
+int DEBUG = 1;
 
 Sonar sonar_m;
 Sonar sonar_r;
