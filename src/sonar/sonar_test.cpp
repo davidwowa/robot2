@@ -4,7 +4,7 @@
  *  Created on: 11.03.2017
  *      Author: Wladimir David Zakrevskyy
  */
-
+#include <iostream>
 
 #include "../display/display.h"
 #include "sonar.h"
@@ -44,8 +44,7 @@ int main(void) {
 			cout << "---" << endl;
 		}
 
-		display_data(0, 0, distance_m, distance_r, distance_l,
-				distance_b);
+		display_data(0, 0, distance_m, distance_r, distance_l, distance_b);
 	}
 	return -1;
 }

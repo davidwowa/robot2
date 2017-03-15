@@ -5,10 +5,15 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
+#include <iostream>
+
 #include "sonar.h"
 #include "gpio_sonar.h"
 
 #include "../../lib/HC-SR04-Raspberry-Pi-C-/libSonar.h"
+
+#include "../../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../../lib/wiringPi/wiringPi/softPwm.h"
 
 using namespace std;
 
