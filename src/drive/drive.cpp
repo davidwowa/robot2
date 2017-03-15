@@ -7,8 +7,8 @@
 
 #include <iostream>
 
-#include "../lib/wiringPi/wiringPi/wiringPi.h"
-#include "../lib/wiringPi/wiringPi/softPwm.h"
+#include "../../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../../lib/wiringPi/wiringPi/softPwm.h"
 
 #include "drive.h"
 #include "gpio_drive.h"
