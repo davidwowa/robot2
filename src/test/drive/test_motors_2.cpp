@@ -49,5 +49,6 @@ int main(void) {
 
 	cout << "stop" << endl;
 	stop_motors();
+	drive_backward(0);
 	return -1;
 }
