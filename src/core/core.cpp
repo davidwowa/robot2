@@ -70,6 +70,8 @@ void run() {
 				turn_left(current_speed);
 				current_pointer = TURN_LEFT;
 			}
+		} else {
+			current_pointer = BACKWARD;
 		}
 	}
 
@@ -83,6 +85,8 @@ void run() {
 				turn_right(current_speed);
 				current_pointer = TURN_RIGHT;
 			}
+		} else {
+			current_pointer = BACKWARD;
 		}
 	}
 
@@ -151,7 +155,7 @@ void run() {
 	display_data(current_pointer, current_speed, distance_m, distance_r,
 			distance_l, distance_b);
 
-	delay(600);
+	delay(510);
 }
 
 int main(void) {
@@ -181,7 +185,7 @@ int get_speed(int minimal_distance) {
 
 int is_running() {
 	FILE *run_config;
-	int is_run = 1;
+	int is_run = 0;
 
 	run_config = fopen("/home/pi/robot2/src/config/run", "r");
 	if (run_config) {
