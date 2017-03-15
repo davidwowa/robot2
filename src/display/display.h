@@ -21,6 +21,6 @@ extern double get_cpu_usage_data(void);
 extern double get_hdd_usage_data(void);
 extern std::string get_ip_address(void);
 
-extern void draw_text(std::string text, int line_number);
+extern void draw_text(std::string text, int line_number, bool clear);
 
 #endif /* DISPLAY_H_ */

@@ -13,14 +13,14 @@ using namespace std;
 int main(void) {
 	init_display();
 
-	draw_text("line 0", 0);
+	draw_text("line 0", 0, false);
 
-	draw_text("line 1", 1);
-	draw_text("line 2", 2);
-	draw_text("line 3", 3);
-	draw_text("line 4", 4);
-	draw_text("line 5", 5);
-	draw_text("line 6", 6);
+	draw_text("line 1", 1, false);
+	draw_text("line 2", 2, false);
+	draw_text("line 3", 3, false);
+	draw_text("line 4", 4, false);
+	draw_text("line 5", 5, false);
+	draw_text("line 6", 6, false);
 
 	return 1;
 }
