@@ -15,8 +15,6 @@
 using namespace std;
 
 int main(void) {
-	init_wiringPi();
-	init_PWM();
 	init_drive();
 
 	// acceleration forward
