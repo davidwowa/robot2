@@ -16,15 +16,15 @@
 
 using namespace std;
 
-Sonar sonar_m;
-Sonar sonar_r;
-Sonar sonar_l;
-Sonar sonar_b;
+Sonar sonar_m_t;
+Sonar sonar_r_t;
+Sonar sonar_l_t;
+Sonar sonar_b_t;
 
-int DEBUG = 1;
+int DEBUG_t = 1;
 
 int main(void) {
-	if (DEBUG == 1) {
+	if (DEBUG_t == 1) {
 		cout << "display show" << endl;
 	}
 	init_sonar();
@@ -32,12 +32,12 @@ int main(void) {
 	init_display();
 	while (1) {
 
-		int distance_m = sonar_m.distance(30000);
-		int distance_r = sonar_r.distance(30000);
-		int distance_l = sonar_l.distance(30000);
-		int distance_b = sonar_b.distance(30000);
+		int distance_m = sonar_m_t.distance(30000);
+		int distance_r = sonar_r_t.distance(30000);
+		int distance_l = sonar_l_t.distance(30000);
+		int distance_b = sonar_b_t.distance(30000);
 
-		if (DEBUG == 1) {
+		if (DEBUG_t == 1) {
 			cout << "Distance on middle sensor is " << distance_m << " cm."
 					<< endl;
 			cout << "Distance on right  sensor is " << distance_r << " cm."
