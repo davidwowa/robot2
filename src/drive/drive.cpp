@@ -148,6 +148,8 @@ void stop_motors(void) {
 
 	softPwmWrite(MOTOR_L_U, PWM_MIN);
 	softPwmWrite(MOTOR_L_V, PWM_MIN);
+
+	set_working_pins_to_low();
 }
 
 void drive_backward(int pin, int pwm) {
