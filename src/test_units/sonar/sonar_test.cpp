@@ -9,7 +9,7 @@
 #include "../../sonar/sonar.h"
 #include "../../display/display.h"
 
-#include "../../../lib/wiringPi/wiringPi/wiringPi.h"
+#include "../../../lib/WiringPi/wiringPi/wiringPi.h"
 
 using namespace std;
 

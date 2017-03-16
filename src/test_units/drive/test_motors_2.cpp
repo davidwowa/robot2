@@ -10,8 +10,8 @@
 
 #include "../../drive/drive.h"
 
-#include "../../../lib/wiringPi/wiringPi/wiringPi.h"
-#include "../../../lib/wiringPi/wiringPi/softPwm.h"
+#include "../../../lib/WiringPi/wiringPi/wiringPi.h"
+#include "../../../lib/WiringPi/wiringPi/softPwm.h"
 
 using namespace std;
 

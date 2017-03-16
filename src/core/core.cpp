@@ -13,8 +13,8 @@
 #include "../sonar/sonar.h"
 #include "../config/config.h"
 
-#include "../../lib/wiringPi/wiringPi/wiringPi.h"
-#include "../../lib/wiringPi/wiringPi/softPwm.h"
+#include "../../lib/WiringPi/wiringPi/wiringPi.h"
+#include "../../lib/WiringPi/wiringPi/softPwm.h"
 
 #include "../../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
 #include "../../lib/ArduiPi_OLED/Adafruit_GFX.h"
