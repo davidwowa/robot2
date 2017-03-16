@@ -8,14 +8,20 @@
 
 #include "../../drive/drive.h"
 
+#include "../../sonar/sonar.h"
+#include "../../display/display.h"
+
 #include "../../../lib/WiringPi/wiringPi/wiringPi.h"
 #include "../../../lib/WiringPi/wiringPi/softPwm.h"
 
 int main(void) {
 
 	init_drive();
+	init_display();
 
-	drive_backward(200);
+	draw_text("BACKWARD", 0, true);
+	drive_backward(199);
+	draw_text("ok", 1, false);
 
 	return 1;
 }

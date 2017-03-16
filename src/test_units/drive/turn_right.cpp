@@ -8,14 +8,20 @@
 
 #include "../../drive/drive.h"
 
+#include "../../sonar/sonar.h"
+#include "../../display/display.h"
+
 #include "../../../lib/WiringPi/wiringPi/wiringPi.h"
 #include "../../../lib/WiringPi/wiringPi/softPwm.h"
 
 int main(void) {
 
 	init_drive();
+	init_display();
 
-	turn_right(200);
+	draw_text("TURN_RIGHT", 0, true);
+	turn_right(199);
+	draw_text("ok", 1, false);
 
 	return 1;
 }
