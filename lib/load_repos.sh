@@ -1,9 +1,9 @@
 #!/bin/bash
 echo "load sonar library"
-git clone https://github.com/omaflak/HC-SR04-Raspberry-Pi-C-.git
+git clone https://github.com/davidwowa/HC-SR04-Raspberry-Pi-C-.git
 
 echo "load wiringPi library"
-git clone git://git.drogon.net/wiringPi
+git clone https://github.com/davidwowa/WiringPi.git
 #echo "install wiringPi"
 # only first time
 #cd wiringPi
@@ -32,7 +32,7 @@ git clone git://git.drogon.net/wiringPi
 #git clone https://github.com/gypified/libmpg123.git
 
 echo "load display library"
-git clone https://github.com/hallard/ArduiPi_OLED.git
+git clone https://github.com/davidwowa/ArduiPi_OLED.git
 #echo "install display library"
 #cd ArduiPi_OLED
 #sudo make
