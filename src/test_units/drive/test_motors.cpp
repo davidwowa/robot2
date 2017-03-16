@@ -27,7 +27,7 @@ int main(void) {
 	for (int var = 0; var < 200; ++var) {
 		cout << "set speed to " << var << endl;
 		draw_text("acceleration forward", 1, true);
-		string text_on_display = "acc for " + std::to_string(var);
+		string text_on_display = "acc for " + to_string(var);
 		draw_text(text_on_display, 0, false);
 		drive_forward(var);
 		delay(100);
@@ -38,7 +38,7 @@ int main(void) {
 	for (int var = 0; var < 200; ++var) {
 		cout << "set speed to " << var << endl;
 		draw_text("acceleration backward", 1, true);
-		string text_on_display = "back for " + std::to_string(var);
+		string text_on_display = "back for " + to_string(var);
 		draw_text(text_on_display, 0, false);
 		drive_backward(var);
 		delay(100);
