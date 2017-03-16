@@ -48,7 +48,6 @@ int main(void) {
 	delay(2000);
 
 	cout << "stop" << endl;
-	stop_motors();
 	drive_backward(0);
 	return -1;
 }
