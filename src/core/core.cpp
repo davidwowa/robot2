@@ -154,14 +154,14 @@ void run() {
 
 	display_data(current_pointer, current_speed, distance_m, distance_r,
 			distance_l, distance_b);
-
-	delay(510);
 }
 
 int main(void) {
 	init();
 	while (1 == is_running()) {
+		cout << "core run" << endl;
 		run();
+		delay(510);
 	}
 	cout << "core exit" << endl;
 	return 1;
