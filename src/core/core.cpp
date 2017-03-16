@@ -187,7 +187,7 @@ int is_running() {
 	FILE *run_config;
 	int is_run = 0;
 
-	run_config = fopen("/home/pi/robot2/src/config/run", "r");
+	run_config = fopen("/home/pi/robot2/config/core", "r");
 	if (run_config) {
 		fscanf(run_config, "%d", &is_run);
 		fclose(run_config);
