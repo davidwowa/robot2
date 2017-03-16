@@ -176,6 +176,17 @@ void display_data(int direction, int speed, int m, int r, int l, int b) {
 	display.display();
 }
 
+void display_data_simpl(int speed) {
+	display.clearDisplay();
+	display.setTextColor(WHITE);
+	if (speed >= 73) {
+		int s = speed - 73;
+		display.drawHorizontalBargraph(0, 36, (int16_t) display.width(), 20, 1,
+				s);
+	}
+	display.display();
+}
+
 double get_cpu_usage_data() {
 	FILE *temperatureFile;
 	double T = 0.0;

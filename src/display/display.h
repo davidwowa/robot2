@@ -17,6 +17,8 @@ extern void display_data(int direction, int speed, int m, int r, int l,
 		int b);
 extern void display_manual_drive_data();
 
+extern void display_data_simpl(int speed);
+
 extern double get_cpu_usage_data(void);
 extern double get_hdd_usage_data(void);
 extern std::string get_ip_address(void);
