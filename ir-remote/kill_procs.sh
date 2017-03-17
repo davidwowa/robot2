@@ -18,4 +18,4 @@ echo "kill test_motors_2"
 sudo kill $(pidof test_motors_2)
 
 echo "stop driving"
-/home/pi/robot2/src/test_units/drive/stop
+sudo /home/pi/robot2/src/test_units/drive/stop
