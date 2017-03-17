@@ -15,4 +15,8 @@ echo "compile drive test"
 cd /home/pi/robot2/src/core/test-units/drive/
 ./compile.sh
 
+echo "compile file io test"
+cd /home/pi/robot2/src/core/test-units/io/
+./compile.sh
+
 echo "ready"
