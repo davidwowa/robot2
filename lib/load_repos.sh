@@ -36,3 +36,6 @@ git clone https://github.com/davidwowa/ArduiPi_OLED.git
 #echo "install display library"
 #cd ArduiPi_OLED
 #sudo make
+
+echo "load ir remote library"
+git clone https://github.com/FernetMenta/lirc.git
