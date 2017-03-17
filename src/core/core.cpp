@@ -165,7 +165,7 @@ void run() {
 int main(void) {
 	init();
 
-	run();
+	//run();
 
 	struct lirc_config *config;
 
@@ -192,9 +192,11 @@ int main(void) {
 			lirc_nextcode(&code);
 			//If code = NULL, meaning nothing was returned from LIRC socket,
 			//then skip lines below and start while loop again.
-			if (code == NULL)
-				continue;
-			{
+			if (code == NULL){
+				printf("%s", code);
+				run();
+				}else
+			{run();
 				//Make sure there is a 400ms gap before detecting button presses.
 				if (millis() - buttonTimer > 400) {
 					//Check to see if the string "KEY_1" appears anywhere within the string 'code'.
@@ -206,13 +208,15 @@ int main(void) {
 						draw_text("ok", 2, false);
 						exit(EXIT_SUCCESS);
 					} else {
+						run();
 						buttonTimer = millis();
 					}
 				}
-			}
+			}run();
 			//Need to free up code before the next loop
 			free(code);
 //		}
+			run();
 		}
 		//Frees the data structures associated with config.
 		lirc_freeconfig(config);
