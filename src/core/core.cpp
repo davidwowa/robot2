@@ -186,7 +186,9 @@ int main(void) {
 	//Read the default LIRC config at /etc/lirc/lircd.conf  This is the config for your remote.
 	if (lirc_readconfig(NULL, &config, NULL) == 0) {
 		//Do stuff while LIRC socket is open  0=open  -1=closed.
-		while (lirc_nextcode(&code) == 0) {
+		while (true) {
+			//		while (lirc_nextcode(&code) == 0) {
+			lirc_nextcode(&code);
 			//If code = NULL, meaning nothing was returned from LIRC socket,
 			//then skip lines below and start while loop again.
 			if (code == NULL)
@@ -210,6 +212,7 @@ int main(void) {
 			//Need to free up code before the next loop
 			run();
 			free(code);
+//		}
 		}
 		//Frees the data structures associated with config.
 		lirc_freeconfig(config);
