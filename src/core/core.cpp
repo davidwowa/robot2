@@ -67,36 +67,6 @@ void run() {
 	int current_speed = get_speed(current_minmal_distance);
 
 	if (FORWARD == current_pointer) {
-		if (distance_m > MAX_WALL_DISTANCE_1) {
-			if (distance_l < MAX_WALL_DISTANCE_1) {
-				turn_right(current_speed);
-				current_pointer = TURN_RIGHT;
-			}
-			if (distance_r < MAX_WALL_DISTANCE_1) {
-				turn_left(current_speed);
-				current_pointer = TURN_LEFT;
-			}
-		} else {
-			current_pointer = BACKWARD;
-		}
-	}
-
-	if (BACKWARD == current_pointer) {
-		if (distance_b > MAX_WALL_DISTANCE_1) {
-			if (distance_l < MAX_WALL_DISTANCE_1) {
-				turn_left(current_speed);
-				current_pointer = TURN_LEFT;
-			}
-			if (distance_r < MAX_WALL_DISTANCE_1) {
-				turn_right(current_speed);
-				current_pointer = TURN_RIGHT;
-			}
-		} else {
-			current_pointer = BACKWARD;
-		}
-	}
-
-	if (FORWARD == current_pointer) {
 		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
 				&& distance_r > MAX_WALL_DISTANCE_1) {
 			drive_forward(current_speed);
@@ -158,6 +128,36 @@ void run() {
 		}
 	}
 
+	if (FORWARD == current_pointer) {
+		if (distance_m > MAX_WALL_DISTANCE_1) {
+			if (distance_l < MAX_WALL_DISTANCE_1) {
+				turn_right(current_speed);
+				current_pointer = TURN_RIGHT;
+			}
+			if (distance_r < MAX_WALL_DISTANCE_1) {
+				turn_left(current_speed);
+				current_pointer = TURN_LEFT;
+			}
+		} else {
+			current_pointer = BACKWARD;
+		}
+	}
+
+	if (BACKWARD == current_pointer) {
+		if (distance_b > MAX_WALL_DISTANCE_1) {
+			if (distance_l < MAX_WALL_DISTANCE_1) {
+				turn_left(current_speed);
+				current_pointer = TURN_LEFT;
+			}
+			if (distance_r < MAX_WALL_DISTANCE_1) {
+				turn_right(current_speed);
+				current_pointer = TURN_RIGHT;
+			}
+		} else {
+			current_pointer = BACKWARD;
+		}
+	}
+
 	display_data(current_pointer, current_speed, distance_m, distance_r,
 			distance_l, distance_b);
 }
@@ -192,13 +192,13 @@ int main(void) {
 			lirc_nextcode(&code);
 			//If code = NULL, meaning nothing was returned from LIRC socket,
 			//then skip lines below and start while loop again.
-			if (code == NULL){
-				printf("%s", code);
+			if (code == NULL) {
 				run();
-				}else
-			{run();
+			} else {
+				run();
 				//Make sure there is a 400ms gap before detecting button presses.
 				if (millis() - buttonTimer > 400) {
+					run();
 					//Check to see if the string "KEY_1" appears anywhere within the string 'code'.
 					if (strstr(code, "KEY_STOP")) {
 						printf("MATCH on KEY_STOP\n");
@@ -212,7 +212,8 @@ int main(void) {
 						buttonTimer = millis();
 					}
 				}
-			}run();
+			}
+			run();
 			//Need to free up code before the next loop
 			free(code);
 //		}
