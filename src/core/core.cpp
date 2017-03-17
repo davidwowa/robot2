@@ -158,13 +158,17 @@ void run() {
 
 int main(void) {
 	init();
-	while (1 == is_running()) {
+
+	int is_run = is_running();
+
+	while (1 == is_run) {
 		cout << "core run" << endl;
 		run();
 		delay(510);
+		is_run = is_running();
 	}
 	cout << "core exit" << endl;
-	return 1;
+	return -1;
 }
 
 int get_speed(int minimal_distance) {
