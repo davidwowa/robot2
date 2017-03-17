@@ -165,6 +165,8 @@ void run() {
 int main(void) {
 	init();
 
+	run();
+
 	struct lirc_config *config;
 
 	//Timer for our buttons
@@ -174,10 +176,10 @@ int main(void) {
 	char *c;
 
 	//Initiate WiringPi and set WiringPi pins 4, 5 & 6 (GPIO 23, 24 & 25) to output. These are the pins the LEDs are connected to.
-	if (wiringPiSetup() == -1)
-		exit(1);
+//	if (wiringPiSetup() == -1)
+//		exit(1);
 
-	//Initiate LIRC. Exit on failure
+//Initiate LIRC. Exit on failure
 	if (lirc_init("lirc", 1) == -1)
 		exit(EXIT_FAILURE);
 
@@ -202,11 +204,11 @@ int main(void) {
 						exit(EXIT_SUCCESS);
 					} else {
 						buttonTimer = millis();
-						run();
 					}
 				}
 			}
 			//Need to free up code before the next loop
+			run();
 			free(code);
 		}
 		//Frees the data structures associated with config.
