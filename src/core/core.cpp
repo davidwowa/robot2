@@ -167,6 +167,10 @@ int main(void) {
 		delay(510);
 		is_run = is_running();
 	}
+	draw_text("ROBOT_2", 0, true);
+	draw_text("terminated", 1, false);
+	drive_backward(0);
+	draw_text("ok", 2, false);
 	cout << "core exit" << endl;
 	return -1;
 }
