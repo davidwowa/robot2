@@ -8,6 +8,12 @@
 #include "iostream"
 #include <stdio.h>
 
+#include <errno.h>
+#include <stdlib.h>
+#include <string.h>
+#include <lirc/lirc_client.h>
+#include <time.h>
+
 #include "../display/display.h"
 #include "../drive/drive.h"
 #include "../sonar/sonar.h"
@@ -159,19 +165,56 @@ void run() {
 int main(void) {
 	init();
 
-	int is_run = is_running();
+	struct lirc_config *config;
 
-	while (1 == is_run) {
-		run();
-		delay(510);
-		is_run = is_running();
-		cout << "core run" << is_run << endl;
+	//Timer for our buttons
+	int buttonTimer = millis();
+
+	char *code;
+	char *c;
+
+	//Initiate WiringPi and set WiringPi pins 4, 5 & 6 (GPIO 23, 24 & 25) to output. These are the pins the LEDs are connected to.
+	if (wiringPiSetup() == -1)
+		exit(1);
+
+	//Initiate LIRC. Exit on failure
+	if (lirc_init("lirc", 1) == -1)
+		exit(EXIT_FAILURE);
+
+	//Read the default LIRC config at /etc/lirc/lircd.conf  This is the config for your remote.
+	if (lirc_readconfig(NULL, &config, NULL) == 0) {
+		//Do stuff while LIRC socket is open  0=open  -1=closed.
+		while (lirc_nextcode(&code) == 0) {
+			//If code = NULL, meaning nothing was returned from LIRC socket,
+			//then skip lines below and start while loop again.
+			if (code == NULL)
+				continue;
+			{
+				//Make sure there is a 400ms gap before detecting button presses.
+				if (millis() - buttonTimer > 400) {
+					//Check to see if the string "KEY_1" appears anywhere within the string 'code'.
+					if (strstr(code, "KEY_STOP")) {
+						printf("MATCH on KEY_STOP\n");
+						draw_text("ROBOT_2", 0, true);
+						draw_text("terminated", 1, false);
+						drive_backward(0);
+						draw_text("ok", 2, false);
+						exit(EXIT_SUCCESS);
+					} else {
+						buttonTimer = millis();
+						run();
+					}
+				}
+			}
+			//Need to free up code before the next loop
+			free(code);
+		}
+		//Frees the data structures associated with config.
+		lirc_freeconfig(config);
 	}
-	draw_text("ROBOT_2", 0, true);
-	draw_text("terminated", 1, false);
-	drive_backward(0);
-	draw_text("ok", 2, false);
-	cout << "core exit" << endl;
+	//lirc_deinit() closes the connection to lircd and does some internal clean-up stuff.
+	lirc_deinit();
+	exit(EXIT_SUCCESS);
 	return -1;
 }
 

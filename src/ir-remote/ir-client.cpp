@@ -6,12 +6,14 @@
  */
 
 #include "../../lib/WiringPi/wiringPi/wiringPi.h"
-#include <errno.h>
 #include <stdio.h>
+
+#include <errno.h>
 #include <stdlib.h>
 #include <string.h>
 #include <lirc/lirc_client.h>
 #include <time.h>
+
 
 int main() {
 	struct lirc_config *config;
