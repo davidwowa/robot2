@@ -187,6 +187,7 @@ int main(void) {
 	if (lirc_readconfig(NULL, &config, NULL) == 0) {
 		//Do stuff while LIRC socket is open  0=open  -1=closed.
 		while (true) {
+			run();
 			//		while (lirc_nextcode(&code) == 0) {
 			lirc_nextcode(&code);
 			//If code = NULL, meaning nothing was returned from LIRC socket,
@@ -210,7 +211,6 @@ int main(void) {
 				}
 			}
 			//Need to free up code before the next loop
-			run();
 			free(code);
 //		}
 		}
