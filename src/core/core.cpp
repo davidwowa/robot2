@@ -162,10 +162,10 @@ int main(void) {
 	int is_run = is_running();
 
 	while (1 == is_run) {
-		cout << "core run" << endl;
 		run();
 		delay(510);
 		is_run = is_running();
+		cout << "core run" << is_run << endl;
 	}
 	draw_text("ROBOT_2", 0, true);
 	draw_text("terminated", 1, false);
