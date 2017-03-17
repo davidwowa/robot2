@@ -4,6 +4,12 @@ echo "set rights"
 chmod +x src/compile.sh
 chmod +x ir-remote/setup.sh
 chmod +x lib/load_repos.sh
+chmod +x src/core/compile.sh
+chmod +x src/test_units/display/compile.sh
+chmod +x src/test_units/drive/compile.sh
+chmod +x src/test_units/io/compile.sh
+chmod +x src/test_units/net/compile.sh
+chmod +x src/test_units/sonar/compile.sh
 echo "load libraries"
 cd lib
 ./load_repos.sh

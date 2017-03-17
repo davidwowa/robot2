@@ -8,6 +8,8 @@
 #include "iostream"
 #include <stdio.h>
 
+#include "../../../lib/WiringPi/wiringPi/wiringPi.h"
+
 using namespace std;
 
 int is_running();
@@ -19,7 +21,6 @@ int main() {
 
 	while (1 == test) {
 		cout << "core run" << test << endl;
-		run();
 		delay(510);
 		test = is_running();
 	}

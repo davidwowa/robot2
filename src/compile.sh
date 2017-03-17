@@ -19,4 +19,8 @@ echo "compile file io test"
 cd /home/pi/robot2/src/core/test_units/io/
 ./compile.sh
 
+echo "compile ip address test"
+cd /home/pi/robot2/src/core/test_units/net/
+./compile.sh
+
 echo "ready"
