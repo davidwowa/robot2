@@ -1,4 +1,10 @@
 begin
+button = KEY_DOT
+prog = irexec
+config = sh /home/pi/robot2/ir-remote/off.sh
+flags = quit
+end
+begin
 button = KEY_PLAY
 prog = irexec
 config = sh /home/pi/robot2/ir-remote/core.sh
