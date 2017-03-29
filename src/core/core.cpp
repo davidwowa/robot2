@@ -176,7 +176,6 @@ void run() {
 				distance_l < MAX_WALL_DISTANCE_1
 			&&  distance_r < MAX_WALL_DISTANCE_1
 			&&  distance_b < MAX_WALL_DISTANCE_1) {
-				stop();
 				stop_motors();
 				current_pointer = BACKWARD;
 			}
