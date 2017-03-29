@@ -18,7 +18,7 @@ git clone https://github.com/davidwowa/WiringPi.git
 #git clone https://github.com/opencv/opencv.git
 
 #echo "get raspicam library for opencv"
-#git clone https://github.com/davidwowa/raspicam.git
+git clone https://github.com/davidwowa/raspicam.git
 #cd raspicam
 #mkdir build
 #cd build
