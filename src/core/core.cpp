@@ -11,7 +11,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
-#include <lirc/lirc_client.h>
+//#include <lirc/lirc_client.h>
 #include <time.h>
 
 #include "../display/display.h"
@@ -67,96 +67,208 @@ void run() {
 	int current_speed = get_speed(current_minmal_distance);
 
 	if (FORWARD == current_pointer) {
-		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
-				&& distance_r > MAX_WALL_DISTANCE_1) {
+	   if (distance_m > MAX_WALL_DISTANCE_1 &&
+		   distance_l > MAX_WALL_DISTANCE_1
+		&& distance_r > MAX_WALL_DISTANCE_1) {
 			drive_forward(current_speed);
 			current_pointer = FORWARD;
 		}
-		if (distance_m < MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
-				&& distance_r < MAX_WALL_DISTANCE_1) {
+		if (distance_m > MAX_WALL_DISTANCE_1 &&
+			distance_l > MAX_WALL_DISTANCE_1
+		&&  distance_r < MAX_WALL_DISTANCE_1) {
 			turn_left(current_speed);
 			current_pointer = TURN_LEFT;
 		}
-		if (distance_m < MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
-				&& distance_r > MAX_WALL_DISTANCE_1) {
+		if (distance_m > MAX_WALL_DISTANCE_1 &&
+			distance_l < MAX_WALL_DISTANCE_1
+		&&  distance_r > MAX_WALL_DISTANCE_1) {
 			turn_right(current_speed);
 			current_pointer = TURN_RIGHT;
 		}
-		if (distance_m < MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
-				&& distance_r < MAX_WALL_DISTANCE_1) {
+		if (distance_m < MAX_WALL_DISTANCE_1 &&
+			distance_l < MAX_WALL_DISTANCE_1
+		&&  distance_r < MAX_WALL_DISTANCE_1) {
+			drive_backward(current_speed);
+			current_pointer = BACKWARD;
+		}
+		if (distance_m < MAX_WALL_DISTANCE_1 &&
+			distance_l > MAX_WALL_DISTANCE_1
+		&&  distance_r > MAX_WALL_DISTANCE_1) {
+			if(distance_l > distance_r){
+				turn_left(current_speed);
+				current_pointer = TURN_LEFT;
+			}else{
+				turn_right(current_speed);
+				current_pointer = TURN_RIGHT;
+			}
+		}
+		if (distance_m > MAX_WALL_DISTANCE_1 &&
+			distance_l < MAX_WALL_DISTANCE_1
+		&&  distance_r < MAX_WALL_DISTANCE_1) {
 			drive_backward(current_speed);
 			current_pointer = BACKWARD;
 		}
 	}
 
 	if (BACKWARD == current_pointer) {
-		if (distance_m < MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
-				&& distance_r < MAX_WALL_DISTANCE_1) {
-			turn_left(current_speed);
-			current_pointer = TURN_LEFT;
+		   if (distance_m > MAX_WALL_DISTANCE_1 &&
+			   distance_l > MAX_WALL_DISTANCE_1
+			&& distance_r > MAX_WALL_DISTANCE_1
+			&& distance_b > MAX_WALL_DISTANCE_3) {
+			   if(distance_l > distance_r){
+				   turn_left(current_speed);
+				   current_pointer = TURN_LEFT;
+			   }else{
+				   turn_right(current_speed);
+				   current_pointer = TURN_RIGHT;
+			   }
+			}
+			if (distance_m > MAX_WALL_DISTANCE_1 &&
+				distance_l > MAX_WALL_DISTANCE_1
+			&&  distance_r < MAX_WALL_DISTANCE_1
+			&&  distance_b > MAX_WALL_DISTANCE_3) {
+				turn_right(current_speed);
+				current_pointer = BACKWARD;
+			}
+			if (distance_m > MAX_WALL_DISTANCE_1 &&
+				distance_l < MAX_WALL_DISTANCE_1
+			&&  distance_r > MAX_WALL_DISTANCE_1
+			&&  distance_b > MAX_WALL_DISTANCE_3) {
+				turn_left(current_speed);
+				current_pointer = BACKWARD;
+			}
+			if (distance_m < MAX_WALL_DISTANCE_1 &&
+				distance_l < MAX_WALL_DISTANCE_1
+			&&  distance_r < MAX_WALL_DISTANCE_1
+			&&  distance_b > MAX_WALL_DISTANCE_3) {
+				drive_backward(current_speed);
+				current_pointer = BACKWARD;
+			}
+			if (distance_m < MAX_WALL_DISTANCE_1 &&
+				distance_l > MAX_WALL_DISTANCE_1
+			&&  distance_r > MAX_WALL_DISTANCE_1
+			&&  distance_b > MAX_WALL_DISTANCE_3) {
+				if(distance_l > distance_r){
+					turn_left(current_speed);
+					current_pointer = TURN_LEFT;
+				}else{
+					turn_right(current_speed);
+					current_pointer = TURN_RIGHT;
+				}
+			}
+			if (distance_m > MAX_WALL_DISTANCE_1 &&
+				distance_l < MAX_WALL_DISTANCE_1
+			&&  distance_r < MAX_WALL_DISTANCE_1
+			&&  distance_b > MAX_WALL_DISTANCE_3) {
+				drive_backward(current_speed);
+				current_pointer = BACKWARD;
+			}
+			if(distance_b < MAX_WALL_DISTANCE_1){
+				if(distance_l > distance_r){
+					turn_left(current_speed);
+					current_pointer = TURN_LEFT;
+				}else{
+					turn_right(current_speed);
+					current_pointer = TURN_RIGHT;
+				}
+			}
+			if (distance_m < MAX_WALL_DISTANCE_1 &&
+				distance_l < MAX_WALL_DISTANCE_1
+			&&  distance_r < MAX_WALL_DISTANCE_1
+			&&  distance_b < MAX_WALL_DISTANCE_1) {
+				stop();
+				stop_motors();
+				current_pointer = BACKWARD;
+			}
 		}
-		if (distance_m < MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
-				&& distance_r > MAX_WALL_DISTANCE_1) {
-			turn_right(current_speed);
-			current_pointer = TURN_RIGHT;
-		}
-		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
-				&& distance_r < MAX_WALL_DISTANCE_1) {
-			turn_left(current_speed);
-			current_pointer = TURN_LEFT;
-		}
-		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
-				&& distance_r > MAX_WALL_DISTANCE_1) {
-			turn_right(current_speed);
-			current_pointer = TURN_RIGHT;
-		}
-	}
 
 	if (TURN_LEFT == current_pointer) {
-		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
-				&& distance_r > MAX_WALL_DISTANCE_1) {
+	   if (distance_m > MAX_WALL_DISTANCE_1 &&
+		   distance_l > MAX_WALL_DISTANCE_1
+		&& distance_r > MAX_WALL_DISTANCE_1) {
 			drive_forward(current_speed);
 			current_pointer = FORWARD;
 		}
+		if (distance_m > MAX_WALL_DISTANCE_1 &&
+			distance_l > MAX_WALL_DISTANCE_1
+		&&  distance_r < MAX_WALL_DISTANCE_1) {
+			turn_left(current_speed);
+			current_pointer = TURN_LEFT;
+		}
+//		if (distance_m > MAX_WALL_DISTANCE_1 &&
+//			distance_l < MAX_WALL_DISTANCE_1
+//		&&  distance_r > MAX_WALL_DISTANCE_1) {
+//			turn_right(current_speed);
+//			current_pointer = TURN_RIGHT;
+//		}
+		if (distance_m < MAX_WALL_DISTANCE_1 &&
+			distance_l < MAX_WALL_DISTANCE_1
+		&&  distance_r < MAX_WALL_DISTANCE_1) {
+			drive_backward(current_speed);
+			current_pointer = BACKWARD;
+		}
+//		if (distance_m < MAX_WALL_DISTANCE_1 &&
+//			distance_l > MAX_WALL_DISTANCE_1
+//		&&  distance_r > MAX_WALL_DISTANCE_1) {
+//			if(distance_l > distance_r){
+//				turn_left(current_speed);
+//				current_pointer = TURN_LEFT;
+//			}else{
+//				turn_right(current_speed);
+//				current_pointer = TURN_RIGHT;
+//			}
+//		}
+//		if (distance_m > MAX_WALL_DISTANCE_1 &&
+//			distance_l < MAX_WALL_DISTANCE_1
+//		&&  distance_r < MAX_WALL_DISTANCE_1) {
+//			drive_backward(current_speed);
+//			current_pointer = BACKWARD;
+//		}
 	}
 
 	if (TURN_RIGHT == current_pointer) {
-		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
-				&& distance_r > MAX_WALL_DISTANCE_1) {
-			drive_forward(current_speed);
-			current_pointer = FORWARD;
-		}
-	}
-
-	if (FORWARD == current_pointer) {
-		if (distance_m > MAX_WALL_DISTANCE_1) {
-			if (distance_l < MAX_WALL_DISTANCE_1) {
+		   if (distance_m > MAX_WALL_DISTANCE_1 &&
+			   distance_l > MAX_WALL_DISTANCE_1
+			&& distance_r > MAX_WALL_DISTANCE_1) {
+				drive_forward(current_speed);
+				current_pointer = FORWARD;
+			}
+//			if (distance_m > MAX_WALL_DISTANCE_1 &&
+//				distance_l > MAX_WALL_DISTANCE_1
+//			&&  distance_r < MAX_WALL_DISTANCE_1) {
+//				turn_left(current_speed);
+//				current_pointer = TURN_LEFT;
+//			}
+			if (distance_m > MAX_WALL_DISTANCE_1 &&
+				distance_l < MAX_WALL_DISTANCE_1
+			&&  distance_r > MAX_WALL_DISTANCE_1) {
 				turn_right(current_speed);
 				current_pointer = TURN_RIGHT;
 			}
-			if (distance_r < MAX_WALL_DISTANCE_1) {
-				turn_left(current_speed);
-				current_pointer = TURN_LEFT;
+			if (distance_m < MAX_WALL_DISTANCE_1 &&
+				distance_l < MAX_WALL_DISTANCE_1
+			&&  distance_r < MAX_WALL_DISTANCE_1) {
+				drive_backward(current_speed);
+				current_pointer = BACKWARD;
 			}
-		} else {
-			current_pointer = BACKWARD;
+	//		if (distance_m < MAX_WALL_DISTANCE_1 &&
+	//			distance_l > MAX_WALL_DISTANCE_1
+	//		&&  distance_r > MAX_WALL_DISTANCE_1) {
+	//			if(distance_l > distance_r){
+	//				turn_left(current_speed);
+	//				current_pointer = TURN_LEFT;
+	//			}else{
+	//				turn_right(current_speed);
+	//				current_pointer = TURN_RIGHT;
+	//			}
+	//		}
+	//		if (distance_m > MAX_WALL_DISTANCE_1 &&
+	//			distance_l < MAX_WALL_DISTANCE_1
+	//		&&  distance_r < MAX_WALL_DISTANCE_1) {
+	//			drive_backward(current_speed);
+	//			current_pointer = BACKWARD;
+	//		}
 		}
-	}
-
-	if (BACKWARD == current_pointer) {
-		if (distance_b > MAX_WALL_DISTANCE_1) {
-			if (distance_l < MAX_WALL_DISTANCE_1) {
-				turn_left(current_speed);
-				current_pointer = TURN_LEFT;
-			}
-			if (distance_r < MAX_WALL_DISTANCE_1) {
-				turn_right(current_speed);
-				current_pointer = TURN_RIGHT;
-			}
-		} else {
-			current_pointer = BACKWARD;
-		}
-	}
 
 	display_data(current_pointer, current_speed, distance_m, distance_r,
 			distance_l, distance_b);
@@ -165,65 +277,9 @@ void run() {
 int main(void) {
 	init();
 
-	//run();
-
-	struct lirc_config *config;
-
-	//Timer for our buttons
-	int buttonTimer = millis();
-
-	char *code;
-	char *c;
-
-	//Initiate WiringPi and set WiringPi pins 4, 5 & 6 (GPIO 23, 24 & 25) to output. These are the pins the LEDs are connected to.
-//	if (wiringPiSetup() == -1)
-//		exit(1);
-
-//Initiate LIRC. Exit on failure
-	if (lirc_init("lirc", 1) == -1)
-		exit(EXIT_FAILURE);
-
-	//Read the default LIRC config at /etc/lirc/lircd.conf  This is the config for your remote.
-	if (lirc_readconfig(NULL, &config, NULL) == 0) {
-		//Do stuff while LIRC socket is open  0=open  -1=closed.
-		while (true) {
-			run();
-			//		while (lirc_nextcode(&code) == 0) {
-			lirc_nextcode(&code);
-			//If code = NULL, meaning nothing was returned from LIRC socket,
-			//then skip lines below and start while loop again.
-			if (code == NULL) {
-				run();
-			} else {
-				run();
-				//Make sure there is a 400ms gap before detecting button presses.
-				if (millis() - buttonTimer > 400) {
-					run();
-					//Check to see if the string "KEY_1" appears anywhere within the string 'code'.
-					if (strstr(code, "KEY_STOP")) {
-						printf("MATCH on KEY_STOP\n");
-						draw_text("ROBOT_2", 0, true);
-						draw_text("terminated", 1, false);
-						drive_backward(0);
-						draw_text("ok", 2, false);
-						exit(EXIT_SUCCESS);
-					} else {
-						run();
-						buttonTimer = millis();
-					}
-				}
-			}
-			run();
-			//Need to free up code before the next loop
-			free(code);
-//		}
-			run();
-		}
-		//Frees the data structures associated with config.
-		lirc_freeconfig(config);
+	while (is_running()) {
+		run();
 	}
-	//lirc_deinit() closes the connection to lircd and does some internal clean-up stuff.
-	lirc_deinit();
 	exit(EXIT_SUCCESS);
 	return -1;
 }
