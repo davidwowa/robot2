@@ -62,38 +62,38 @@ void set_working_pins_to_low(void) {
 
 void drive_forward(void) {
 	cout << "forward" << endl;
-	softPwmWrite(MOTOR_R_U, PWM_MAX);
-	softPwmWrite(MOTOR_R_V, PWM_MIN);
+	softPwmWrite(MOTOR_R_U, PWM_MIN);
+	softPwmWrite(MOTOR_R_V, PWM_MAX);
 
-	softPwmWrite(MOTOR_L_U, PWM_MIN);
-	softPwmWrite(MOTOR_L_V, PWM_MAX);
+	softPwmWrite(MOTOR_L_U, PWM_MAX);
+	softPwmWrite(MOTOR_L_V, PWM_MIN);
 }
 
 void drive_backward(void) {
 	cout << "backward" << endl;
-	softPwmWrite(MOTOR_R_U, PWM_MIN);
-	softPwmWrite(MOTOR_R_V, PWM_MAX);
-
-	softPwmWrite(MOTOR_L_U, PWM_MAX);
-	softPwmWrite(MOTOR_L_V, PWM_MIN);
-}
-
-void turn_left(void) {
-	cout << "left" << endl;
-	softPwmWrite(MOTOR_R_U, PWM_MIN);
-	softPwmWrite(MOTOR_R_V, PWM_MAX);
+	softPwmWrite(MOTOR_R_U, PWM_MAX);
+	softPwmWrite(MOTOR_R_V, PWM_MIN);
 
 	softPwmWrite(MOTOR_L_U, PWM_MIN);
 	softPwmWrite(MOTOR_L_V, PWM_MAX);
 }
 
-void turn_right(void) {
-	cout << "right" << endl;
+void turn_left(void) {
+	cout << "left" << endl;
 	softPwmWrite(MOTOR_R_U, PWM_MAX);
 	softPwmWrite(MOTOR_R_V, PWM_MIN);
 
 	softPwmWrite(MOTOR_L_U, PWM_MAX);
 	softPwmWrite(MOTOR_L_V, PWM_MIN);
+}
+
+void turn_right(void) {
+	cout << "right" << endl;
+	softPwmWrite(MOTOR_R_U, PWM_MIN);
+	softPwmWrite(MOTOR_R_V, PWM_MAX);
+
+	softPwmWrite(MOTOR_L_U, PWM_MIN);
+	softPwmWrite(MOTOR_L_V, PWM_MAX);
 }
 
 void stop(void) {
@@ -108,37 +108,37 @@ void stop(void) {
 void drive_forward(int pwm) {
 	cout << "forward pwm " << pwm << endl;
 	softPwmWrite(MOTOR_R_U, pwm);
-	softPwmWrite(MOTOR_R_V, PWM_MIN);
+	softPwmWrite(MOTOR_R_V, PWM_MAX);
 
-	softPwmWrite(MOTOR_L_U, PWM_MIN);
+	softPwmWrite(MOTOR_L_U, PWM_MAX);
 	softPwmWrite(MOTOR_L_V, pwm);
 }
 
 void drive_backward(int pwm) {
 	cout << "backward pwm " << pwm << endl;
-	softPwmWrite(MOTOR_R_U, PWM_MIN);
+	softPwmWrite(MOTOR_R_U, PWM_MAX);
 	softPwmWrite(MOTOR_R_V, pwm);
 
 	softPwmWrite(MOTOR_L_U, pwm);
-	softPwmWrite(MOTOR_L_V, PWM_MIN);
+	softPwmWrite(MOTOR_L_V, PWM_MAX);
 }
 
 void turn_left(int pwm) {
 	cout << "left pwm " << pwm << endl;
-	softPwmWrite(MOTOR_R_U, PWM_MIN);
+	softPwmWrite(MOTOR_R_U, PWM_MAX);
 	softPwmWrite(MOTOR_R_V, pwm);
 
-	softPwmWrite(MOTOR_L_U, PWM_MIN);
+	softPwmWrite(MOTOR_L_U, PWM_MAX);
 	softPwmWrite(MOTOR_L_V, pwm);
 }
 
 void turn_right(int pwm) {
 	cout << "right pwm " << pwm << endl;
 	softPwmWrite(MOTOR_R_U, pwm);
-	softPwmWrite(MOTOR_R_V, PWM_MIN);
+	softPwmWrite(MOTOR_R_V, PWM_MAX);
 
 	softPwmWrite(MOTOR_L_U, pwm);
-	softPwmWrite(MOTOR_L_V, PWM_MIN);
+	softPwmWrite(MOTOR_L_V, PWM_MAX);
 }
 
 void stop_motors(void) {
