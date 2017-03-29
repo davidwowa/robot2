@@ -61,6 +61,6 @@ int main(void) {
 
 	cout << "stop" << endl;
 	draw_text("STOP", 0, true);
-	drive_backward(0);
+	drive_backward(200);
 	return -1;
 }

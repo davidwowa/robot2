@@ -20,7 +20,7 @@ int main(void) {
 	init_display();
 
 	draw_text("BACKWARD", 0, true);
-	drive_backward(199);
+	drive_backward(0);
 	draw_text("ok", 1, false);
 
 	return 1;

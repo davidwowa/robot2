@@ -12,9 +12,9 @@ extern const int MAX_WALL_DISTANCE_3 = 35;
 extern const int MAX_WALL_DISTANCE_2 = 25;
 extern const int MAX_WALL_DISTANCE_1 = 15;
 
-extern const int SPEED_3 = 200;
-extern const int SPEED_2 = 170;
-extern const int SPEED_1 = 150;
+extern const int SPEED_3 = 60;
+extern const int SPEED_2 = 30;
+extern const int SPEED_1 = 0;
 
 extern const int FORWARD = 1;
 extern const int TURN_LEFT = 2;

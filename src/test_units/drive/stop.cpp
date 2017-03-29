@@ -21,7 +21,7 @@ int main(void) {
 
 	draw_text("STOP", 0, true);
 //	stop_motors();
-	drive_backward(0);
+	drive_backward(200);
 	draw_text("ok", 1, false);
 
 	return 1;

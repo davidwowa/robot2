@@ -20,7 +20,7 @@ int main(void) {
 	init_display();
 
 	draw_text("TURN_LEFT", 0, true);
-	turn_left(199);
+	turn_left(0);
 	draw_text("ok", 1, false);
 
 	return 1;
