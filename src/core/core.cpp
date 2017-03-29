@@ -308,5 +308,8 @@ int is_running() {
 		fscanf(run_config, "%d", &is_run);
 		fclose(run_config);
 	}
+	if(is_run == 0){
+		exit(EXIT_SUCCESS);
+	}
 	return is_run;
 }
