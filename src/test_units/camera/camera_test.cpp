@@ -8,9 +8,11 @@
 /**
  */
 #include <ctime>
+#include <unistd.h>
 #include <fstream>
 #include <iostream>
-#include <../../lib/raspicam/src/raspicam.h>
+#include <raspicam/raspicam.h>
+
 using namespace std;
 
 int main(int argc, char **argv) {
