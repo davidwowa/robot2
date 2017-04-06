@@ -71,6 +71,18 @@ config = sh /home/pi/robot2/ir-remote/sonar_test.sh
 flags = quit
 end
 begin
+button = KEY_5
+prog = irexec
+config = sh /home/pi/robot2/ir-remote/camera_test.sh
+flags = quit
+end
+begin
+button = KEY_6
+prog = irexec
+config = sh /home/pi/robot2/ir-remote/camera_test_cv.sh
+flags = quit
+end
+begin
 button = KEY_RESTART
 prog = irexec
 config = sh /home/pi/robot2/ir-remote/kill_procs.sh
