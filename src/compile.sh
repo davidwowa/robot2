@@ -27,7 +27,7 @@ echo "compile ir client"
 cd /home/pi/robot2/src/ir-remote/
 ./compile.sh
 
-echo "compile ip address test"
+echo "compile camera test"
 cd /home/pi/robot2/src/test_units/camera/
 ./compile.sh
 
