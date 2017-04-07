@@ -16,6 +16,8 @@ using namespace std;
 
 int main(int argc, char **argv) {
 
+	init_display();
+
 	draw_text("take pic cv...", 0, true);
 
 	time_t timer_begin, timer_end;

@@ -19,6 +19,8 @@ using namespace std;
 
 int main(int argc, char **argv) {
 
+	init_display();
+
 	draw_text("take pic...", 0, true);
 
 	raspicam::RaspiCam Camera; //Cmaera object
