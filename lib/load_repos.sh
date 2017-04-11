@@ -1,9 +1,9 @@
 #!/bin/bash
-echo "load sonar library"
-git clone https://github.com/davidwowa/HC-SR04-Raspberry-Pi-C-.git
+#echo "load sonar library"
+#git clone https://github.com/davidwowa/HC-SR04-Raspberry-Pi-C-.git
 
-echo "load wiringPi library"
-git clone https://github.com/davidwowa/WiringPi.git
+#echo "load wiringPi library"
+#git clone https://github.com/davidwowa/WiringPi.git
 #echo "install wiringPi"
 # only first time
 #cd wiringPi
@@ -18,7 +18,7 @@ git clone https://github.com/davidwowa/WiringPi.git
 #git clone https://github.com/opencv/opencv.git
 
 #echo "get raspicam library for opencv"
-git clone https://github.com/davidwowa/raspicam.git
+#git clone https://github.com/davidwowa/raspicam.git
 #cd raspicam
 #mkdir build
 #cd build
@@ -31,11 +31,11 @@ git clone https://github.com/davidwowa/raspicam.git
 #echo "load libmpg for play mp3"
 #git clone https://github.com/gypified/libmpg123.git
 
-echo "load display library"
-git clone https://github.com/davidwowa/ArduiPi_OLED.git
+#echo "load display library"
+#git clone https://github.com/davidwowa/ArduiPi_OLED.git
 #echo "install display library"
 #cd ArduiPi_OLED
 #sudo make
 
-echo "load ir remote library"
-git clone https://github.com/FernetMenta/lirc.git
+#echo "load ir remote library"
+#git clone https://github.com/FernetMenta/lirc.git
