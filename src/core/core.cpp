@@ -67,130 +67,115 @@ void run() {
 	int current_speed = get_speed(current_minmal_distance);
 
 	if (FORWARD == current_pointer) {
-	   if (distance_m > MAX_WALL_DISTANCE_1 &&
-		   distance_l > MAX_WALL_DISTANCE_1
-		&& distance_r > MAX_WALL_DISTANCE_1) {
+		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
+				&& distance_r > MAX_WALL_DISTANCE_1) {
 			drive_forward(current_speed);
 			current_pointer = FORWARD;
 		}
-		if (distance_m > MAX_WALL_DISTANCE_1 &&
-			distance_l > MAX_WALL_DISTANCE_1
-		&&  distance_r < MAX_WALL_DISTANCE_1) {
+		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
+				&& distance_r < MAX_WALL_DISTANCE_1) {
 			turn_left(current_speed);
 			current_pointer = TURN_LEFT;
 		}
-		if (distance_m > MAX_WALL_DISTANCE_1 &&
-			distance_l < MAX_WALL_DISTANCE_1
-		&&  distance_r > MAX_WALL_DISTANCE_1) {
+		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
+				&& distance_r > MAX_WALL_DISTANCE_1) {
 			turn_right(current_speed);
 			current_pointer = TURN_RIGHT;
 		}
-		if (distance_m < MAX_WALL_DISTANCE_1 &&
-			distance_l < MAX_WALL_DISTANCE_1
-		&&  distance_r < MAX_WALL_DISTANCE_1) {
+		if (distance_m < MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
+				&& distance_r < MAX_WALL_DISTANCE_1) {
 			drive_backward(current_speed);
 			current_pointer = BACKWARD;
 		}
-		if (distance_m < MAX_WALL_DISTANCE_1 &&
-			distance_l > MAX_WALL_DISTANCE_1
-		&&  distance_r > MAX_WALL_DISTANCE_1) {
-			if(distance_l > distance_r){
+		if (distance_m < MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
+				&& distance_r > MAX_WALL_DISTANCE_1) {
+			if (distance_l > distance_r) {
 				turn_left(current_speed);
 				current_pointer = TURN_LEFT;
-			}else{
+			} else {
 				turn_right(current_speed);
 				current_pointer = TURN_RIGHT;
 			}
 		}
-		if (distance_m > MAX_WALL_DISTANCE_1 &&
-			distance_l < MAX_WALL_DISTANCE_1
-		&&  distance_r < MAX_WALL_DISTANCE_1) {
+		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
+				&& distance_r < MAX_WALL_DISTANCE_1) {
 			drive_backward(current_speed);
 			current_pointer = BACKWARD;
 		}
 	}
 
 	if (BACKWARD == current_pointer) {
-		   if (distance_m > MAX_WALL_DISTANCE_1 &&
-			   distance_l > MAX_WALL_DISTANCE_1
-			&& distance_r > MAX_WALL_DISTANCE_1
-			&& distance_b > MAX_WALL_DISTANCE_3) {
-			   if(distance_l > distance_r){
-				   turn_left(current_speed);
-				   current_pointer = TURN_LEFT;
-			   }else{
-				   turn_right(current_speed);
-				   current_pointer = TURN_RIGHT;
-			   }
-			}
-			if (distance_m > MAX_WALL_DISTANCE_1 &&
-				distance_l > MAX_WALL_DISTANCE_1
-			&&  distance_r < MAX_WALL_DISTANCE_1
-			&&  distance_b > MAX_WALL_DISTANCE_3) {
-				turn_right(current_speed);
-				current_pointer = BACKWARD;
-			}
-			if (distance_m > MAX_WALL_DISTANCE_1 &&
-				distance_l < MAX_WALL_DISTANCE_1
-			&&  distance_r > MAX_WALL_DISTANCE_1
-			&&  distance_b > MAX_WALL_DISTANCE_3) {
+		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
+				&& distance_r > MAX_WALL_DISTANCE_1
+				&& distance_b > MAX_WALL_DISTANCE_3) {
+			if (distance_l > distance_r) {
 				turn_left(current_speed);
-				current_pointer = BACKWARD;
-			}
-			if (distance_m < MAX_WALL_DISTANCE_1 &&
-				distance_l < MAX_WALL_DISTANCE_1
-			&&  distance_r < MAX_WALL_DISTANCE_1
-			&&  distance_b > MAX_WALL_DISTANCE_3) {
-				drive_backward(current_speed);
-				current_pointer = BACKWARD;
-			}
-			if (distance_m < MAX_WALL_DISTANCE_1 &&
-				distance_l > MAX_WALL_DISTANCE_1
-			&&  distance_r > MAX_WALL_DISTANCE_1
-			&&  distance_b > MAX_WALL_DISTANCE_3) {
-				if(distance_l > distance_r){
-					turn_left(current_speed);
-					current_pointer = TURN_LEFT;
-				}else{
-					turn_right(current_speed);
-					current_pointer = TURN_RIGHT;
-				}
-			}
-			if (distance_m > MAX_WALL_DISTANCE_1 &&
-				distance_l < MAX_WALL_DISTANCE_1
-			&&  distance_r < MAX_WALL_DISTANCE_1
-			&&  distance_b > MAX_WALL_DISTANCE_3) {
-				drive_backward(current_speed);
-				current_pointer = BACKWARD;
-			}
-			if(distance_b < MAX_WALL_DISTANCE_1){
-				if(distance_l > distance_r){
-					turn_left(current_speed);
-					current_pointer = TURN_LEFT;
-				}else{
-					turn_right(current_speed);
-					current_pointer = TURN_RIGHT;
-				}
-			}
-			if (distance_m < MAX_WALL_DISTANCE_1 &&
-				distance_l < MAX_WALL_DISTANCE_1
-			&&  distance_r < MAX_WALL_DISTANCE_1
-			&&  distance_b < MAX_WALL_DISTANCE_1) {
-				stop_motors();
-				current_pointer = BACKWARD;
+				current_pointer = TURN_LEFT;
+			} else {
+				turn_right(current_speed);
+				current_pointer = TURN_RIGHT;
 			}
 		}
+		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
+				&& distance_r < MAX_WALL_DISTANCE_1
+				&& distance_b > MAX_WALL_DISTANCE_3) {
+			turn_right(current_speed);
+			current_pointer = BACKWARD;
+		}
+		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
+				&& distance_r > MAX_WALL_DISTANCE_1
+				&& distance_b > MAX_WALL_DISTANCE_3) {
+			turn_left(current_speed);
+			current_pointer = BACKWARD;
+		}
+		if (distance_m < MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
+				&& distance_r < MAX_WALL_DISTANCE_1
+				&& distance_b > MAX_WALL_DISTANCE_3) {
+			drive_backward(current_speed);
+			current_pointer = BACKWARD;
+		}
+		if (distance_m < MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
+				&& distance_r > MAX_WALL_DISTANCE_1
+				&& distance_b > MAX_WALL_DISTANCE_3) {
+			if (distance_l > distance_r) {
+				turn_left(current_speed);
+				current_pointer = TURN_LEFT;
+			} else {
+				turn_right(current_speed);
+				current_pointer = TURN_RIGHT;
+			}
+		}
+		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
+				&& distance_r < MAX_WALL_DISTANCE_1
+				&& distance_b > MAX_WALL_DISTANCE_3) {
+			drive_backward(current_speed);
+			current_pointer = BACKWARD;
+		}
+		if (distance_b < MAX_WALL_DISTANCE_1) {
+			if (distance_l > distance_r) {
+				turn_left(current_speed);
+				current_pointer = TURN_LEFT;
+			} else {
+				turn_right(current_speed);
+				current_pointer = TURN_RIGHT;
+			}
+		}
+		if (distance_m < MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
+				&& distance_r < MAX_WALL_DISTANCE_1
+				&& distance_b < MAX_WALL_DISTANCE_1) {
+			stop_motors();
+			current_pointer = BACKWARD;
+		}
+	}
 
 	if (TURN_LEFT == current_pointer) {
-	   if (distance_m > MAX_WALL_DISTANCE_1 &&
-		   distance_l > MAX_WALL_DISTANCE_1
-		&& distance_r > MAX_WALL_DISTANCE_1) {
+		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
+				&& distance_r > MAX_WALL_DISTANCE_1) {
 			drive_forward(current_speed);
 			current_pointer = FORWARD;
 		}
-		if (distance_m > MAX_WALL_DISTANCE_1 &&
-			distance_l > MAX_WALL_DISTANCE_1
-		&&  distance_r < MAX_WALL_DISTANCE_1) {
+		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
+				&& distance_r < MAX_WALL_DISTANCE_1) {
 			turn_left(current_speed);
 			current_pointer = TURN_LEFT;
 		}
@@ -200,9 +185,8 @@ void run() {
 //			turn_right(current_speed);
 //			current_pointer = TURN_RIGHT;
 //		}
-		if (distance_m < MAX_WALL_DISTANCE_1 &&
-			distance_l < MAX_WALL_DISTANCE_1
-		&&  distance_r < MAX_WALL_DISTANCE_1) {
+		if (distance_m < MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
+				&& distance_r < MAX_WALL_DISTANCE_1) {
 			drive_backward(current_speed);
 			current_pointer = BACKWARD;
 		}
@@ -226,48 +210,45 @@ void run() {
 	}
 
 	if (TURN_RIGHT == current_pointer) {
-		   if (distance_m > MAX_WALL_DISTANCE_1 &&
-			   distance_l > MAX_WALL_DISTANCE_1
-			&& distance_r > MAX_WALL_DISTANCE_1) {
-				drive_forward(current_speed);
-				current_pointer = FORWARD;
-			}
+		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l > MAX_WALL_DISTANCE_1
+				&& distance_r > MAX_WALL_DISTANCE_1) {
+			drive_forward(current_speed);
+			current_pointer = FORWARD;
+		}
 //			if (distance_m > MAX_WALL_DISTANCE_1 &&
 //				distance_l > MAX_WALL_DISTANCE_1
 //			&&  distance_r < MAX_WALL_DISTANCE_1) {
 //				turn_left(current_speed);
 //				current_pointer = TURN_LEFT;
 //			}
-			if (distance_m > MAX_WALL_DISTANCE_1 &&
-				distance_l < MAX_WALL_DISTANCE_1
-			&&  distance_r > MAX_WALL_DISTANCE_1) {
-				turn_right(current_speed);
-				current_pointer = TURN_RIGHT;
-			}
-			if (distance_m < MAX_WALL_DISTANCE_1 &&
-				distance_l < MAX_WALL_DISTANCE_1
-			&&  distance_r < MAX_WALL_DISTANCE_1) {
-				drive_backward(current_speed);
-				current_pointer = BACKWARD;
-			}
-	//		if (distance_m < MAX_WALL_DISTANCE_1 &&
-	//			distance_l > MAX_WALL_DISTANCE_1
-	//		&&  distance_r > MAX_WALL_DISTANCE_1) {
-	//			if(distance_l > distance_r){
-	//				turn_left(current_speed);
-	//				current_pointer = TURN_LEFT;
-	//			}else{
-	//				turn_right(current_speed);
-	//				current_pointer = TURN_RIGHT;
-	//			}
-	//		}
-	//		if (distance_m > MAX_WALL_DISTANCE_1 &&
-	//			distance_l < MAX_WALL_DISTANCE_1
-	//		&&  distance_r < MAX_WALL_DISTANCE_1) {
-	//			drive_backward(current_speed);
-	//			current_pointer = BACKWARD;
-	//		}
+		if (distance_m > MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
+				&& distance_r > MAX_WALL_DISTANCE_1) {
+			turn_right(current_speed);
+			current_pointer = TURN_RIGHT;
 		}
+		if (distance_m < MAX_WALL_DISTANCE_1 && distance_l < MAX_WALL_DISTANCE_1
+				&& distance_r < MAX_WALL_DISTANCE_1) {
+			drive_backward(current_speed);
+			current_pointer = BACKWARD;
+		}
+		//		if (distance_m < MAX_WALL_DISTANCE_1 &&
+		//			distance_l > MAX_WALL_DISTANCE_1
+		//		&&  distance_r > MAX_WALL_DISTANCE_1) {
+		//			if(distance_l > distance_r){
+		//				turn_left(current_speed);
+		//				current_pointer = TURN_LEFT;
+		//			}else{
+		//				turn_right(current_speed);
+		//				current_pointer = TURN_RIGHT;
+		//			}
+		//		}
+		//		if (distance_m > MAX_WALL_DISTANCE_1 &&
+		//			distance_l < MAX_WALL_DISTANCE_1
+		//		&&  distance_r < MAX_WALL_DISTANCE_1) {
+		//			drive_backward(current_speed);
+		//			current_pointer = BACKWARD;
+		//		}
+	}
 
 	display_data(current_pointer, current_speed, distance_m, distance_r,
 			distance_l, distance_b);
@@ -276,9 +257,20 @@ void run() {
 int main(void) {
 	init();
 
-	while (is_running()) {
+	system("sudo amixer sset PCM,0 100%");
+	system("sudo kill $(pidof omxplayer)");
+	system("omxplayer /home/pi/robot2/sounds/funny-voices.mp3 &");
+
+	int i = 1000;
+	int counter = 0;
+
+	while (counter <= i) {
 		run();
 	}
+
+//	while (is_running()) {
+//		run();
+//	}
 	exit(EXIT_SUCCESS);
 	return -1;
 }
@@ -287,13 +279,19 @@ int get_speed(int minimal_distance) {
 	int result = SPEED_1;
 	if (minimal_distance >= MAX_WALL_DISTANCE_3) {
 		result = SPEED_3;
+		system("sudo kill $(pidof omxplayer)");
+		system("omxplayer /home/pi/robot2/sounds/kid-laughing-short.mp3 &");
 	}
 	if (minimal_distance >= MAX_WALL_DISTANCE_2
 			&& minimal_distance < MAX_WALL_DISTANCE_3) {
 		result = SPEED_2;
+		system("sudo kill $(pidof omxplayer)");
+		system("omxplayer /home/pi/robot2/sounds/laughter-mike.mp3 &");
 	}
 	if (minimal_distance >= 0 && minimal_distance < MAX_WALL_DISTANCE_1) {
 		result = SPEED_1;
+		system("sudo kill $(pidof omxplayer)");
+		system("omxplayer /home/pi/robot2/sounds/bike-horn.mp3 &");
 	}
 	cout << "current speed is " << result << endl;
 	return result;
@@ -308,7 +306,7 @@ int is_running() {
 		fscanf(run_config, "%d", &is_run);
 		fclose(run_config);
 	}
-	if(is_run == 0){
+	if (is_run == 0) {
 		exit(EXIT_SUCCESS);
 	}
 	return is_run;
