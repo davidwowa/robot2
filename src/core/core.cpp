@@ -271,7 +271,7 @@ int main(void) {
 //	while (is_running()) {
 //		run();
 //	}
-	exit(EXIT_SUCCESS);
+//	exit(EXIT_SUCCESS);
 	return -1;
 }
 
