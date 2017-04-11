@@ -5,8 +5,9 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
-/**
- */
+#include <stdio.h>
+#include <string.h>
+
 #include <ctime>
 #include <unistd.h>
 #include <fstream>
@@ -18,6 +19,9 @@
 using namespace std;
 
 int main(int argc, char **argv) {
+
+	system("sudo kill $(pidof omxplayer)");
+	system("omxplayer /home/pi/robot2/sounds/belch-kevan.mp3 &");
 
 	init_display();
 

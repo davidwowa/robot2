@@ -4,6 +4,10 @@
  *  Created on: 11.03.2017
  *      Author: Wladimir David Zakrevskyy
  */
+
+#include <stdio.h>
+#include <string.h>
+
 #include <iostream>
 
 #include "../../sonar/sonar.h"
@@ -14,6 +18,10 @@
 using namespace std;
 
 int main(void) {
+
+	system("sudo kill $(pidof omxplayer)");
+	system("omxplayer /home/pi/robot2/sounds/funny-voices.mp3 &");
+
 	cout << "display show" << endl;
 	init_sonar();
 

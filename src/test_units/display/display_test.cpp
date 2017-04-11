@@ -5,6 +5,9 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
+#include <stdio.h>
+#include <string.h>
+
 #include "../../../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
 #include "../../../lib/ArduiPi_OLED/Adafruit_GFX.h"
 #include "../../../lib/ArduiPi_OLED/ArduiPi_OLED.h"
@@ -29,6 +32,10 @@ OLED_ADAFRUIT_I2C_128x64,	// Default oled
 		};
 
 int main() {
+
+	system("sudo kill $(pidof omxplayer)");
+	system("omxplayer /home/pi/robot2/sounds/bike-horn.mp3 &");
+
 	if (!display.init(OLED_I2C_RESET, opts.oled))
 		exit(EXIT_FAILURE);
 
