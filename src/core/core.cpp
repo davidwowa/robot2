@@ -261,7 +261,7 @@ int main(void) {
 	system("sudo kill $(pidof omxplayer)");
 	system("omxplayer /home/pi/robot2/sounds/funny-voices.mp3 &");
 
-	int i = 1000;
+	int i = 3000;
 	int counter = 0;
 
 	while (counter <= i) {
