@@ -272,6 +272,11 @@ int main(void) {
 //		run();
 //	}
 //	exit(EXIT_SUCCESS);
+
+	draw_text("ROBOT_2", 0, true);
+	draw_text("core end", 1, false);
+	draw_text("ok", 2, false);
+
 	return -1;
 }
 
