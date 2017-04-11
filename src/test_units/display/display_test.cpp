@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "../../../lib/ArduiPi_OLED/ArduiPi_OLED_lib.h"
 #include "../../../lib/ArduiPi_OLED/Adafruit_GFX.h"
