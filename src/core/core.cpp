@@ -261,7 +261,7 @@ int main(void) {
 	system("sudo kill $(pidof omxplayer)");
 	system("omxplayer /home/pi/robot2/sounds/funny-voices.mp3 &");
 
-	int i = 3000;
+	int i = 5000;
 	int counter = 0;
 
 	while (counter <= i) {
@@ -284,19 +284,19 @@ int get_speed(int minimal_distance) {
 	int result = SPEED_1;
 	if (minimal_distance >= MAX_WALL_DISTANCE_3) {
 		result = SPEED_3;
-		system("sudo kill $(pidof omxplayer)");
-		system("omxplayer /home/pi/robot2/sounds/kid-laughing-short.mp3 &");
+		//system("sudo kill $(pidof omxplayer)");
+		//system("omxplayer /home/pi/robot2/sounds/kid-laughing-short.mp3 &");
 	}
 	if (minimal_distance >= MAX_WALL_DISTANCE_2
 			&& minimal_distance < MAX_WALL_DISTANCE_3) {
 		result = SPEED_2;
-		system("sudo kill $(pidof omxplayer)");
-		system("omxplayer /home/pi/robot2/sounds/laughter-mike.mp3 &");
+		//system("sudo kill $(pidof omxplayer)");
+		//system("omxplayer /home/pi/robot2/sounds/laughter-mike.mp3 &");
 	}
 	if (minimal_distance >= 0 && minimal_distance < MAX_WALL_DISTANCE_1) {
 		result = SPEED_1;
-		system("sudo kill $(pidof omxplayer)");
-		system("omxplayer /home/pi/robot2/sounds/bike-horn.mp3 &");
+		//system("sudo kill $(pidof omxplayer)");
+		//system("omxplayer /home/pi/robot2/sounds/bike-horn.mp3 &");
 	}
 	cout << "current speed is " << result << endl;
 	return result;

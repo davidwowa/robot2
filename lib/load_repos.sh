@@ -39,3 +39,11 @@
 
 #echo "load ir remote library"
 #git clone https://github.com/FernetMenta/lirc.git
+
+#echo "load rf24 library"
+mkdir rf24libs
+cd rf24libs
+git clone https://github.com/tmrh20/RF24.git RF24 
+cd RF24
+./configure
+sudo make install
