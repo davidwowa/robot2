@@ -1,16 +1,16 @@
 #!/bin/bash
-#echo "load sonar library"
-#git clone https://github.com/davidwowa/HC-SR04-Raspberry-Pi-C-.git
+echo "load sonar library"
+git clone https://github.com/davidwowa/HC-SR04-Raspberry-Pi-C-.git
 
-#echo "load wiringPi library"
-#git clone https://github.com/davidwowa/WiringPi.git
-#echo "install wiringPi"
+echo "load wiringPi library"
+git clone https://github.com/davidwowa/WiringPi.git
+echo "install wiringPi"
 # only first time
-#cd wiringPi
-#git pull origin
-#cd wiringPi
-#./build
-#cd ../..
+cd wiringPi
+git pull origin
+cd wiringPi
+./build
+cd ../..
 
 #echo "load open cv library"
 #sudo apt-get install build-essential
@@ -31,18 +31,17 @@
 #echo "load libmpg for play mp3"
 #git clone https://github.com/gypified/libmpg123.git
 
-#echo "load display library"
-#git clone https://github.com/davidwowa/ArduiPi_OLED.git
-#echo "install display library"
-#cd ArduiPi_OLED
-#sudo make
+echo "load display library"
+git clone https://github.com/davidwowa/ArduiPi_OLED.git
+echo "install display library"
+cd ArduiPi_OLED
+sudo make
+cd ..
 
-#echo "load ir remote library"
-#git clone https://github.com/FernetMenta/lirc.git
+echo "load ir remote library"
+git clone https://github.com/FernetMenta/lirc.git
 
-#echo "load rf24 library"
-mkdir rf24libs
-cd rf24libs
+echo "load rf24 library"
 git clone https://github.com/tmrh20/RF24.git RF24 
 cd RF24
 ./configure
